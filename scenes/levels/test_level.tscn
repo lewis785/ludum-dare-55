@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvy5o1tulo3rp"]
+
+[ext_resource type="PackedScene" uid="uid://bgbvog5ttg7i3" path="res://scenes/characters/lewis_placeholder_animated.tscn" id="1_q6v8c"]
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_q6v8c")]
+position = Vector2(633, 368)
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
