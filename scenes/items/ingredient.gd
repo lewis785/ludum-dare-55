@@ -1,4 +1,4 @@
-extends Area2D
+extends DraggableComponent
 
 @export_category("Properties")
 @export_enum("White", "Red", "Blue", "Green", "Black") var type: int

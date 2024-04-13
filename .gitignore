@@ -16,3 +16,6 @@ mono_crash.*.json
 
 # IDE
 .vscode/
+
+# Project specific
+testing.tscn
