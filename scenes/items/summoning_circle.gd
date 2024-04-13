@@ -56,6 +56,6 @@ func _on_area_exited(area):
 		remove_ingredient(area)
 		
 		
-#func _input(event):
-	#if(Input.is_key_pressed(KEY_SPACE)):
-		#combine_ingredients()
+func _input(event):
+	if(Input.is_key_pressed(KEY_SPACE)):
+		combine_ingredients()

@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://df7kvudh0t7fu"]
+
+[ext_resource type="PackedScene" uid="uid://cjfwvsq2rkexi" path="res://scenes/items/summoning_circle.tscn" id="1_prqnr"]
+[ext_resource type="PackedScene" uid="uid://dvmng8kq3raci" path="res://scenes/ui/filled_storage.tscn" id="2_g3pah"]
+[ext_resource type="PackedScene" uid="uid://k0pojhaywunc" path="res://scenes/components/character/character.tscn" id="2_mgyel"]
+[ext_resource type="PackedScene" uid="uid://g7f7hypm7rnt" path="res://scenes/characters/monster.tscn" id="3_5s2jg"]
+
+[node name="Summon-screen" type="Node2D"]
+
+[node name="SummoningCircle" parent="." node_paths=PackedStringArray("creature_summon") instance=ExtResource("1_prqnr")]
+position = Vector2(276, 349)
+scale = Vector2(0.5, 0.3)
+creature_summon = NodePath("Character")
+
+[node name="Character" parent="SummoningCircle" node_paths=PackedStringArray("cb") instance=ExtResource("2_mgyel")]
+visible = false
+cb = NodePath("Monster")
+
+[node name="Monster" parent="SummoningCircle/Character" instance=ExtResource("3_5s2jg")]
+
+[node name="FilledStorage" parent="." instance=ExtResource("2_g3pah")]
+position = Vector2(605, 249)

@@ -4,64 +4,54 @@
 [ext_resource type="PackedScene" uid="uid://kf1fwy2fvee6" path="res://scenes/items/ingredient.tscn" id="2_cxkex"]
 
 [node name="FilledStorage" type="Node2D"]
+position = Vector2(100, 100)
 
 [node name="Storage" parent="." instance=ExtResource("1_ke4ld")]
 
 [node name="Ingredient" parent="." instance=ExtResource("2_cxkex")]
 position = Vector2(-54, -53)
-randomise_type = true
 
 [node name="Ingredient2" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("2_cxkex")]
 position = Vector2(-18, -53)
-randomise_type = true
 sprite = NodePath("../Ingredient/AnimatedSprite2D")
 
 [node name="Ingredient3" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("2_cxkex")]
 position = Vector2(18, -53)
-randomise_type = true
 sprite = NodePath("../Ingredient/AnimatedSprite2D")
 
 [node name="Ingredient4" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("2_cxkex")]
 position = Vector2(54, -53)
-randomise_type = true
+type = 2
 sprite = NodePath("../Ingredient/AnimatedSprite2D")
 
 [node name="Ingredient5" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("2_cxkex")]
 position = Vector2(-54, 1)
-randomise_type = true
 sprite = NodePath("../Ingredient/AnimatedSprite2D")
 
 [node name="Ingredient6" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("2_cxkex")]
 position = Vector2(-18, 1)
-randomise_type = true
 sprite = NodePath("../Ingredient/AnimatedSprite2D")
 
 [node name="Ingredient7" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("2_cxkex")]
 position = Vector2(18, 1)
-randomise_type = true
 sprite = NodePath("../Ingredient/AnimatedSprite2D")
 
 [node name="Ingredient8" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("2_cxkex")]
 position = Vector2(54, 1)
-randomise_type = true
 sprite = NodePath("../Ingredient/AnimatedSprite2D")
 
 [node name="Ingredient9" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("2_cxkex")]
 position = Vector2(-54, 55)
-randomise_type = true
 sprite = NodePath("../Ingredient/AnimatedSprite2D")
 
 [node name="Ingredient10" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("2_cxkex")]
 position = Vector2(-18, 55)
-randomise_type = true
 sprite = NodePath("../Ingredient/AnimatedSprite2D")
 
 [node name="Ingredient11" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("2_cxkex")]
 position = Vector2(18, 55)
-randomise_type = true
 sprite = NodePath("../Ingredient/AnimatedSprite2D")
 
 [node name="Ingredient12" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("2_cxkex")]
 position = Vector2(54, 55)
-randomise_type = true
 sprite = NodePath("../Ingredient/AnimatedSprite2D")

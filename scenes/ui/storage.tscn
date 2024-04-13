@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dcx207gfratpy" path="res://assets/elements/Storage.png" id="1_r50f0"]
 
 [node name="Storage" type="Node2D"]
+z_index = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
