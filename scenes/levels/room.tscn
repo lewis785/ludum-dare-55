@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://culpis2kpkslw"]
+[gd_scene load_steps=5 format=3 uid="uid://culpis2kpkslw"]
 
 [ext_resource type="Texture2D" uid="uid://crs8kox2y0gj7" path="res://assets/backgrounds/room_temp.png" id="1_son88"]
 [ext_resource type="PackedScene" uid="uid://f7pi0x6o1uvq" path="res://scenes/background_tools/snap_point.tscn" id="2_n8nla"]
 [ext_resource type="PackedScene" uid="uid://c30y088bbp04r" path="res://scenes/props/torch.tscn" id="3_7h2qe"]
+[ext_resource type="PackedScene" uid="uid://df7kvudh0t7fu" path="res://scenes/ui/summon_screen.tscn" id="4_fwgic"]
 
 [node name="Room" type="TextureRect"]
 anchors_preset = 8
@@ -30,3 +31,5 @@ position = Vector2(400, 100)
 
 [node name="Torch2" parent="." instance=ExtResource("3_7h2qe")]
 position = Vector2(675, 175)
+
+[node name="Summon-screen" parent="." instance=ExtResource("4_fwgic")]

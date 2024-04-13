@@ -25,7 +25,7 @@ func remove_ingredient(ingr):
 	ingredients.erase(ingr)
 
 func combine_ingredients():
-	if ingredients.size() > ingredients_cap:
+	if ingredients.size() > ingredients_cap or ingredients.size() == 0:
 		return
 	var stats = [0,0,0,0,0]
 	

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://kf1fwy2fvee6" path="res://scenes/items/ingredient.tscn" id="2_cxkex"]
 
 [node name="FilledStorage" type="Node2D"]
-position = Vector2(100, 100)
+scale = Vector2(1.5, 1.5)
 
 [node name="Storage" parent="." instance=ExtResource("1_ke4ld")]
 

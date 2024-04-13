@@ -10,13 +10,14 @@
 [node name="SummoningCircle" parent="." node_paths=PackedStringArray("creature_summon") instance=ExtResource("1_prqnr")]
 position = Vector2(276, 349)
 scale = Vector2(0.5, 0.3)
-creature_summon = NodePath("Character")
+creature_summon = NodePath("../Character")
 
-[node name="Character" parent="SummoningCircle" node_paths=PackedStringArray("cb") instance=ExtResource("2_mgyel")]
+[node name="Character" parent="." node_paths=PackedStringArray("cb") instance=ExtResource("2_mgyel")]
 visible = false
+position = Vector2(276, 349)
 cb = NodePath("Monster")
 
-[node name="Monster" parent="SummoningCircle/Character" instance=ExtResource("3_5s2jg")]
+[node name="Monster" parent="Character" instance=ExtResource("3_5s2jg")]
 
 [node name="FilledStorage" parent="." instance=ExtResource("2_g3pah")]
 position = Vector2(605, 249)
