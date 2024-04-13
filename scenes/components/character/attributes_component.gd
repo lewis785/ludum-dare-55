@@ -7,57 +7,79 @@ class_name AttributesComponent
 	set(value):
 		defence = clamp(value, 0, 100)
 	get:
-		defence
+		return defence
 @export_range(0, 100) var luck = 0:
 	set(value):
 		luck = clamp(value, 0, 100)
 	get:
-		luck
+		return luck
 @export_range(0, 100) var speed = 0:
 	set(value):
 		speed = clamp(value, 0, 100)
 	get:
-		speed
+		return speed
 @export_range(0, 100) var strength = 0:
 	set(value):
 		strength = clamp(value, 0, 100)
 	get:
-		strength
+		return strength
 @export_range(0, 100) var vitality = 0:
 	set(value):
 		vitality = clamp(value, 0, 100)
 	get:
-		vitality
-		
+		return vitality
+
+enum Attributes {
+	DEFENCE,
+	LUCK,
+	SPEED,
+	STRENGTH,
+	VITALITY
+}
+
+func get_attribute_value(attribute: Attributes):
+	match attribute:
+		Attributes.DEFENCE:
+			return defence
+		Attributes.LUCK:
+			return luck
+		Attributes.SPEED:
+			return speed
+		Attributes.STRENGTH:
+			return strength
+		Attributes.VITALITY:
+			return vitality
+	assert("Invalid attribute provided")
+
 @export_group("Resistances")
 @export_range(-100, 100) var slashing = 0:
 	set(value):
 		slashing = clamp(value, -100, 100)
 	get:
-		slashing
+		return slashing
 @export_range(-100, 100) var bludgening = 0:
 	set(value):
 		bludgening = clamp(value, -100, 100)
 	get:
-		bludgening
+		return bludgening
 @export_range(-100, 100) var magic = 0:
 	set(value):
 		slashing = clamp(value, -100, 100)
 	get:
-		slashing	
-		
-enum DAMAGE_TYPES {
+		return slashing	
+
+enum DamageTypes {
 	SLASHING,
 	BLUDGENING,
 	MAGIC
 }
 
-func get_resistance_value(type: DAMAGE_TYPES):
+func get_resistance_value(type: DamageTypes):
 	match type:
-		DAMAGE_TYPES.SLASHING: 
+		DamageTypes.SLASHING: 
 			return slashing
-		DAMAGE_TYPES.BLUDGENING:
+		DamageTypes.BLUDGENING:
 			return bludgening
-		DAMAGE_TYPES.MAGIC:
+		DamageTypes.MAGIC:
 			return magic
 	return 0

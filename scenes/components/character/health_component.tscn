@@ -4,3 +4,4 @@
 
 [node name="Health" type="Node"]
 script = ExtResource("1_lijv5")
+base_health = null
