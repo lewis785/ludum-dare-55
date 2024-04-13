@@ -1,11 +1,9 @@
 extends Area2D
 
-#@export var sprite: AnimatedSprite2D
-
 @export var ingredients = []
 @export var output_stats: AttributesComponent
 
-# Called when the node enters the scene tree for the first time.
+# Called when the node enters thegit c scene tree for the first time.
 func _ready():
 	ingredients.clear()    
 	output_stats.defence = 0
@@ -24,7 +22,7 @@ func combine_ingredients():
 	var stats = [0,0,0,0,0]
 	
 	for ingr : Ingredient in ingredients:
-		stats[ingr.type] += 10
+		stats[ingr.type] += ingr.potency
 	
 	output_stats.defence = stats[0]
 	output_stats.luck = stats[1]

@@ -11,7 +11,7 @@ enum IngredientTypes {
 	BLACK
 }
 @export var type: IngredientTypes
-#@export_enum(IngredientTypes) var type: int
+@export var potency: int = -1
 
 @export_category("Components")
 @export var sprite: AnimatedSprite2D
@@ -19,7 +19,6 @@ enum IngredientTypes {
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	sprite.frame = type
-	#generate_stats()
+	if potency == -1:
+		potency = randi_range(10,20)
 
-#func generate_stats():
-	#pass
