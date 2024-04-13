@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://culpis2kpkslw"]
+[gd_scene load_steps=8 format=3 uid="uid://culpis2kpkslw"]
 
 [ext_resource type="Texture2D" uid="uid://crs8kox2y0gj7" path="res://assets/backgrounds/room_temp.png" id="1_son88"]
 [ext_resource type="PackedScene" uid="uid://f7pi0x6o1uvq" path="res://scenes/background_tools/snap_point.tscn" id="2_n8nla"]
 [ext_resource type="PackedScene" uid="uid://c30y088bbp04r" path="res://scenes/props/torch.tscn" id="3_7h2qe"]
 [ext_resource type="Texture2D" uid="uid://yyllu6flx31c" path="res://assets/characters/Wizard.png" id="4_lhqse"]
+[ext_resource type="Texture2D" uid="uid://5dvrr1mxcbia" path="res://scenes/props/wizard_torch.tres" id="5_1bhml"]
 [ext_resource type="PackedScene" uid="uid://df7kvudh0t7fu" path="res://scenes/ui/summon_screen.tscn" id="5_mi5o7"]
 
 [sub_resource type="Curve2D" id="Curve2D_8xhqc"]
@@ -55,5 +56,11 @@ texture_filter = 1
 position = Vector2(-0.00557709, 2.99997)
 scale = Vector2(3.09375, 2.90625)
 texture = ExtResource("4_lhqse")
+
+[node name="PointLight2D" type="PointLight2D" parent="Node2D/Path2D/PathFollow2D/Wizard"]
+position = Vector2(4.51565, 5.51432)
+color = Color(0.956863, 0.87451, 0.247059, 1)
+energy = 13.36
+texture = ExtResource("5_1bhml")
 
 [node name="Summon-screen" parent="." instance=ExtResource("5_mi5o7")]

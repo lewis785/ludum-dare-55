@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d2arbyrhcflvl"]
 
 [ext_resource type="Script" path="res://scenes/levels/sliding_window.gd" id="1_6pdol"]
-[ext_resource type="Material" path="res://scenes/background_tools/darkness.tres" id="1_e44qa"]
+[ext_resource type="Material" uid="uid://dfe7af4v5j5i1" path="res://scenes/background_tools/darkness.tres" id="1_e44qa"]
 [ext_resource type="PackedScene" uid="uid://cnl8yhf0gc2xu" path="res://scenes/components/combat/combat_coordinator.tscn" id="3_ajeuy"]
 
 [node name="SlidingWindow" type="Node2D"]
@@ -11,6 +11,7 @@ material = ExtResource("1_e44qa")
 script = ExtResource("1_6pdol")
 cameraSpeed = 400
 lives = 3
+wizardSpeed = 200
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(400, 225)
