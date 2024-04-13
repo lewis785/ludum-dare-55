@@ -1,5 +1,7 @@
 extends Node
 
+class_name HealthComponent
+
 @export var attributes: AttributesComponent
 
 @export var base_health: float = 0.0;
@@ -12,15 +14,15 @@ func _ready():
 	print("Health: " + str(health).pad_decimals(2))
 	
 var time = 0
-func _process(delta):
-	time += delta
-	if time > 1:
-		var attack = Attack.new();
-		attack.damage = 20
-		attack.type = AttributesComponent.DamageTypes.SLASHING
-		damage(attack)
-		# Reset timer
-		time = 0
+#func _process(delta):
+	#time += delta
+	#if time > 1:
+		#var attack = Attack.new();
+		#attack.damage = 20
+		#attack.type = AttributesComponent.DamageTypes.SLASHING
+		#damage(attack)
+		## Reset timer
+		#time = 0
 	
 	
 func damage(value: Attack):
