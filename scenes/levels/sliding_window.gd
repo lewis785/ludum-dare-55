@@ -1,13 +1,13 @@
 extends Node2D
 
 @onready var camera = $Camera2D
-@onready var snap_point_0 = $Node/SnapPoint0
-@onready var snap_point_1 = $Node/SnapPoint1
-@onready var snap_point_2 = $Node/SnapPoint2
-@onready var snap_point_3 = $Node/SnapPoint3
-@onready var snap_point_4 = $Node/SnapPoint4
-@onready var snap_point_5 = $Node/SnapPoint5
-@onready var snap_point_6 = $Node/SnapPoint6
+@onready var snap_point_0 = $CameraSnaps/SnapPoint0
+@onready var snap_point_1 = $CameraSnaps/SnapPoint1
+@onready var snap_point_2 = $CameraSnaps/SnapPoint2
+@onready var snap_point_3 = $CameraSnaps/SnapPoint3
+@onready var snap_point_4 = $CameraSnaps/SnapPoint4
+@onready var snap_point_5 = $CameraSnaps/SnapPoint5
+@onready var snap_point_6 = $CameraSnaps/SnapPoint6
 
 const ROOM0 = 0
 const ROOM1 = 1
@@ -17,12 +17,8 @@ const ROOM4 = 4
 const ROOM5 = 5
 const ROOM6 = 6
 
-
-
 var target = 0
 var target_coordinates = Vector2.ZERO	#Initialise the variable so it doesnt complain
-
-
 
 func _input(event):
 	print(event)
