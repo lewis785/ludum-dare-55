@@ -10,6 +10,7 @@ var ingredients = []
 # Called when the node enters thegit c scene tree for the first time.
 func _ready():
 	ingredients.clear()
+	clear_stats()
 
 func clear_stats():
 	output_stats.defence = 0
@@ -56,6 +57,10 @@ func _on_area_exited(area):
 		remove_ingredient(area)
 		
 		
-func _input(event):
-	if(Input.is_key_pressed(KEY_SPACE)):
-		combine_ingredients()
+#func _input(event):
+	#if(Input.is_key_pressed(KEY_SPACE)):
+		#combine_ingredients()
+
+
+func _on_button_pressed():
+	combine_ingredients()

@@ -12,3 +12,8 @@ func _ready():
 			var new_ingr = ingredient.instantiate()
 			add_child(new_ingr)
 			new_ingr.position = Vector2(x_coords[x],y_coords[y])
+
+
+func _on_button_pressed():
+	var tween_y = self.create_tween().set_trans(Tween.TRANS_SINE)
+	tween_y.tween_property(self, "global_position:y", -2000, 2).as_relative().set_ease(Tween.EASE_IN)
