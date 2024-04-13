@@ -1,7 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://c30y088bbp04r"]
+[gd_scene load_steps=18 format=3 uid="uid://c30y088bbp04r"]
 
 [ext_resource type="Texture2D" uid="uid://466r354tji8p" path="res://assets/props/torch-Sheet-export.png" id="1_canxr"]
 [ext_resource type="Texture2D" uid="uid://c86mwm26o0bha" path="res://assets/props/torch_dead-Sheet-export.png" id="2_bgcy5"]
+[ext_resource type="AudioStream" uid="uid://t3nsara8ftww" path="res://assets/sounds/Ignite_no_Tss.mp3" id="3_n6t5j"]
+[ext_resource type="AudioStream" uid="uid://bfkqol0mldcmy" path="res://assets/sounds/torch_off.mp3" id="4_4s22m"]
+[ext_resource type="AudioStream" uid="uid://cymmdaq4pjr86" path="res://assets/sounds/moving.mp3" id="5_uhnbk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qmmg1"]
 atlas = ExtResource("1_canxr")
@@ -106,3 +109,12 @@ color = Color(1, 0.858824, 0.694118, 1)
 energy = 0.0
 texture = SubResource("GradientTexture2D_lkec4")
 texture_scale = 0.96
+
+[node name="Ignite" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_n6t5j")
+
+[node name="Extinguish" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_4s22m")
+
+[node name="Walking" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_uhnbk")
