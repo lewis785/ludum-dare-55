@@ -1,57 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://dvmng8kq3raci"]
 
 [ext_resource type="PackedScene" uid="uid://c7bv6yhmf1574" path="res://scenes/ui/storage.tscn" id="1_ke4ld"]
-[ext_resource type="PackedScene" uid="uid://kf1fwy2fvee6" path="res://scenes/items/ingredient.tscn" id="2_cxkex"]
+[ext_resource type="Script" path="res://scenes/ui/storage.gd" id="2_twjjm"]
 
 [node name="FilledStorage" type="Node2D"]
 scale = Vector2(1.5, 1.5)
 
 [node name="Storage" parent="." instance=ExtResource("1_ke4ld")]
-
-[node name="Ingredient" parent="." instance=ExtResource("2_cxkex")]
-position = Vector2(-54, -53)
-
-[node name="Ingredient2" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("2_cxkex")]
-position = Vector2(-18, -53)
-sprite = NodePath("../Ingredient/AnimatedSprite2D")
-
-[node name="Ingredient3" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("2_cxkex")]
-position = Vector2(18, -53)
-sprite = NodePath("../Ingredient/AnimatedSprite2D")
-
-[node name="Ingredient4" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("2_cxkex")]
-position = Vector2(54, -53)
-type = 2
-sprite = NodePath("../Ingredient/AnimatedSprite2D")
-
-[node name="Ingredient5" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("2_cxkex")]
-position = Vector2(-54, 1)
-sprite = NodePath("../Ingredient/AnimatedSprite2D")
-
-[node name="Ingredient6" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("2_cxkex")]
-position = Vector2(-18, 1)
-sprite = NodePath("../Ingredient/AnimatedSprite2D")
-
-[node name="Ingredient7" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("2_cxkex")]
-position = Vector2(18, 1)
-sprite = NodePath("../Ingredient/AnimatedSprite2D")
-
-[node name="Ingredient8" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("2_cxkex")]
-position = Vector2(54, 1)
-sprite = NodePath("../Ingredient/AnimatedSprite2D")
-
-[node name="Ingredient9" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("2_cxkex")]
-position = Vector2(-54, 55)
-sprite = NodePath("../Ingredient/AnimatedSprite2D")
-
-[node name="Ingredient10" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("2_cxkex")]
-position = Vector2(-18, 55)
-sprite = NodePath("../Ingredient/AnimatedSprite2D")
-
-[node name="Ingredient11" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("2_cxkex")]
-position = Vector2(18, 55)
-sprite = NodePath("../Ingredient/AnimatedSprite2D")
-
-[node name="Ingredient12" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("2_cxkex")]
-position = Vector2(54, 55)
-sprite = NodePath("../Ingredient/AnimatedSprite2D")
+script = ExtResource("2_twjjm")

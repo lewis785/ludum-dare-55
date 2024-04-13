@@ -21,9 +21,9 @@ enum IngredientTypes {
 func _ready():
 	if randomise_type:
 		randomise()
-	sprite.frame = type
 	if potency == -1:
 		potency = randi_range(10,20)
+	sprite.frame = type
 
 func randomise():
 	type = IngredientTypes.values()[randi_range(0,IngredientTypes.size()-1)]
