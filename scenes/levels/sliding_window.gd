@@ -29,59 +29,34 @@ func _process(delta):
 	camera.set_position(camera.position)
 	_createNextRoom(target)
 	
+		
 func _createNextRoom(nextRoom):
-	if(nextRoom %2 == 0):
-		_createNextRoomEven(nextRoom)
-	else:
-		_createNextRoomOdd(nextRoom)
-		
-func _createNextRoomOdd(nextRoom):
-	roomInstance1.find_child("Torch0").find_child("TorchAnimation").animation = "notLitFam"
-	roomInstance1.find_child("Torch0").find_child("PointLight2D").energy = 0.0
-	roomInstance1.find_child("Torch1").find_child("TorchAnimation").animation = "notLitFam"
-	roomInstance1.find_child("Torch1").find_child("PointLight2D").energy = 0.0
-	roomInstance1.find_child("Torch2").find_child("TorchAnimation").animation = "notLitFam"
-	roomInstance1.find_child("Torch2").find_child("PointLight2D").energy = 0.0
+	var roomInstance = roomInstance1 if nextRoom % 2 == 0 else roomInstance2
+#	_setTorchesBrightness(1, 0)
 	if(nextRoom > roomsMade):
-		
-		roomInstance1.position = Vector2((800*nextRoom), 0)
-		add_child(roomInstance1)
+		roomInstance.position = Vector2((800*nextRoom), 0)
+		add_child(roomInstance)
 		roomsMade += 1
 		if(nextRoom == roomsMade):
 			target_coordinates = Vector2(400+(800*target), 225)
 	if(target_coordinates == camera_coordinates):
-		if(lives >= 2):
-			roomInstance1.find_child("Torch0").find_child("TorchAnimation").animation = "litfam"
-			roomInstance1.find_child("Torch0").find_child("PointLight2D").energy = 12.0
-		if(lives >= 1):
-			roomInstance1.find_child("Torch1").find_child("TorchAnimation").animation = "litfam"
-			roomInstance1.find_child("Torch1").find_child("PointLight2D").energy = 12.0
-		if(lives >= 3):
-			roomInstance1.find_child("Torch2").find_child("TorchAnimation").animation = "litfam"
-			roomInstance1.find_child("Torch2").find_child("PointLight2D").energy = 12.0
+		_setTorchesBrightness(roomInstance, 10.0)
 
-func _createNextRoomEven(nextRoom):
-	roomInstance2.find_child("Torch0").find_child("TorchAnimation").animation = "notLitFam"
-	roomInstance2.find_child("Torch0").find_child("PointLight2D").energy = 0.0
-	roomInstance2.find_child("Torch1").find_child("TorchAnimation").animation = "notLitFam"
-	roomInstance2.find_child("Torch1").find_child("PointLight2D").energy = 0.0
-	roomInstance2.find_child("Torch2").find_child("TorchAnimation").animation = "notLitFam"
-	roomInstance2.find_child("Torch2").find_child("PointLight2D").energy = 0.0
-	if(nextRoom > roomsMade):
-		
-		roomInstance2.position = Vector2((800*nextRoom), 0)
-		add_child(roomInstance2)
-		roomsMade += 1
-		if(nextRoom == roomsMade):
-			target_coordinates = Vector2(400+(800*target), 225)
-			
-	if(target_coordinates == camera_coordinates):
-		if(lives >= 2):
-			roomInstance2.find_child("Torch0").find_child("TorchAnimation").animation = "litfam"
-			roomInstance2.find_child("Torch0").find_child("PointLight2D").energy = 12.0
-		if(lives >= 1):
-			roomInstance2.find_child("Torch1").find_child("TorchAnimation").animation = "litfam"
-			roomInstance2.find_child("Torch1").find_child("PointLight2D").energy = 12.0
-		if(lives >= 3):
-			roomInstance2.find_child("Torch2").find_child("TorchAnimation").animation = "litfam"
-			roomInstance2.find_child("Torch2").find_child("PointLight2D").energy = 12.0
+func _setTorchesBrightness(instance: Node, brightness):
+		if(brightness == 0.0):
+			instance.find_child("Torch0").find_child("TorchAnimation").animation = "notLitFam"
+			instance.find_child("Torch0").find_child("PointLight2D").energy = 0.0
+			instance.find_child("Torch1").find_child("TorchAnimation").animation = "notLitFam"
+			instance.find_child("Torch1").find_child("PointLight2D").energy = 0.0
+			instance.find_child("Torch2").find_child("TorchAnimation").animation = "notLitFam"
+			instance.find_child("Torch2").find_child("PointLight2D").energy = 0.0
+		else:
+			if(lives >= 2):
+				instance.find_child("Torch0").find_child("TorchAnimation").animation = "litfam"
+				instance.find_child("Torch0").find_child("PointLight2D").energy = brightness
+			if(lives >= 1):
+				instance.find_child("Torch1").find_child("TorchAnimation").animation = "litfam"
+				instance.find_child("Torch1").find_child("PointLight2D").energy = brightness
+			if(lives >= 3):
+				instance.find_child("Torch2").find_child("TorchAnimation").animation = "litfam"
+				instance.find_child("Torch2").find_child("PointLight2D").energy = brightness
