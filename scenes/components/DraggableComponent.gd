@@ -12,4 +12,3 @@ func _unhandled_input(event):
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed:
 		lifted = true
-

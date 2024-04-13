@@ -49,7 +49,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_x6cuc"]
 radius = 11.0
 
-[node name="Ingredient" type="Area2D" node_paths=PackedStringArray("sprite")]
+[node name="Ingredient" type="Area2D" node_paths=PackedStringArray("sprite") groups=["Ingredient"]]
 script = ExtResource("1_m5vhc")
 sprite = NodePath("AnimatedSprite2D")
 

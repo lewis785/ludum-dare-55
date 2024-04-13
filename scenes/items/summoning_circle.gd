@@ -14,10 +14,19 @@ func _process(delta):
 	
 func add_ingredient(ingr):
 	ingredients.append(ingr)
-		
-func _on_collision_component_body_entered(body):
-	if body.is_in_group("Ingredient"):
-		add_ingredient(body)
+	
+func remove_ingredient(ingr):
+	ingredients.erase(ingr)
 
 func combine_ingredients():
 	pass
+
+
+func _on_area_entered(area):
+	if area.is_in_group("Ingredient"):
+		add_ingredient(area)
+
+
+func _on_area_exited(area):
+	if area.is_in_group("Ingredient"):
+		remove_ingredient(area)
