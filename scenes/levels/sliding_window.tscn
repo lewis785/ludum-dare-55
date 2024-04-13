@@ -1,16 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2arbyrhcflvl"]
+[gd_scene load_steps=3 format=3 uid="uid://d2arbyrhcflvl"]
 
-[ext_resource type="Texture2D" uid="uid://bqc7gro62qhdq" path="res://assets/backgrounds/background_1.png" id="1_orf8b"]
+[ext_resource type="Texture2D" uid="uid://crs8kox2y0gj7" path="res://assets/backgrounds/room_temp.png" id="1_kxj20"]
+[ext_resource type="PackedScene" uid="uid://f7pi0x6o1uvq" path="res://scenes/background_tools/snap_point.tscn" id="2_gb1u7"]
 
 [node name="SlidingWindow" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 1.0
 offset_right = 5458.0
-offset_bottom = 649.0
-texture = ExtResource("1_orf8b")
+offset_bottom = 450.0
+texture = ExtResource("1_kxj20")
 stretch_mode = 1
 
-[node name="FloatingCamera" type="Node2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(400, 225)
+zoom = Vector2(1.44, 1.44)
 
-[node name="Camera2D" type="Camera2D" parent="FloatingCamera"]
-position = Vector2(579, 326)
+[node name="SnapPoint" parent="." instance=ExtResource("2_gb1u7")]
+position = Vector2(1728, 225)
+
+[node name="SnapPoint2" parent="." instance=ExtResource("2_gb1u7")]
+position = Vector2(2880, 324)
+
+[node name="SnapPoint3" parent="." instance=ExtResource("2_gb1u7")]
+position = Vector2(4032, 324)
