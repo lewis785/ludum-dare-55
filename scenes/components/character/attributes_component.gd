@@ -1,6 +1,6 @@
 extends Node
 
-class_name Attributes
+class_name AttributesComponent
 
 @export_group("Attributes")
 @export_range(0, 100) var defence = 0:
@@ -45,3 +45,19 @@ class_name Attributes
 		slashing = clamp(value, -100, 100)
 	get:
 		slashing	
+		
+enum DAMAGE_TYPES {
+	SLASHING,
+	BLUDGENING,
+	MAGIC
+}
+
+func get_resistance_value(type: DAMAGE_TYPES):
+	match type:
+		DAMAGE_TYPES.SLASHING: 
+			return slashing
+		DAMAGE_TYPES.BLUDGENING:
+			return bludgening
+		DAMAGE_TYPES.MAGIC:
+			return magic
+	return 0
