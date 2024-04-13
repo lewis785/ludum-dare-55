@@ -63,3 +63,5 @@ attributes_component = NodePath("../AttributesComponent")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_tr127")
 animation = &"summon"
+
+[connection signal="damaged" from="HealthComponent" to="." method="_on_health_component_damaged"]

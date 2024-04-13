@@ -2,6 +2,9 @@ extends Node
 
 class_name HealthComponent
 
+const FLOATING_LABEL = preload("res://scenes/ui/floating_label.tscn")
+signal damaged(damage)
+
 @export var attributes: AttributesComponent
 
 @export var base_health: float = 0.0;
@@ -26,8 +29,12 @@ var time = 0
 	
 	
 func damage(value: Attack):
-	health -= _calculate_damage(value)
+	var damage = _calculate_damage(value)
+	health -= damage
 	print("Health: " + str(health))
+	
+	damaged.emit(damage)
+
 	if health <= 0:
 		get_parent().queue_free()
 
