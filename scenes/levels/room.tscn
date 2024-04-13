@@ -59,6 +59,7 @@ texture = ExtResource("4_lhqse")
 
 [node name="PointLight2D" type="PointLight2D" parent="Node2D/Path2D/PathFollow2D/Wizard"]
 position = Vector2(4.51565, 5.51432)
+enabled = false
 color = Color(0.956863, 0.87451, 0.247059, 1)
 energy = 13.36
 texture = ExtResource("5_1bhml")

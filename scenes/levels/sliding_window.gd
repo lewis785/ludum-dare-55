@@ -19,8 +19,8 @@ var tempPleaseLewisDontHateMe = 0
 var igniteSoundPlayed = 1
 var hissSoundPlayed = 1
 var walkSoundPlayed = 1
-var enableWizard = false
-
+var enableWizard = 0
+var flag = 1;
 #Camera set to 1.44
 func _ready():
 	_createNextRoom(0)
@@ -34,8 +34,10 @@ func _process(delta):
 	camera.position = camera_coordinates.move_toward(target_coordinates, cameraSpeed*delta)
 	camera.set_position(camera.position)
 	_createNextRoom(target)
-	if(enableWizard == true):
+	if(enableWizard == 1):
 		roomInstance1.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").progress+= wizardSpeed*delta
+		print(wizardSpeed*delta)
+	if(enableWizard == 2):
 		roomInstance2.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").progress+= wizardSpeed*delta
 		print(wizardSpeed*delta)
 		
@@ -43,6 +45,11 @@ func _createNextRoom(nextRoom):
 	var roomInstance = roomInstance1 if nextRoom % 2 == 0 else roomInstance2
 	var notRoomInstance = roomInstance2 if nextRoom % 2 == 0 else roomInstance1
 
+	if (nextRoom % 2 == 0):
+		flag = 2
+	else:
+		flag = 1
+		
 	if(nextRoom > roomsMade):
 		roomInstance.position = Vector2((800*nextRoom), 0)
 		add_child(roomInstance)
@@ -60,13 +67,18 @@ func _createNextRoom(nextRoom):
 		if(walkSoundPlayed == 0):
 			roomInstance.find_child("Torch0").find_child("Walking").play()
 			walkSoundPlayed = 1
-			enableWizard = true
+			
+			enableWizard = flag
+			notRoomInstance.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").find_child("Wizard").find_child("PointLight2D").set_enabled(true)
+			
 		
 		target_coordinates = Vector2(400+(800*nextRoom), 225)
 		if(target_coordinates == camera_coordinates):
 			tempPleaseLewisDontHateMe+=1
 			if((tempPleaseLewisDontHateMe > 2) and (target_coordinates == camera_coordinates) and igniteSoundPlayed == 0):
-				enableWizard = false
+				enableWizard = 0
+				notRoomInstance.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").find_child("Wizard").find_child("PointLight2D").set_enabled(false)
+				
 				roomInstance.find_child("Torch0").find_child("Ignite").play()	
 				_setTorchesBrightness(roomInstance, 10.0)
 				tempPleaseLewisDontHateMe = 0
