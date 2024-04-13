@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://culpis2kpkslw"]
+
+[ext_resource type="Texture2D" uid="uid://crs8kox2y0gj7" path="res://assets/backgrounds/room_temp.png" id="1_son88"]
+[ext_resource type="PackedScene" uid="uid://f7pi0x6o1uvq" path="res://scenes/background_tools/snap_point.tscn" id="2_n8nla"]
+
+[node name="Room" type="TextureRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 224.0
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_son88")
+stretch_mode = 1
+
+[node name="SnapPoint0" parent="." instance=ExtResource("2_n8nla")]
+position = Vector2(399, 225)
