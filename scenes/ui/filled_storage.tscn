@@ -1,10 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvmng8kq3raci"]
+[gd_scene load_steps=2 format=3 uid="uid://dvmng8kq3raci"]
 
 [ext_resource type="PackedScene" uid="uid://c7bv6yhmf1574" path="res://scenes/ui/storage.tscn" id="1_ke4ld"]
-[ext_resource type="Script" path="res://scenes/ui/storage.gd" id="2_twjjm"]
 
 [node name="FilledStorage" type="Node2D"]
 scale = Vector2(1.5, 1.5)
 
 [node name="Storage" parent="." instance=ExtResource("1_ke4ld")]
-script = ExtResource("2_twjjm")

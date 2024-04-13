@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c7bv6yhmf1574" path="res://scenes/ui/storage.tscn" id="1_emak8"]
 [ext_resource type="PackedScene" uid="uid://cjfwvsq2rkexi" path="res://scenes/items/summoning_circle.tscn" id="1_prqnr"]
-[ext_resource type="PackedScene" uid="uid://k0pojhaywunc" path="res://scenes/components/character/character.tscn" id="2_mgyel"]
+[ext_resource type="PackedScene" uid="uid://b6n5qd7skmkpc" path="res://scenes/components/character/character.tscn" id="2_mgyel"]
 [ext_resource type="PackedScene" uid="uid://g7f7hypm7rnt" path="res://scenes/characters/monster.tscn" id="3_5s2jg"]
 [ext_resource type="Texture2D" uid="uid://dfcq7vrwougf7" path="res://assets/elements/book.png" id="5_7hrbm"]
 [ext_resource type="Script" path="res://scenes/ui/book.gd" id="5_spst6"]
@@ -18,10 +18,9 @@ position = Vector2(276, 349)
 scale = Vector2(0.5, 0.3)
 creature_summon = NodePath("../Character")
 
-[node name="Character" parent="." node_paths=PackedStringArray("character_body") instance=ExtResource("2_mgyel")]
+[node name="Character" parent="." instance=ExtResource("2_mgyel")]
 visible = false
 position = Vector2(276, 349)
-character_body = NodePath("Monster")
 
 [node name="Monster" parent="Character" instance=ExtResource("3_5s2jg")]
 
