@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://g7f7hypm7rnt"]
+
+[ext_resource type="Texture2D" uid="uid://duo5ytolcyetd" path="res://assets/characters/monster_temp_sheet.png" id="1_v20vt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2j0gr"]
+atlas = ExtResource("1_v20vt")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57elh"]
+atlas = ExtResource("1_v20vt")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0v6a7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2j0gr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57elh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lpsx1"]
+radius = 24.0
+height = 54.0
+
+[node name="Monster" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_0v6a7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_lpsx1")
