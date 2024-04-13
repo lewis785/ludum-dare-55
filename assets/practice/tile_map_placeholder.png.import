@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://biffo6rna25ar"
-path="res://.godot/imported/lewis.png-0a0ca054b33f1e926ad30b3ffb8be218.ctex"
+uid="uid://jfierc1gn4n0"
+path="res://.godot/imported/tile_map_placeholder.png-831628c38f65e92470176a8a5663a156.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aseprite/lewis.png"
-dest_files=["res://.godot/imported/lewis.png-0a0ca054b33f1e926ad30b3ffb8be218.ctex"]
+source_file="res://assets/practice/tile_map_placeholder.png"
+dest_files=["res://.godot/imported/tile_map_placeholder.png-831628c38f65e92470176a8a5663a156.ctex"]
 
 [params]
 

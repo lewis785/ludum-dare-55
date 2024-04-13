@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jfierc1gn4n0"
-path="res://.godot/imported/tile_map_placeholder.png-bba57f791c96e93bce77428fdcbfde93.ctex"
+uid="uid://d3idpeem2jt3c"
+path="res://.godot/imported/black_powder.png-ced046b062f17a489bb52ab994180ff4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aseprite/tile_map_placeholder.png"
-dest_files=["res://.godot/imported/tile_map_placeholder.png-bba57f791c96e93bce77428fdcbfde93.ctex"]
+source_file="res://assets/ingredients/black_powder.png"
+dest_files=["res://.godot/imported/black_powder.png-ced046b062f17a489bb52ab994180ff4.ctex"]
 
 [params]
 

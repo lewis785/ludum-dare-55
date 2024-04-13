@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0c0l8mc80uto"
-path="res://.godot/imported/lewis_idle_animation.png-c7be279c8863472a51f37b09be20e231.ctex"
+uid="uid://biffo6rna25ar"
+path="res://.godot/imported/lewis.png-91bbd677bc10bb9cb524399871645d38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aseprite/lewis_idle_animation.png"
-dest_files=["res://.godot/imported/lewis_idle_animation.png-c7be279c8863472a51f37b09be20e231.ctex"]
+source_file="res://assets/practice/lewis.png"
+dest_files=["res://.godot/imported/lewis.png-91bbd677bc10bb9cb524399871645d38.ctex"]
 
 [params]
 
