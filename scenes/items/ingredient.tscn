@@ -50,6 +50,7 @@ animations = [{
 radius = 11.0
 
 [node name="Ingredient" type="Area2D" node_paths=PackedStringArray("sprite") groups=["Ingredient"]]
+z_index = 5
 script = ExtResource("1_m5vhc")
 sprite = NodePath("AnimatedSprite2D")
 
