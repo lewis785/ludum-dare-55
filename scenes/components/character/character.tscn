@@ -1,10 +1,52 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6n5qd7skmkpc"]
+[gd_scene load_steps=12 format=3 uid="uid://b6n5qd7skmkpc"]
 
 [ext_resource type="Script" path="res://scenes/components/character/character.gd" id="1_fbwr6"]
 [ext_resource type="PackedScene" uid="uid://cxs88h1qteno5" path="res://scenes/components/character/attributes_component.tscn" id="2_e7yeo"]
 [ext_resource type="Script" path="res://scenes/components/character/attributes_component.gd" id="3_du7sq"]
 [ext_resource type="PackedScene" uid="uid://wx7qik0tnnxf" path="res://scenes/components/character/health_component.tscn" id="3_ixrst"]
 [ext_resource type="PackedScene" uid="uid://crlxihydew4my" path="res://scenes/components/character/attack_component.tscn" id="4_6vune"]
+[ext_resource type="Texture2D" uid="uid://duo5ytolcyetd" path="res://assets/characters/monster_temp_sheet.png" id="6_obl8s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucu04"]
+atlas = ExtResource("6_obl8s")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eo7dr"]
+atlas = ExtResource("6_obl8s")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4kkh"]
+atlas = ExtResource("6_obl8s")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5h1se"]
+atlas = ExtResource("6_obl8s")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tr127"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucu04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eo7dr")
+}],
+"loop": true,
+"name": &"enemy",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4kkh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5h1se")
+}],
+"loop": true,
+"name": &"summon",
+"speed": 0.0
+}]
 
 [node name="Character" type="Node2D"]
 script = ExtResource("1_fbwr6")
@@ -18,3 +60,8 @@ base_health = 20.0
 
 [node name="AttackComponent" parent="." node_paths=PackedStringArray("attributes_component") instance=ExtResource("4_6vune")]
 attributes_component = NodePath("../AttributesComponent")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_tr127")
+animation = &"summon"
