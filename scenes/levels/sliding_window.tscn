@@ -4,8 +4,8 @@
 
 [node name="SlidingWindow" type="Node2D"]
 script = ExtResource("1_6pdol")
-roomNumber = 17
 cameraSpeed = 4
+lives = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(400, 225)

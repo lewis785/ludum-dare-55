@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://c30y088bbp04r"]
+
+[ext_resource type="Texture2D" uid="uid://466r354tji8p" path="res://assets/props/torch-Sheet-export.png" id="1_canxr"]
+[ext_resource type="Texture2D" uid="uid://c86mwm26o0bha" path="res://assets/props/torch_dead-Sheet-export.png" id="2_bgcy5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmmg1"]
+atlas = ExtResource("1_canxr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbiup"]
+atlas = ExtResource("1_canxr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pfay"]
+atlas = ExtResource("1_canxr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2jn4"]
+atlas = ExtResource("1_canxr")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i27xe"]
+atlas = ExtResource("1_canxr")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1a4ld"]
+atlas = ExtResource("2_bgcy5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pt7m"]
+atlas = ExtResource("2_bgcy5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6n0ay"]
+atlas = ExtResource("2_bgcy5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_um8ak"]
+atlas = ExtResource("2_bgcy5")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f33f6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmmg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbiup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pfay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2jn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i27xe")
+}],
+"loop": true,
+"name": &"litfam",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a4ld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0pt7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6n0ay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_um8ak")
+}],
+"loop": true,
+"name": &"notLitFam",
+"speed": 5.0
+}]
+
+[node name="Torch" type="Node2D"]
+
+[node name="TorchAnimation" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_f33f6")
+animation = &"notLitFam"
+autoplay = "litfam"
+frame_progress = 0.912319
