@@ -10,8 +10,6 @@ func _unhandled_input(event):
 		position += event.relative
 
 func _input_event(viewport, event, shape_idx):
-	print(event)
 	if event is InputEventMouseButton and event.pressed:
-		print("Click")
 		lifted = true
 
