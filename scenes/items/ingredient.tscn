@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://kf1fwy2fvee6"]
+[gd_scene load_steps=10 format=3 uid="uid://kf1fwy2fvee6"]
 
 [ext_resource type="Texture2D" uid="uid://d3idpeem2jt3c" path="res://assets/ingredients/black_powder.png" id="1_cka4h"]
 [ext_resource type="Script" path="res://scenes/items/ingredient.gd" id="1_m5vhc"]
@@ -49,10 +49,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_x6cuc"]
 radius = 11.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_sb5yb"]
-font_size = 8
-outline_color = Color(0, 0, 0, 1)
-
 [node name="Ingredient" type="Area2D" node_paths=PackedStringArray("sprite", "label") groups=["Ingredient"]]
 z_index = 5
 texture_filter = 1
@@ -73,7 +69,6 @@ shape = SubResource("CircleShape2D_x6cuc")
 [node name="Label" type="Label" parent="."]
 visible = false
 z_index = 2
-texture_filter = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -86,7 +81,11 @@ offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 10
-label_settings = SubResource("LabelSettings_sb5yb")
+size_flags_stretch_ratio = 17.74
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 12
 horizontal_alignment = 1
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
