@@ -1,14 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://k0pojhaywunc"]
+[gd_scene load_steps=6 format=3 uid="uid://b6n5qd7skmkpc"]
 
 [ext_resource type="Script" path="res://scenes/components/character/character.gd" id="1_fbwr6"]
 [ext_resource type="PackedScene" uid="uid://cxs88h1qteno5" path="res://scenes/components/character/attributes_component.tscn" id="2_e7yeo"]
+[ext_resource type="Script" path="res://scenes/components/character/attributes_component.gd" id="3_du7sq"]
 [ext_resource type="PackedScene" uid="uid://wx7qik0tnnxf" path="res://scenes/components/character/health_component.tscn" id="3_ixrst"]
+[ext_resource type="PackedScene" uid="uid://crlxihydew4my" path="res://scenes/components/character/attack_component.tscn" id="4_6vune"]
 
 [node name="Character" type="Node2D"]
 script = ExtResource("1_fbwr6")
 
 [node name="AttributesComponent" parent="." instance=ExtResource("2_e7yeo")]
+script = ExtResource("3_du7sq")
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("attributes") instance=ExtResource("3_ixrst")]
 attributes = NodePath("../AttributesComponent")
-base_health = 0.0
+base_health = 20.0
+
+[node name="AttackComponent" parent="." node_paths=PackedStringArray("attributes_component") instance=ExtResource("4_6vune")]
+attributes_component = NodePath("../AttributesComponent")
