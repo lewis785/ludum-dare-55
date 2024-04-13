@@ -14,6 +14,7 @@ func attack() -> Attack:
 	var attack = Attack.new()
 	attack.damage = _damage_amount()
 	attack.type = AttributesComponent.DamageTypes.SLASHING
+	attack.crit = randi() % 100 < attributes_component.luck
 	
 	return attack
 
