@@ -1,11 +1,62 @@
-[gd_scene load_steps=2 format=3 uid="uid://dq7tt8ts4orc8"]
+[gd_scene load_steps=3 format=3 uid="uid://dq7tt8ts4orc8"]
 
+[ext_resource type="Script" path="res://scenes/levels/main_menu.gd" id="1_3vlcw"]
 [ext_resource type="Texture2D" uid="uid://bqc7gro62qhdq" path="res://assets/backgrounds/background_1.png" id="1_txxjm"]
 
 [node name="MainMenu" type="Node2D"]
+script = ExtResource("1_3vlcw")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1152.0
 offset_bottom = 649.0
 texture = ExtResource("1_txxjm")
 stretch_mode = 1
+
+[node name="Node" type="Node" parent="."]
+
+[node name="StartButton" type="Button" parent="Node"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -318.0
+offset_top = 136.0
+offset_right = -245.0
+offset_bottom = 167.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "START"
+
+[node name="OptionsButton" type="Button" parent="Node"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = 136.0
+offset_right = 42.0
+offset_bottom = 167.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "OPTIONS
+"
+
+[node name="AboutButton" type="Button" parent="Node"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 244.0
+offset_top = 136.0
+offset_right = 317.0
+offset_bottom = 167.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "ABOUT
+"
+
+[connection signal="pressed" from="Node/StartButton" to="." method="_on_start_button_pressed"]

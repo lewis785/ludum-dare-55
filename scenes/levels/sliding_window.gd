@@ -17,7 +17,7 @@ var rooms: Array[PackedScene] = []
 func _ready():
 	print("creating room ")
 	for i in range(roomNumber):
-		print(i)
+		#print(i)
 		var instance = roomScene.instantiate()
 		instance.position = Vector2((800*i), 0)
 		rooms.push_front(instance)
@@ -27,8 +27,8 @@ func _input(event):
 	print(event)
 	if(Input.is_key_pressed(KEY_ENTER)):	#UPDATE WHEN BATTLE ENDS
 		if(target<=roomNumber-2):
-			print(target)
-			print(roomNumber)
+			#print(target)
+			#print(roomNumber)
 			target+=1
 			target_coordinates = Vector2(400+(800*target), 225)
 
