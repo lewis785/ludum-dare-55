@@ -1,11 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2arbyrhcflvl"]
+[gd_scene load_steps=3 format=3 uid="uid://d2arbyrhcflvl"]
 
 [ext_resource type="Script" path="res://scenes/levels/sliding_window.gd" id="1_6pdol"]
+[ext_resource type="Material" uid="uid://dfe7af4v5j5i1" path="res://scenes/background_tools/darkness.tres" id="1_e44qa"]
 
 [node name="SlidingWindow" type="Node2D"]
+modulate = Color(0.0627451, 0.0627451, 0.0627451, 1)
+self_modulate = Color(0.337255, 0.337255, 0.337255, 1)
+material = ExtResource("1_e44qa")
 script = ExtResource("1_6pdol")
-cameraSpeed = 4
-lives = 1
+cameraSpeed = 750
+lives = 3
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(400, 225)

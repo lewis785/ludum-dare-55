@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c30y088bbp04r"]
+[gd_scene load_steps=15 format=3 uid="uid://c30y088bbp04r"]
 
 [ext_resource type="Texture2D" uid="uid://466r354tji8p" path="res://assets/props/torch-Sheet-export.png" id="1_canxr"]
 [ext_resource type="Texture2D" uid="uid://c86mwm26o0bha" path="res://assets/props/torch_dead-Sheet-export.png" id="2_bgcy5"]
@@ -79,11 +79,30 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_5sqro"]
+offsets = PackedFloat32Array(0, 0.51782, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.941176, 0.776471, 0.576471, 0.796078, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lkec4"]
+gradient = SubResource("Gradient_5sqro")
+width = 1000
+height = 1000
+fill = 1
+fill_from = Vector2(0.5, 0.45)
+fill_to = Vector2(0.1, 0.2)
+metadata/_snap_enabled = true
+metadata/_snap_count = 20
+
 [node name="Torch" type="Node2D"]
 
 [node name="TorchAnimation" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_f33f6")
-animation = &"notLitFam"
-autoplay = "litfam"
-frame_progress = 0.912319
+animation = &"litfam"
+autoplay = "notLitFam"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0.858824, 0.694118, 1)
+energy = 0.0
+texture = SubResource("GradientTexture2D_lkec4")
+texture_scale = 0.96

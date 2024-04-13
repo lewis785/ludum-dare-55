@@ -1,18 +1,19 @@
 extends Node2D
 
 @onready var camera = $Camera2D
-@onready var torch_animation = $TorchAnimation
-
 @export var cameraSpeed: int
 @export var lives: int
 
-var roomScene = load("res://scenes/levels/room.tscn")
-var torchScene = load("res://scenes/props/torch.tscn")
+var roomScene = preload("res://scenes/levels/room.tscn")
 
-var target = 0
+var roomInstance1 = roomScene.instantiate()
+var roomInstance2 = roomScene.instantiate()
+
 var target_coordinates = Vector2(400,225)	#Initialise the variable so it doesnt complain
 var camera_coordinates = Vector2(400,225)
-#: Array[PackedScene] = []
+
+var target = 0
+var roomsMade = -1	#Has to be negative for initial room to be instantiated.
 
 #Camera set to 1.44
 func _ready():
@@ -20,38 +21,67 @@ func _ready():
 		
 func _input(_event):
 	if(Input.is_key_pressed(KEY_ENTER)):	#UPDATE WHEN BATTLE ENDS
-			_createNextRoom(target+1)
 			target+=1
-			target_coordinates = Vector2(400+(800*target), 225)
-
 
 func _process(delta):
 	camera_coordinates = camera.get_position()
-	camera.position = camera_coordinates.lerp(target_coordinates, cameraSpeed*delta)
+	camera.position = camera_coordinates.move_toward(target_coordinates, cameraSpeed*delta)
 	camera.set_position(camera.position)
-
-func _createNextRoom(nextRoom):
-		var roomInstance = roomScene.instantiate()
-		roomInstance.position = Vector2((800*nextRoom), 0)
-		add_child(roomInstance)
-		
-		for x in range(3):
-			#print("creating torch")
-			var torchInstance: Node2D = torchScene.instantiate()
-			add_child(torchInstance)
-			
-			if(x == 0):
-				torchInstance.position = Vector2(110+(800*nextRoom), 175)
-				torchInstance.set_rotation_degrees(-15)
-				if(lives < 2):
-					torchInstance.find_child("TorchAnimation").animation = "notLitFam"
-			if(x == 1):
-				torchInstance.position = Vector2(400+(800*nextRoom), 100)
-				if(lives < 1):
-					torchInstance.find_child("TorchAnimation").animation = "notLitFam"
-			if(x == 2):
-				if(lives < 3):
-					torchInstance.find_child("TorchAnimation").animation = "notLitFam"
-				torchInstance.position = Vector2(675+(800*nextRoom), 175)
-				torchInstance.set_rotation_degrees(15)
+	_createNextRoom(target)
 	
+func _createNextRoom(nextRoom):
+	if(nextRoom %2 == 0):
+		_createNextRoomEven(nextRoom)
+	else:
+		_createNextRoomOdd(nextRoom)
+		
+func _createNextRoomOdd(nextRoom):
+	roomInstance1.find_child("Torch0").find_child("TorchAnimation").animation = "notLitFam"
+	roomInstance1.find_child("Torch0").find_child("PointLight2D").energy = 0.0
+	roomInstance1.find_child("Torch1").find_child("TorchAnimation").animation = "notLitFam"
+	roomInstance1.find_child("Torch1").find_child("PointLight2D").energy = 0.0
+	roomInstance1.find_child("Torch2").find_child("TorchAnimation").animation = "notLitFam"
+	roomInstance1.find_child("Torch2").find_child("PointLight2D").energy = 0.0
+	if(nextRoom > roomsMade):
+		
+		roomInstance1.position = Vector2((800*nextRoom), 0)
+		add_child(roomInstance1)
+		roomsMade += 1
+		if(nextRoom == roomsMade):
+			target_coordinates = Vector2(400+(800*target), 225)
+	if(target_coordinates == camera_coordinates):
+		if(lives >= 2):
+			roomInstance1.find_child("Torch0").find_child("TorchAnimation").animation = "litfam"
+			roomInstance1.find_child("Torch0").find_child("PointLight2D").energy = 12.0
+		if(lives >= 1):
+			roomInstance1.find_child("Torch1").find_child("TorchAnimation").animation = "litfam"
+			roomInstance1.find_child("Torch1").find_child("PointLight2D").energy = 12.0
+		if(lives >= 3):
+			roomInstance1.find_child("Torch2").find_child("TorchAnimation").animation = "litfam"
+			roomInstance1.find_child("Torch2").find_child("PointLight2D").energy = 12.0
+
+func _createNextRoomEven(nextRoom):
+	roomInstance2.find_child("Torch0").find_child("TorchAnimation").animation = "notLitFam"
+	roomInstance2.find_child("Torch0").find_child("PointLight2D").energy = 0.0
+	roomInstance2.find_child("Torch1").find_child("TorchAnimation").animation = "notLitFam"
+	roomInstance2.find_child("Torch1").find_child("PointLight2D").energy = 0.0
+	roomInstance2.find_child("Torch2").find_child("TorchAnimation").animation = "notLitFam"
+	roomInstance2.find_child("Torch2").find_child("PointLight2D").energy = 0.0
+	if(nextRoom > roomsMade):
+		
+		roomInstance2.position = Vector2((800*nextRoom), 0)
+		add_child(roomInstance2)
+		roomsMade += 1
+		if(nextRoom == roomsMade):
+			target_coordinates = Vector2(400+(800*target), 225)
+			
+	if(target_coordinates == camera_coordinates):
+		if(lives >= 2):
+			roomInstance2.find_child("Torch0").find_child("TorchAnimation").animation = "litfam"
+			roomInstance2.find_child("Torch0").find_child("PointLight2D").energy = 12.0
+		if(lives >= 1):
+			roomInstance2.find_child("Torch1").find_child("TorchAnimation").animation = "litfam"
+			roomInstance2.find_child("Torch1").find_child("PointLight2D").energy = 12.0
+		if(lives >= 3):
+			roomInstance2.find_child("Torch2").find_child("TorchAnimation").animation = "litfam"
+			roomInstance2.find_child("Torch2").find_child("PointLight2D").energy = 12.0

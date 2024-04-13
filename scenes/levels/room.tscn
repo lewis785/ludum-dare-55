@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://culpis2kpkslw"]
+[gd_scene load_steps=4 format=3 uid="uid://culpis2kpkslw"]
 
 [ext_resource type="Texture2D" uid="uid://crs8kox2y0gj7" path="res://assets/backgrounds/room_temp.png" id="1_son88"]
 [ext_resource type="PackedScene" uid="uid://f7pi0x6o1uvq" path="res://scenes/background_tools/snap_point.tscn" id="2_n8nla"]
+[ext_resource type="PackedScene" uid="uid://c30y088bbp04r" path="res://scenes/props/torch.tscn" id="3_7h2qe"]
 
 [node name="Room" type="TextureRect"]
 anchors_preset = 8
@@ -20,3 +21,12 @@ stretch_mode = 1
 
 [node name="SnapPoint0" parent="." instance=ExtResource("2_n8nla")]
 position = Vector2(399, 225)
+
+[node name="Torch0" parent="." instance=ExtResource("3_7h2qe")]
+position = Vector2(110, 175)
+
+[node name="Torch1" parent="." instance=ExtResource("3_7h2qe")]
+position = Vector2(400, 100)
+
+[node name="Torch2" parent="." instance=ExtResource("3_7h2qe")]
+position = Vector2(675, 175)
