@@ -1,19 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjfwvsq2rkexi"]
+[gd_scene load_steps=5 format=3 uid="uid://cjfwvsq2rkexi"]
 
 [ext_resource type="Script" path="res://scenes/items/summoning_circle.gd" id="1_6a87h"]
 [ext_resource type="Texture2D" uid="uid://cglocs48nvftt" path="res://assets/elements/SummonCircle.png" id="2_e4xd4"]
+[ext_resource type="PackedScene" uid="uid://cxs88h1qteno5" path="res://scenes/components/character/attributes_component.tscn" id="3_pcipr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ble8y"]
 radius = 149.0
 
-[node name="SummoningCircle" type="Area2D"]
+[node name="SummoningCircle" type="Area2D" node_paths=PackedStringArray("output_stats")]
 script = ExtResource("1_6a87h")
+output_stats = NodePath("AttributesComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_e4xd4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ble8y")
+
+[node name="AttributesComponent" parent="." instance=ExtResource("3_pcipr")]
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

@@ -1,7 +1,17 @@
 extends DraggableComponent
 
+class_name Ingredient
+
 @export_category("Properties")
-@export_enum("White", "Red", "Blue", "Green", "Black") var type: int
+enum IngredientTypes {
+	WHITE,
+	RED,
+	BLUE,
+	GREEN,
+	BLACK
+}
+@export var type: IngredientTypes
+#@export_enum(IngredientTypes) var type: int
 
 @export_category("Components")
 @export var sprite: AnimatedSprite2D
