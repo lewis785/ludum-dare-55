@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://culpis2kpkslw"]
+[gd_scene load_steps=9 format=3 uid="uid://culpis2kpkslw"]
 
 [ext_resource type="Texture2D" uid="uid://crs8kox2y0gj7" path="res://assets/backgrounds/room_temp.png" id="1_son88"]
 [ext_resource type="PackedScene" uid="uid://f7pi0x6o1uvq" path="res://scenes/background_tools/snap_point.tscn" id="2_n8nla"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://yyllu6flx31c" path="res://assets/characters/Wizard.png" id="4_lhqse"]
 [ext_resource type="Texture2D" uid="uid://5dvrr1mxcbia" path="res://scenes/props/wizard_torch.tres" id="5_1bhml"]
 [ext_resource type="PackedScene" uid="uid://df7kvudh0t7fu" path="res://scenes/ui/summon_screen.tscn" id="5_mi5o7"]
+[ext_resource type="PackedScene" uid="uid://b6n5qd7skmkpc" path="res://scenes/components/character/character.tscn" id="7_gykpj"]
 
 [sub_resource type="Curve2D" id="Curve2D_8xhqc"]
 _data = {
@@ -65,3 +66,8 @@ energy = 13.36
 texture = ExtResource("5_1bhml")
 
 [node name="Summon-screen" parent="." instance=ExtResource("5_mi5o7")]
+
+[node name="Enemy" parent="." groups=["enemy"] instance=ExtResource("7_gykpj")]
+position = Vector2(493, 340)
+
+[editable path="Summon-screen"]
