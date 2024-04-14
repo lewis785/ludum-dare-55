@@ -16,6 +16,7 @@ var wizard_visible : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	torches = [$TorchCenter, $TorchLeft, $TorchRight]
+	set_background()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):		
@@ -46,6 +47,20 @@ func _set_torches_brightness(brightness : int, amount : int = 0):
 	
 		find_child("Summon-screen").find_child("SummoningCircle").find_child("Sprite2D").play("Spawn")
 		find_child("SummoningCircleAudio").play()
+
+func set_background():
+	var random_number = randi() % 20
+	if random_number < 1:
+		texture = load("res://assets/rooms/virtual_insanity_room.png")
+		return
+	
+	var options = [
+		"res://assets/rooms/basic_room.png",
+		"res://assets/rooms/desert_room.png",
+	]
+	
+	var random_index = randi() % len(options)
+	texture = load(options[random_index])
 
 func move_wizard():
 	var wizard = find_child("PathFollow2D").find_child("Wizard")
