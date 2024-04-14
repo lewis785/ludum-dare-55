@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://culpis2kpkslw"]
+[gd_scene load_steps=11 format=3 uid="uid://culpis2kpkslw"]
 
 [ext_resource type="Texture2D" uid="uid://crs8kox2y0gj7" path="res://assets/backgrounds/room_temp.png" id="1_son88"]
 [ext_resource type="Script" path="res://scenes/levels/room.gd" id="2_8hr5s"]

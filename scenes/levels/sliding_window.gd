@@ -2,8 +2,8 @@ extends Node2D
 
 @onready var camera = $Camera2D
 @export var cameraSpeed: int
-@export var lives: int
 @export var wizardSpeed: int
+@export var lives: int
 @export var maxBrightness: int 
 @export var flicker : float
 @export var flickerDelay: int
@@ -13,6 +13,7 @@ var roomScene = preload("res://scenes/levels/room.tscn")
 #var roomInstance2 = roomScene.instantiate()
 
 var room_instance : Room = roomScene.instantiate()
+var old_room : Room
 
 var target_coordinates = Vector2(400,225)	#Initialise the variable so it doesnt complain
 var camera_coordinates = Vector2(400,225)
@@ -41,16 +42,19 @@ func _process(delta):
 	camera_coordinates = camera.get_position()
 	camera.position = camera_coordinates.move_toward(target_coordinates, cameraSpeed*delta)
 	camera.set_position(camera.position)
+	
+	if (old_room != null and target_coordinates == camera_coordinates):
+		old_room.queue_free()
+		old_room = null
 	#_createNextRoom()
 	#if(enableWizard == 1):
 		#roomInstance1.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").progress+= wizardSpeed*delta
 	#if(enableWizard == 2):
 		#roomInstance2.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").progress+= wizardSpeed*delta
-		
+
 func _createNextRoom():
-	var old_room : Room = room_instance
+	old_room = room_instance
 	room_instance = roomScene.instantiate()
-	#room_instance.position = Vector2((800*target), 0)
 	room_instance.position = Vector2(old_room.position.x + 800, 0)
 	add_child(room_instance)
 	
@@ -59,8 +63,7 @@ func _createNextRoom():
 	target_coordinates = Vector2(400+room_instance.position.x, 225)
 	
 	room_instance._setTorchesBrightness(10,3)
-	
-	old_room.queue_free()
+
 	
 	
 	
