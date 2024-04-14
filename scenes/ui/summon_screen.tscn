@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://df7kvudh0t7fu"]
+[gd_scene load_steps=5 format=3 uid="uid://df7kvudh0t7fu"]
 
 [ext_resource type="PackedScene" uid="uid://c7bv6yhmf1574" path="res://scenes/ui/storage.tscn" id="1_emak8"]
 [ext_resource type="PackedScene" uid="uid://cjfwvsq2rkexi" path="res://scenes/items/summoning_circle.tscn" id="1_prqnr"]
-[ext_resource type="PackedScene" uid="uid://b6n5qd7skmkpc" path="res://scenes/components/character/character.tscn" id="2_mgyel"]
 [ext_resource type="Texture2D" uid="uid://dfcq7vrwougf7" path="res://assets/elements/book.png" id="5_7hrbm"]
 [ext_resource type="Script" path="res://scenes/ui/book.gd" id="5_spst6"]
 
@@ -16,7 +15,6 @@ summoning_circle = NodePath("../SummoningCircle")
 [node name="SummoningCircle" parent="." instance=ExtResource("1_prqnr")]
 position = Vector2(276, 349)
 scale = Vector2(0.5, 0.3)
-summon_scene = ExtResource("2_mgyel")
 
 [node name="Node2D" type="Node2D" parent="." node_paths=PackedStringArray("summoning_circle")]
 script = ExtResource("5_spst6")

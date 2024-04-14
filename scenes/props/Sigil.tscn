@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://b44253gukkg0b"]
+[gd_scene load_steps=21 format=3 uid="uid://b44253gukkg0b"]
 
 [ext_resource type="Texture2D" uid="uid://dn7jvuouc8qan" path="res://assets/props/Stats.png" id="1_xo54m"]
 [ext_resource type="Texture2D" uid="uid://dob0w60npe88b" path="res://assets/props/Stats-Sheet-export.png" id="2_0248q"]
+[ext_resource type="Script" path="res://scenes/props/Sigil.gd" id="3_1csib"]
 [ext_resource type="Texture2D" uid="uid://douvpv364rtmr" path="res://scenes/props/sigil_torch.tres" id="3_sxo3f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oknq5"]
@@ -191,6 +192,9 @@ animations = [{
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_7h86s")
 animation = &"Strength3"
+script = ExtResource("3_1csib")
+brightness = 8.0
+pulseDelay = 20
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(0, 2.5)
