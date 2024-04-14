@@ -1,8 +1,9 @@
-[gd_scene load_steps=72 format=3 uid="uid://cjfwvsq2rkexi"]
+[gd_scene load_steps=73 format=3 uid="uid://cjfwvsq2rkexi"]
 
 [ext_resource type="Script" path="res://scenes/items/summoning_circle.gd" id="1_6a87h"]
 [ext_resource type="Texture2D" uid="uid://cfl3thtygaojw" path="res://assets/props/Circle-Sheet.png" id="2_7jyvr"]
 [ext_resource type="Texture2D" uid="uid://cotyc24q63vx7" path="res://assets/props/circle_active-Sheet.png" id="2_qy0wq"]
+[ext_resource type="PackedScene" uid="uid://b6n5qd7skmkpc" path="res://scenes/characters/character.tscn" id="2_ytns0"]
 [ext_resource type="PackedScene" uid="uid://cxs88h1qteno5" path="res://scenes/components/character/attributes_component.tscn" id="3_pcipr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c63l2"]
@@ -549,6 +550,7 @@ radius = 149.0
 
 [node name="SummoningCircle" type="Area2D"]
 script = ExtResource("1_6a87h")
+summon_scene = ExtResource("2_ytns0")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
