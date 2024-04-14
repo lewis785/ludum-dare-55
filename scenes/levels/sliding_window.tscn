@@ -12,9 +12,6 @@ script = ExtResource("1_6pdol")
 cameraSpeed = 300
 wizardSpeed = 300
 lives = 3
-maxBrightness = 6
-flicker = 0.5
-flickerDelay = 20
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(400, 225)

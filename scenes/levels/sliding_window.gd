@@ -4,9 +4,6 @@ extends Node2D
 @export var cameraSpeed: int
 @export var wizardSpeed: int
 @export var lives: int
-@export var maxBrightness: int 
-@export var flicker : float
-@export var flickerDelay: int
 var roomScene = preload("res://scenes/levels/room.tscn")
 
 #var roomInstance1 = roomScene.instantiate()
@@ -36,17 +33,19 @@ func _input(_event):
 	if(Input.is_key_pressed(KEY_ENTER)):	#UPDATE WHEN BATTLE ENDSS
 		room_instance.find_child("AudioStreamPlayer2D").stop()	#Make sure to call this when battle starts!!!
 		_createNextRoom()
-		#target+=1
 
 func _process(delta):
 	camera_coordinates = camera.get_position()
 	camera.position = camera_coordinates.move_toward(target_coordinates, cameraSpeed*delta)
 	camera.set_position(camera.position)
 	
-	if (old_room != null and target_coordinates == camera_coordinates):
-		old_room.queue_free()
-		old_room = null
-	#_createNextRoom()
+	if (target_coordinates == camera_coordinates):
+		if (!room_instance.is_setup):
+			room_instance.setup_room(lives)
+	
+		if (old_room != null):
+			old_room.queue_free()
+			old_room = null
 	#if(enableWizard == 1):
 		#roomInstance1.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").progress+= wizardSpeed*delta
 	#if(enableWizard == 2):
@@ -58,11 +57,11 @@ func _createNextRoom():
 	room_instance.position = Vector2(old_room.position.x + 800, 0)
 	add_child(room_instance)
 	
-	old_room._setTorchesBrightness(0)
+	old_room._set_torches_brightness(0)
 	
 	target_coordinates = Vector2(400+room_instance.position.x, 225)
 	
-	room_instance._setTorchesBrightness(10,3)
+	#room_instance._set_torches_brightness(10,3)
 
 	
 	
