@@ -114,3 +114,5 @@ health_component = NodePath("../HealthComponent")
 
 [connection signal="damaged" from="HealthComponent" to="." method="_on_health_component_damaged"]
 [connection signal="damaged" from="HealthComponent" to="HealthBar" method="_on_health_component_damaged"]
+[connection signal="healed" from="HealthComponent" to="." method="_on_health_component_healed"]
+[connection signal="healed" from="HealthComponent" to="HealthBar" method="_on_health_component_healed"]

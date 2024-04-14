@@ -32,12 +32,18 @@ func _on_health_component_damaged(damage: int, crit: bool):
 
 	add_child(text)
 
+func _on_health_component_healed(heal):
+	var text = FLOATING_LABEL.instantiate()
+	text.amount = heal
+	text.position.x = 50
+	text.type = text.Types.HEAL
+	
+	add_child(text)
+	pass # Replace with function body.
+
+
 func pick_enemy_sprite():
 	var stats = ["defence", "health", "luck", "speed", "strength"]
 	var random_index = randi() % len(stats)
 	animated_sprite_2d.animation = "enemy"
 	animated_sprite_2d.set_frame_and_progress(random_index, 0.0)
-	
-	
-	
-	

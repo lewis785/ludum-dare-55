@@ -11,6 +11,7 @@ var type: Types = Types.DAMAGE
 enum Types {
 	DAMAGE,
 	CRITICAL,
+	HEAL
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -31,6 +32,9 @@ func setup():
 		Types.CRITICAL:
 			label.add_theme_color_override("font_color", Color.GOLD)
 			max_size = Vector2(2,2)
+		Types.HEAL:
+			label.add_theme_color_override("font_color", Color.FOREST_GREEN)
+			max_size = Vector2(1.5, 1.5)
 
 func movement():
 	var x_velocity = randi() % 60 - 30

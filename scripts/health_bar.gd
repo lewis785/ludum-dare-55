@@ -8,3 +8,7 @@ func _ready():
 
 func _on_health_component_damaged(damage, crit):
 	value -= damage
+
+
+func _on_health_component_healed(heal):
+	value += heal
