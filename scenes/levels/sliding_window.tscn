@@ -21,3 +21,13 @@ position = Vector2(400, 225)
 zoom = Vector2(1.44, 1.44)
 
 [node name="CombatCoordinator" parent="." instance=ExtResource("3_ajeuy")]
+
+[node name="WinMusic" type="AudioStreamPlayer2D" parent="."]
+
+[node name="LoseMusic" type="AudioStreamPlayer2D" parent="."]
+
+[node name="FightMusic" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="fight_lose" from="CombatCoordinator" to="." method="_on_combat_coordinator_fight_lose"]
+[connection signal="fight_started" from="CombatCoordinator" to="." method="_on_combat_coordinator_fight_started"]
+[connection signal="fight_win" from="CombatCoordinator" to="." method="_on_combat_coordinator_fight_win"]
