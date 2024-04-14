@@ -14,7 +14,6 @@ class_name EnemyStrengths
 @export var secondary: AttributesComponent.Attributes = AttributesComponent.Attributes.LUCK:
 	set(value):
 		secondary = value
-		print("UPDATING SECONDARY")
 		if is_node_ready():
 			_set_sprites()
 

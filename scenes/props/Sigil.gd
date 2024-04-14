@@ -14,7 +14,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if (counter % pulseDelay == 0):
-	#	print("pulse")
-		pass
 	counter+=1

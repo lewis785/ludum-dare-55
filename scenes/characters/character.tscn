@@ -111,6 +111,7 @@ base_health = 20.0
 
 [node name="AttackComponent" parent="." node_paths=PackedStringArray("attributes_component") instance=ExtResource("4_6vune")]
 attributes_component = NodePath("../AttributesComponent")
+base_attack_rate = 120
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

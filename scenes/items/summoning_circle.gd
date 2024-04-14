@@ -19,7 +19,6 @@ func _ready():
 	ingredients.clear()
 
 func is_summonable():
-	print(ingredients.size())
 	if ingredients.size() > ingredients_cap or ingredients.size() == 0:
 		return false
 	return true

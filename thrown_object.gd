@@ -26,17 +26,14 @@ func _physics_process(delta):
 	
 func _input(_event):
 	if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and (touching == true)):
-		print()
 		attached = true
 	if(not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and attached == true):
 		attached = false
 		thrown = true
-		print("Thrown")
 	
 func _on_area_2d_area_entered(area):
 	if(enabled == true):
 		touching = true
 	
 func _on_area_2d_area_exited(area):
-	#print("exited")
 	touching = false
