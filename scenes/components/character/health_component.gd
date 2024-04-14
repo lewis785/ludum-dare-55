@@ -3,7 +3,7 @@ extends Node
 class_name HealthComponent
 
 const FLOATING_LABEL = preload("res://scenes/ui/floating_label.tscn")
-signal damaged(damage)
+signal damaged(damage: int, crit: bool)
 
 @export var attributes: AttributesComponent
 
@@ -15,25 +15,14 @@ func _ready():
 	max_health = base_health + attributes.vitality
 	health = max_health
 	print("Health: " + str(health).pad_decimals(2))
-	
-var time = 0
-#func _process(delta):
-	#time += delta
-	#if time > 1:
-		#var attack = Attack.new();
-		#attack.damage = 20
-		#attack.type = AttributesComponent.DamageTypes.SLASHING
-		#damage(attack)
-		## Reset timer
-		#time = 0
-	
-	
+		
 func damage(value: Attack):
 	var damage = _calculate_damage(value)
 	health -= damage
 	print("Health: " + str(health))
 	
-	damaged.emit(damage)
+	
+	damaged.emit(damage, value.crit)
 
 	if health <= 0:
 		get_parent().queue_free()

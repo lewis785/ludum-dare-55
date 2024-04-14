@@ -21,10 +21,13 @@ func _ready():
 	animated_sprite_2d.animation = animation
 
 
-func _on_health_component_damaged(damage):
+func _on_health_component_damaged(damage: int, crit: bool):
 	var text = FLOATING_LABEL.instantiate()
 	text.amount = damage
 	text.position.x = 50
+	if crit:
+		text.type = text.Types.CRITICAL
+
 	add_child(text)
 	
 	
