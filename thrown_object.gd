@@ -6,7 +6,7 @@ const JUMP_VELOCITY = -400.0
 var thrown = false
 var touching = false
 var attached = false
-
+var enabled = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -19,7 +19,7 @@ func _physics_process(delta):
 	if(attached == true):		
 		velocity = Vector2(0,0)
 		var direction = get_viewport().get_mouse_position() - self.position
-		velocity = direction * delta * SPEED
+		velocity = direction * delta * SPEED/1.44
 
 		move_and_slide()
 	
