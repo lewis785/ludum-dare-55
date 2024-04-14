@@ -27,9 +27,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_titfx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a4op2")
 }],
 "loop": true,
 "name": &"default",
@@ -40,13 +37,16 @@ animations = [{
 script = ExtResource("1_x8a3y")
 
 [node name="BookWizardArm" type="Node2D" parent="."]
+visible = false
+position = Vector2(437, 684)
 script = ExtResource("2_7y6uc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BookWizardArm"]
 z_index = 100
-position = Vector2(442, 777)
-rotation = 4.71239
+position = Vector2(62, 230)
+rotation = 4.45583
 sprite_frames = SubResource("SpriteFrames_ehga6")
+animation = &"Grab"
 autoplay = "default"
 
 [node name="WizardArm" parent="." instance=ExtResource("3_r8uwu")]

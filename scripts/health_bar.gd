@@ -1,12 +1,14 @@
 extends ProgressBar
 
 @export var health_component: HealthComponent
-@onready var animated_sprite_2d = $"../AnimatedSprite2D"
 
 func _ready():
-	value = health_component.max_health
 	max_value = health_component.max_health
-
+	value = max_value
 
 func _on_health_component_damaged(damage, crit):
 	value -= damage
+
+
+func _on_health_component_healed(heal):
+	value += heal

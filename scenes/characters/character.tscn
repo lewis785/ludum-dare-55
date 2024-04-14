@@ -1,85 +1,66 @@
-[gd_scene load_steps=18 format=3 uid="uid://b6n5qd7skmkpc"]
+[gd_scene load_steps=17 format=3 uid="uid://b6n5qd7skmkpc"]
 
 [ext_resource type="Script" path="res://scenes/characters/character.gd" id="1_fbwr6"]
 [ext_resource type="PackedScene" uid="uid://cxs88h1qteno5" path="res://scenes/components/character/attributes_component.tscn" id="2_e7yeo"]
 [ext_resource type="PackedScene" uid="uid://wx7qik0tnnxf" path="res://scenes/components/character/health_component.tscn" id="3_ixrst"]
 [ext_resource type="PackedScene" uid="uid://crlxihydew4my" path="res://scenes/components/character/attack_component.tscn" id="4_6vune"]
-[ext_resource type="Texture2D" uid="uid://bxlkhm8al0k8f" path="res://assets/characters/enemy_defence.png" id="6_jenb0"]
-[ext_resource type="Texture2D" uid="uid://duo5ytolcyetd" path="res://assets/characters/monster_temp_sheet.png" id="6_obl8s"]
-[ext_resource type="Texture2D" uid="uid://c7rc417os6bum" path="res://assets/characters/enemy_health.png" id="7_3sxyx"]
-[ext_resource type="Texture2D" uid="uid://0oxgnok3stly" path="res://assets/characters/enemy_luck.png" id="8_kwait"]
-[ext_resource type="Texture2D" uid="uid://vglqxdbugnye" path="res://assets/characters/enemy_speed.png" id="9_sr1c7"]
-[ext_resource type="Texture2D" uid="uid://bx83qfemdy5s7" path="res://assets/characters/enemy_strength.png" id="10_xgf6j"]
 [ext_resource type="Script" path="res://scripts/health_bar.gd" id="11_uessb"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ucu04"]
-atlas = ExtResource("6_obl8s")
-region = Rect2(0, 0, 64, 64)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4jc43"]
+load_path = "res://.godot/imported/monster-sprits-sheet.png-7af50097b7fb7c1ce571b2efe119aef2.ctex"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eo7dr"]
-atlas = ExtResource("6_obl8s")
-region = Rect2(0, 64, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3ly2"]
+atlas = SubResource("CompressedTexture2D_4jc43")
+region = Rect2(0, 768, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ju851"]
+atlas = SubResource("CompressedTexture2D_4jc43")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sauld"]
+atlas = SubResource("CompressedTexture2D_4jc43")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1huv8"]
+atlas = SubResource("CompressedTexture2D_4jc43")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_beved"]
+atlas = SubResource("CompressedTexture2D_4jc43")
+region = Rect2(0, 384, 128, 128)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7anjp"]
+load_path = "res://.godot/imported/monster_temp_sheet.png-369dc62cd84a366435efef510ee17d99.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5h1se"]
-atlas = ExtResource("6_obl8s")
+atlas = SubResource("CompressedTexture2D_7anjp")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q4kkh"]
-atlas = ExtResource("6_obl8s")
+atlas = SubResource("CompressedTexture2D_7anjp")
 region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tr127"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ucu04")
+"texture": SubResource("AtlasTexture_x3ly2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eo7dr")
+"texture": SubResource("AtlasTexture_ju851")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sauld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1huv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_beved")
 }],
 "loop": true,
 "name": &"enemy",
-"speed": 0.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_jenb0")
-}],
-"loop": true,
-"name": &"enemy_defence",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_3sxyx")
-}],
-"loop": true,
-"name": &"enemy_health",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("8_kwait")
-}],
-"loop": true,
-"name": &"enemy_luck",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("9_sr1c7")
-}],
-"loop": true,
-"name": &"enemy_speed",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("10_xgf6j")
-}],
-"loop": true,
-"name": &"enemy_strength",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -107,23 +88,23 @@ script = ExtResource("1_fbwr6")
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("attributes") instance=ExtResource("3_ixrst")]
 attributes = NodePath("../AttributesComponent")
-base_health = 20.0
+base_health = 100.0
 
 [node name="AttackComponent" parent="." node_paths=PackedStringArray("attributes_component") instance=ExtResource("4_6vune")]
 attributes_component = NodePath("../AttributesComponent")
-base_attack_rate = 120
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_tr127")
-animation = &"summon"
+animation = &"enemy"
+frame_progress = 0.621043
 
 [node name="HealthBar" type="ProgressBar" parent="." node_paths=PackedStringArray("health_component")]
 texture_filter = 1
 offset_left = -32.0
-offset_top = -71.0
+offset_top = -74.0
 offset_right = 32.0
-offset_bottom = -61.0
+offset_bottom = -64.0
 size_flags_vertical = 1
 theme_override_styles/fill = SubResource("StyleBoxFlat_68lhu")
 value = 50.0
@@ -133,3 +114,5 @@ health_component = NodePath("../HealthComponent")
 
 [connection signal="damaged" from="HealthComponent" to="." method="_on_health_component_damaged"]
 [connection signal="damaged" from="HealthComponent" to="HealthBar" method="_on_health_component_damaged"]
+[connection signal="healed" from="HealthComponent" to="." method="_on_health_component_healed"]
+[connection signal="healed" from="HealthComponent" to="HealthBar" method="_on_health_component_healed"]

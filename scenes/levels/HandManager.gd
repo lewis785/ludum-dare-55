@@ -16,15 +16,19 @@ func _process(delta):
 	pass
 
 func _on_summon_book_book_up():
-	print("up")
+	#print("up")
 	wizard_arm.enabled = false
 	wizard_arm.visible = false
 	book_wizard_arm.enabled = true
 	book_wizard_arm.visible = true
 
 func _on_summon_book_book_down():
-	print("down")
+	#print("down")
 	wizard_arm.enabled = true
 	wizard_arm.visible = true
 	book_wizard_arm.enabled = false
 	book_wizard_arm.visible = false
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		book_wizard_arm.set_position(event.position*1.44)

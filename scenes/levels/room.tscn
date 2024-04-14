@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://culpis2kpkslw"]
 
-[ext_resource type="Texture2D" uid="uid://crs8kox2y0gj7" path="res://assets/backgrounds/room_temp.png" id="1_son88"]
+[ext_resource type="Texture2D" uid="uid://b6jf8xugdtafd" path="res://assets/rooms/desert_room.png" id="1_7l6oe"]
 [ext_resource type="Script" path="res://scenes/levels/room.gd" id="2_8hr5s"]
 [ext_resource type="PackedScene" uid="uid://f7pi0x6o1uvq" path="res://scenes/background_tools/snap_point.tscn" id="2_n8nla"]
 [ext_resource type="PackedScene" uid="uid://c30y088bbp04r" path="res://scenes/props/torch.tscn" id="3_7h2qe"]
@@ -29,7 +29,7 @@ offset_right = 224.0
 offset_bottom = 126.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_son88")
+texture = ExtResource("1_7l6oe")
 stretch_mode = 1
 script = ExtResource("2_8hr5s")
 
@@ -77,11 +77,11 @@ grow_vertical = 2
 texture = ExtResource("10_5dlcw")
 
 [node name="EnemySpawner" parent="." node_paths=PackedStringArray("enemy_strengths") instance=ExtResource("9_5nmi3")]
-position = Vector2(491, 348)
+position = Vector2(514, 306)
 enemy_strengths = NodePath("../EnemyStrengths")
 
 [node name="EnemyStrengths" parent="." instance=ExtResource("13_6fxkm")]
-position = Vector2(456, 186)
+position = Vector2(459, 104)
 scale = Vector2(1.5, 1.5)
 
 [node name="HandManager" parent="." instance=ExtResource("13_k8wjo")]

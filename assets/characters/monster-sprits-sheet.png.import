@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0oxgnok3stly"
-path="res://.godot/imported/enemy_luck.png-e352eaec060d53dd12fae4d2a2d79ccf.ctex"
+uid="uid://c4j2vb8kumenf"
+path="res://.godot/imported/monster-sprits-sheet.png-7af50097b7fb7c1ce571b2efe119aef2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/enemy_luck.png"
-dest_files=["res://.godot/imported/enemy_luck.png-e352eaec060d53dd12fae4d2a2d79ccf.ctex"]
+source_file="res://assets/characters/monster-sprits-sheet.png"
+dest_files=["res://.godot/imported/monster-sprits-sheet.png-7af50097b7fb7c1ce571b2efe119aef2.ctex"]
 
 [params]
 

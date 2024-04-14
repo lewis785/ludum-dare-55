@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7rc417os6bum"
-path="res://.godot/imported/enemy_health.png-fef0a74000c094c259a3f66d04a48ca6.ctex"
+uid="uid://bq0l37v7wxe7s"
+path="res://.godot/imported/smoke-Sheet.png-16b46871f5d6afe8627b38555008bbc4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/enemy_health.png"
-dest_files=["res://.godot/imported/enemy_health.png-fef0a74000c094c259a3f66d04a48ca6.ctex"]
+source_file="res://assets/smoke-Sheet.png"
+dest_files=["res://.godot/imported/smoke-Sheet.png-16b46871f5d6afe8627b38555008bbc4.ctex"]
 
 [params]
 
