@@ -33,6 +33,7 @@ position = Vector2(-162, -70)
 texture = ExtResource("5_22hau")
 script = ExtResource("6_jek36")
 summoning_circle = NodePath("../../SummoningCircle")
+ingr_type = 1
 
 [node name="BookLine3" type="Sprite2D" parent="Node2D2/OpenBook" node_paths=PackedStringArray("summoning_circle")]
 texture_filter = 1
@@ -40,6 +41,7 @@ position = Vector2(-162, 0)
 texture = ExtResource("5_22hau")
 script = ExtResource("6_jek36")
 summoning_circle = NodePath("../../SummoningCircle")
+ingr_type = 2
 
 [node name="BookLine4" type="Sprite2D" parent="Node2D2/OpenBook" node_paths=PackedStringArray("summoning_circle")]
 texture_filter = 1
@@ -47,6 +49,7 @@ position = Vector2(-162, 70)
 texture = ExtResource("5_22hau")
 script = ExtResource("6_jek36")
 summoning_circle = NodePath("../../SummoningCircle")
+ingr_type = 3
 
 [node name="BookLine5" type="Sprite2D" parent="Node2D2/OpenBook" node_paths=PackedStringArray("summoning_circle")]
 texture_filter = 1
@@ -54,6 +57,7 @@ position = Vector2(-162, 140)
 texture = ExtResource("5_22hau")
 script = ExtResource("6_jek36")
 summoning_circle = NodePath("../../SummoningCircle")
+ingr_type = 4
 
 [node name="SummoningCircle" parent="Node2D2" instance=ExtResource("1_prqnr")]
 position = Vector2(158, -63)

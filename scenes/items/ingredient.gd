@@ -24,11 +24,12 @@ func _ready():
 		randomise()
 	if potency == -1:
 		potency = randi_range(10,20)
+	set_type(type)
+
+func set_type(input_type : IngredientTypes):
+	type = input_type
 	sprite.frame = type
 	label.text = stat_info()
-	label.scale = Vector2(1,1)
-	print()
-	#print(stat_info())
 
 func randomise():
 	type = IngredientTypes.values()[randi_range(0,IngredientTypes.size()-1)]

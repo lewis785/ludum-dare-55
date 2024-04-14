@@ -3,6 +3,7 @@ extends Node2D
 var ingredient = preload("res://scenes/items/ingredient.tscn")
 #@export var ingredient : PackedScene
 @export var summoning_circle : SummoningCircle
+@export var ingr_type : Ingredient.IngredientTypes
 
 # Coordinates to spawn
 var coords = [Vector2(-110.0,5.0), Vector2(-55.0,0.0), Vector2(0.0,-2.0), Vector2(55.0,0.0), Vector2(110.0,5.0)]
@@ -13,6 +14,7 @@ func _ready():
 			
 func spawn_ingredients():
 	for coord in coords:
-		var new_ingr = ingredient.instantiate()
+		var new_ingr : Ingredient = ingredient.instantiate() as Ingredient
 		add_child(new_ingr)
+		new_ingr.set_type(ingr_type)
 		new_ingr.position = coord
