@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b6n5qd7skmkpc"]
+[gd_scene load_steps=18 format=3 uid="uid://b6n5qd7skmkpc"]
 
 [ext_resource type="Script" path="res://scenes/characters/character.gd" id="1_fbwr6"]
 [ext_resource type="PackedScene" uid="uid://cxs88h1qteno5" path="res://scenes/components/character/attributes_component.tscn" id="2_e7yeo"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c7rc417os6bum" path="res://assets/characters/Enemy1.png" id="8_rs7xu"]
 [ext_resource type="Texture2D" uid="uid://vglqxdbugnye" path="res://assets/characters/monster4.png" id="9_r607t"]
 [ext_resource type="Texture2D" uid="uid://bx83qfemdy5s7" path="res://assets/characters/enemy4.png" id="10_cj788"]
+[ext_resource type="Script" path="res://scripts/health_bar.gd" id="11_uessb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ucu04"]
 atlas = ExtResource("6_obl8s")
@@ -92,6 +93,13 @@ animations = [{
 "speed": 0.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68lhu"]
+bg_color = Color(0.333333, 0.694118, 0.313726, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [node name="Character" type="Node2D"]
 script = ExtResource("1_fbwr6")
 
@@ -107,6 +115,22 @@ attributes_component = NodePath("../AttributesComponent")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_tr127")
-animation = &"enemy_speed"
+animation = &"enemy_health"
+
+[node name="HealthBar" type="ProgressBar" parent="." node_paths=PackedStringArray("health_component")]
+texture_filter = 1
+offset_left = -32.0
+offset_top = -71.0
+offset_right = 32.0
+offset_bottom = -61.0
+size_flags_vertical = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_68lhu")
+value = 50.0
+show_percentage = false
+script = ExtResource("11_uessb")
+health_component = NodePath("../HealthComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 
 [connection signal="damaged" from="HealthComponent" to="." method="_on_health_component_damaged"]
+[connection signal="damaged" from="HealthComponent" to="HealthBar" method="_on_health_component_damaged"]
