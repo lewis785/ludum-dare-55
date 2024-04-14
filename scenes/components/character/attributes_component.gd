@@ -51,6 +51,20 @@ func get_attribute_value(attribute: Attributes):
 			return vitality
 	assert("Invalid attribute provided")
 
+func set_attribute_value(attribute: Attributes, value: int):
+	match attribute:
+		Attributes.DEFENCE:
+			defence = value
+		Attributes.LUCK:
+			luck = value
+		Attributes.SPEED:
+			speed = value
+		Attributes.STRENGTH:
+			strength = value
+		Attributes.VITALITY:
+			vitality = value
+	assert("Invalid attribute provided")
+
 @export_group("Resistances")
 @export_range(-100, 100) var slashing = 0:
 	set(value):
