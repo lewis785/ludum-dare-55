@@ -7,9 +7,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ble8y"]
 radius = 149.0
 
-[node name="SummoningCircle" type="Area2D" node_paths=PackedStringArray("output_stats")]
+[node name="SummoningCircle" type="Area2D"]
 script = ExtResource("1_6a87h")
-output_stats = NodePath("AttributesComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_e4xd4")

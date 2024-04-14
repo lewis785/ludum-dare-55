@@ -22,7 +22,6 @@ func _ready():
 
 
 func _on_health_component_damaged(damage):
-	#prints(str(animated_sprite_2d.get_frame().get_size()))
 	var text = FLOATING_LABEL.instantiate()
 	text.amount = damage
 	text.position.x = 50
