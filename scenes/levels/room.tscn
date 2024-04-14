@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://culpis2kpkslw"]
+[gd_scene load_steps=10 format=3 uid="uid://culpis2kpkslw"]
 
 [ext_resource type="Texture2D" uid="uid://crs8kox2y0gj7" path="res://assets/backgrounds/room_temp.png" id="1_son88"]
+[ext_resource type="Script" path="res://scenes/levels/room.gd" id="2_8hr5s"]
 [ext_resource type="PackedScene" uid="uid://f7pi0x6o1uvq" path="res://scenes/background_tools/snap_point.tscn" id="2_n8nla"]
 [ext_resource type="PackedScene" uid="uid://c30y088bbp04r" path="res://scenes/props/torch.tscn" id="3_7h2qe"]
 [ext_resource type="PackedScene" uid="uid://dn523v3tnhp3l" path="res://scenes/characters/wizard.tscn" id="4_67ko6"]
@@ -28,6 +29,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_son88")
 stretch_mode = 1
+script = ExtResource("2_8hr5s")
 
 [node name="SnapPoint0" parent="." instance=ExtResource("2_n8nla")]
 position = Vector2(399, 225)
