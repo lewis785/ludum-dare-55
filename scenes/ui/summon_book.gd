@@ -1,5 +1,10 @@
 extends Node2D
 
+class_name SummonBook
+
+signal book_up
+signal book_down
+
 @export var summoning_circle : SummoningCircle
 @export var arrow_sprite : Sprite2D
 @onready var base_x : float = summoning_circle.position.x
@@ -19,6 +24,7 @@ func raise_book():
 	var arrow_tween = arrow_sprite.create_tween().set_trans(Tween.TRANS_SINE)
 	arrow_tween.tween_property(arrow_sprite, "rotation_degrees", 180, speed).as_relative().set_ease(Tween.EASE_IN_OUT)
 	book_raised = true
+	book_up.emit()
 
 func lower_book():
 	tween = self.create_tween().set_trans(Tween.TRANS_SINE)
@@ -26,11 +32,13 @@ func lower_book():
 	var arrow_tween = arrow_sprite.create_tween().set_trans(Tween.TRANS_SINE)
 	arrow_tween.tween_property(arrow_sprite, "rotation_degrees", 180, speed).as_relative().set_ease(Tween.EASE_IN_OUT)
 	book_raised = false
+	book_down.emit()
 
 func hide_book():
 	tween = self.create_tween().set_trans(Tween.TRANS_SINE)
 	tween.tween_property(self, "global_position:y", 1000, speed).as_relative().set_ease(Tween.EASE_IN_OUT)
 	book_raised = false
+	book_down.emit()
 
 func toggle_position():
 	if book_raised:
