@@ -29,7 +29,7 @@ func _ready():
 		
 func _input(_event):
 	if(Input.is_key_pressed(KEY_ENTER)):	#UPDATE WHEN BATTLE ENDSS
-		room_instance.find_child("AudioStreamPlayer2D").stop()	#Make sure to call this when battle starts!!!
+		room_instance.find_child("RoomMusic").stop()	#Make sure to call this when battle starts!!!
 		_createNextRoom()
 
 func _process(delta):
@@ -65,7 +65,7 @@ func _createNextRoom():
 	old_room.move_wizard()
 
 func _on_combat_coordinator_fight_started():
-	room_instance.find_child("AudioStreamPlayer2D").stop()
+	room_instance.find_child("RoomMusic").stop()
 
 func _on_combat_coordinator_fight_lose():
 	print("IM a looser")
@@ -74,5 +74,5 @@ func _on_combat_coordinator_fight_lose():
 	room_instance.setup_room(lives)
 
 func _on_combat_coordinator_fight_win():
-	room_instance.find_child("AudioStreamPlayer2D").stop()
+	room_instance.find_child("RoomMusic").stop()
 	_createNextRoom()

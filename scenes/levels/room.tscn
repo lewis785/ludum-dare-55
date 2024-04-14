@@ -66,11 +66,13 @@ position = Vector2(-10.9963, -2.02039)
 [node name="Button" parent="Summon-screen/Node2D" index="0"]
 z_index = 7
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="RoomMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_842co")
+bus = &"Music"
 
 [node name="SummoningCircleAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_y6kmm")
+bus = &"FX"
 
 [node name="EnemySpawner" parent="." instance=ExtResource("9_5nmi3")]
 position = Vector2(491, 348)
