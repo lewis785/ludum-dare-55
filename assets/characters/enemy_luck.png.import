@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vglqxdbugnye"
-path="res://.godot/imported/monster4.png-1672dcb372dc596c63f16520c5263a37.ctex"
+uid="uid://0oxgnok3stly"
+path="res://.godot/imported/enemy_luck.png-e352eaec060d53dd12fae4d2a2d79ccf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/monster4.png"
-dest_files=["res://.godot/imported/monster4.png-1672dcb372dc596c63f16520c5263a37.ctex"]
+source_file="res://assets/characters/enemy_luck.png"
+dest_files=["res://.godot/imported/enemy_luck.png-e352eaec060d53dd12fae4d2a2d79ccf.ctex"]
 
 [params]
 

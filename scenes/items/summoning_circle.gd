@@ -38,7 +38,8 @@ func combine_ingredients():
 	for ingr : Ingredient in ingredients:
 		stats[ingr.type] += ingr.potency
 	
-	var summon: Character = summon_scene.instantiate()
+	var summon: Character = summon_scene.instantiate() as Character
+	summon.character_type = Character.CharacterTypes.SUMMON
 	
 	# Summon creature with new stats
 	summon.position = position
@@ -50,6 +51,8 @@ func combine_ingredients():
 	attributes.vitality = stats[4]
 
 	summon.add_to_group("summon")
+
+	
 	var room = get_parent().get_parent().get_parent()
 	room.add_child(summon)
 	summon.position = spawn_location
