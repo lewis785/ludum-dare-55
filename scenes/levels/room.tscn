@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cjx4u6hoveums" path="res://assets/backgrounds/shafts.png" id="10_5dlcw"]
 [ext_resource type="PackedScene" uid="uid://c4srkfmqcw64y" path="res://wizard_arm.tscn" id="11_gnruw"]
 [ext_resource type="PackedScene" uid="uid://cuxh0qmwtnlx4" path="res://thrown_object.tscn" id="12_rgq0m"]
-[ext_resource type="PackedScene" uid="uid://duwouygc3rbhb" path="res://enemy_strengths.tscn" id="13_ywhdp"]
+[ext_resource type="PackedScene" uid="uid://duwouygc3rbhb" path="res://scenes/spawner/enemy_strengths.tscn" id="13_6fxkm"]
 
 [sub_resource type="Curve2D" id="Curve2D_8xhqc"]
 _data = {
@@ -74,9 +74,6 @@ bus = &"Music"
 stream = ExtResource("8_y6kmm")
 bus = &"FX"
 
-[node name="EnemySpawner" parent="." instance=ExtResource("9_5nmi3")]
-position = Vector2(491, 348)
-
 [node name="LightShaft" type="TextureRect" parent="."]
 visible = false
 layout_mode = 1
@@ -95,7 +92,11 @@ visible = false
 texture_filter = 1
 position = Vector2(223, 186)
 
-[node name="enemy_strengths" parent="." instance=ExtResource("13_ywhdp")]
+[node name="EnemySpawner" parent="." node_paths=PackedStringArray("enemy_strengths") instance=ExtResource("9_5nmi3")]
+position = Vector2(491, 348)
+enemy_strengths = NodePath("../EnemyStrengths")
+
+[node name="EnemyStrengths" parent="." instance=ExtResource("13_6fxkm")]
 position = Vector2(456, 186)
 scale = Vector2(1.5, 1.5)
 

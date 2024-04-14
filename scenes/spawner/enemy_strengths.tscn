@@ -1,17 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://duwouygc3rbhb"]
+[gd_scene load_steps=3 format=3 uid="uid://duwouygc3rbhb"]
 
-[ext_resource type="PackedScene" uid="uid://b44253gukkg0b" path="res://scenes/props/Sigil.tscn" id="1_bn6ld"]
+[ext_resource type="Script" path="res://scenes/spawner/enemy_strengths.gd" id="1_25d6t"]
+[ext_resource type="PackedScene" uid="uid://b44253gukkg0b" path="res://scenes/props/Sigil.tscn" id="1_l0162"]
 
-[node name="Node2D2" type="Node2D"]
+[node name="EnemyStrength" type="Node2D"]
 texture_filter = 1
+script = ExtResource("1_25d6t")
 
-[node name="SigilLeft" parent="." instance=ExtResource("1_bn6ld")]
+[node name="SigilLeft" parent="." instance=ExtResource("1_l0162")]
 visible = true
 scale = Vector2(1, 1)
-animation = &"Defence1"
+animation = &"Defence2"
+script = null
 
-[node name="SigilRight" parent="." instance=ExtResource("1_bn6ld")]
+[node name="SigilRight" parent="." instance=ExtResource("1_l0162")]
 visible = true
-position = Vector2(48, -3)
+position = Vector2(48, 0)
 scale = Vector2(1, 1)
-animation = &"Strength1"
+animation = &"Health1"
+script = null
