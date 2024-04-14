@@ -1,6 +1,8 @@
 extends CanvasLayer
 var music_muted = false
 var fx_muted = false
+@onready var music_mute_button = $MusicMuteButton
+@onready var fx_mute_button = $FXMuteButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,13 +29,17 @@ func _on_fx_mute_button_gui_input(event):
 		set_fx_muted(fx_muted)
 
 func set_music_muted(is_muted):
-	var asset_name = "Sound_Off" if is_muted else "Sound_On"
-#	$MusicToggle.texture = load("res://assets/ui/"+ asset_name + ".png")
+	if(is_muted):
+		music_mute_button.texture = load("res://assets/elements/musictempNOT.png")
+	else:
+				music_mute_button.texture = load("res://assets/elements/musictemp.png")
 #	config.save_value("sound", "music_muted", is_muted)
 	AudioServer.set_bus_mute(2, is_muted)
 
 func set_fx_muted(is_muted):
-	var asset_name = "FX_Off" if is_muted else "FX_On"
-#	$FxToggle.texture = load("res://assets/ui/"+ asset_name + ".png")
+	if(is_muted):
+		fx_mute_button.texture = load("res://assets/elements/fxtempNOT.png")
+	else:
+				fx_mute_button.texture = load("res://assets/elements/fxtemp.png")
 #	config.save_value("sound", "fx_muted", is_muted)
 	AudioServer.set_bus_mute(1, is_muted)
