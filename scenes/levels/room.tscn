@@ -64,7 +64,6 @@ z_index = 3
 position = Vector2(-10.9963, -2.02039)
 
 [node name="Summon-screen" parent="." instance=ExtResource("5_mi5o7")]
-visible = false
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_842co")
