@@ -189,6 +189,7 @@ animations = [{
 }]
 
 [node name="Sigil" type="AnimatedSprite2D"]
+visible = false
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_7h86s")
 animation = &"Strength3"
@@ -196,7 +197,7 @@ script = ExtResource("3_1csib")
 brightness = 8.0
 pulseDelay = 20
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="SigilLight" type="PointLight2D" parent="."]
 position = Vector2(0, 2.5)
-energy = 13.35
+energy = 0.0
 texture = ExtResource("3_sxo3f")

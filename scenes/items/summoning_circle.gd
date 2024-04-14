@@ -5,6 +5,11 @@ class_name SummoningCircle
 @export var ingredients_cap : int = 5
 @export var summon_scene : PackedScene
 @onready var sprite_2d = $Sprite2D
+@onready var sigil_1 = $Sigil1
+@onready var sigil_2 = $Sigil2
+@onready var sigil_3 = $Sigil3
+@onready var sigil_4 = $Sigil4
+@onready var sigil_5 = $Sigil5
 
 var ingredients = []
 
@@ -67,5 +72,16 @@ func _on_button_pressed():
 
 func _on_sprite_2d_animation_looped():
 	if $Sprite2D.animation == "Spawn":
-		print("done")
 		$Sprite2D.animation = "Idle"
+		sigil_1.visible = true
+		sigil_2.visible = true
+		sigil_3.visible = true
+		sigil_4.visible = true
+		sigil_5.visible = true
+		
+		sigil_1.find_child("SigilLight").energy = 2.0
+		sigil_2.find_child("SigilLight").energy = 2.0
+		sigil_3.find_child("SigilLight").energy = 2.0
+		sigil_4.find_child("SigilLight").energy = 2.0
+		sigil_5.find_child("SigilLight").energy = 2.0
+		

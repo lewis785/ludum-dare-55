@@ -553,7 +553,7 @@ texture_filter = 1
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_6lmhd")
 animation = &"Spawn"
-frame_progress = 0.965127
+frame_progress = 0.528107
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ble8y")
@@ -577,6 +577,7 @@ position = Vector2(97, 114)
 animation = &"Luck1"
 
 [node name="Sigil5" parent="." instance=ExtResource("5_jmgye")]
+texture_filter = 1
 position = Vector2(-99, 111)
 animation = &"Speed1"
 
