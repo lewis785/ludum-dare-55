@@ -15,12 +15,12 @@ size = Vector2(670, 84.3751)
 
 [node name="SummonBook" type="Node2D" parent="." node_paths=PackedStringArray("summoning_circle", "arrow_sprite")]
 z_index = 5
-position = Vector2(350, 560)
+position = Vector2(600, 560)
 scale = Vector2(0.8, 0.8)
 script = ExtResource("4_qmi7a")
 summoning_circle = NodePath("SummoningCircle")
 arrow_sprite = NodePath("OpenBook/Area2D/Sprite2D")
-start_coords = Vector2(350, 560)
+start_coords = Vector2(400, 560)
 
 [node name="OpenBook" type="Sprite2D" parent="SummonBook"]
 texture_filter = 1
@@ -82,10 +82,11 @@ texture = ExtResource("5_kopa1")
 [node name="SummoningCircle" parent="SummonBook" instance=ExtResource("1_prqnr")]
 position = Vector2(158, -63)
 scale = Vector2(0.6, 0.6)
+spawn_location = Vector2(300, 340)
 
 [node name="Button" type="Button" parent="SummonBook"]
 texture_filter = 1
-offset_left = 67.0
+offset_left = 66.9999
 offset_top = 88.3333
 offset_right = 253.0
 offset_bottom = 146.333

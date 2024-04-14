@@ -53,10 +53,12 @@ func combine_ingredients():
 	summon.add_to_group("summon")
 
 	
-	var room = get_parent().get_parent().get_parent()
+	var sliding_window : SlidingWindow = find_parent("SlidingWindow")
+	var room : Room = sliding_window.room_instance
 	# Delay to spawn Summon
 	await get_tree().create_timer(summon_delay).timeout
 	room.add_child(summon)
+	#find_child("SummoningCircleAudio").play()
 	
 	summon.position = spawn_location
 	
@@ -69,7 +71,6 @@ func _on_area_entered(area):
 		add_ingredient(area)
 		sprite_2d.animation = "Active"
 		sprite_2d.play()
-
 
 func _on_area_exited(area):
 	if area.is_in_group("Ingredient"):
@@ -94,4 +95,3 @@ func _on_sprite_2d_animation_looped():
 		sigil_3.find_child("SigilLight").energy = 2.0
 		sigil_4.find_child("SigilLight").energy = 2.0
 		sigil_5.find_child("SigilLight").energy = 2.0
-		

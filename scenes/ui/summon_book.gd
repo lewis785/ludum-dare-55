@@ -7,9 +7,8 @@ signal book_down
 
 @export var summoning_circle : SummoningCircle
 @export var arrow_sprite : Sprite2D
-@onready var base_x : float = summoning_circle.position.x
-@export var base_y : float = 160
-@export var start_coords : Vector2
+@export var start_coords : Vector2 = Vector2(620,560)
+@export var displ_coords : Vector2 = Vector2(400,560)
 @export var speed : float = 1.0
 @export var height : int = 280
 
@@ -17,12 +16,12 @@ var tween : Tween
 var book_raised : bool = false
 var inventory = null
 var summon_active : bool = true
+var sigil_drawn : bool = false
 
 
 func _ready():
 	position = start_coords
 	book_raised = false
-	#populate_book()
 	store_book()
 
 func reset_book():
@@ -50,6 +49,10 @@ func raise_book():
 	tween.tween_property(self, "global_position:y", -height, speed).as_relative().set_ease(Tween.EASE_IN_OUT)
 	var arrow_tween = arrow_sprite.create_tween().set_trans(Tween.TRANS_SINE)
 	arrow_tween.tween_property(arrow_sprite, "rotation_degrees", 180, speed).as_relative().set_ease(Tween.EASE_IN_OUT)
+	if !sigil_drawn:
+		find_child("SummoningCircle").find_child("Sprite2D").play("Spawn")
+		find_child("SummoningCircleAudio").play()
+		sigil_drawn = true
 	book_raised = true
 	book_up.emit()
 
@@ -96,6 +99,5 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 
 func _input(_event):
 	if(Input.is_key_pressed(KEY_SPACE)):	#UPDATE WHEN BATTLE ENDSS
-		
 		if !summon_active:
 			reset_book()

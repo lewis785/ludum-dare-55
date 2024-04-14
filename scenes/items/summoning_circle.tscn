@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://cjfwvsq2rkexi"]
+[gd_scene load_steps=73 format=3 uid="uid://cjfwvsq2rkexi"]
 
 [ext_resource type="Script" path="res://scenes/items/summoning_circle.gd" id="1_6a87h"]
 [ext_resource type="Texture2D" uid="uid://cfl3thtygaojw" path="res://assets/props/Circle-Sheet.png" id="2_7jyvr"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b6n5qd7skmkpc" path="res://scenes/characters/character.tscn" id="2_ytns0"]
 [ext_resource type="PackedScene" uid="uid://cxs88h1qteno5" path="res://scenes/components/character/attributes_component.tscn" id="3_pcipr"]
 [ext_resource type="PackedScene" uid="uid://b44253gukkg0b" path="res://scenes/props/Sigil.tscn" id="5_jmgye"]
+[ext_resource type="AudioStream" uid="uid://dkvoloeawjadv" path="res://assets/sounds/summon_no_trail.mp3" id="7_agxk5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c63l2"]
 atlas = ExtResource("2_qy0wq")
@@ -580,6 +581,10 @@ animation = &"Luck1"
 texture_filter = 1
 position = Vector2(-99, 111)
 animation = &"Speed1"
+
+[node name="SummoningCircleAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_agxk5")
+bus = &"FX"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

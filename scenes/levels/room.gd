@@ -43,9 +43,6 @@ func _set_torches_brightness(brightness : int, amount : int = 0):
 			continue
 		torch.brightness = brightness
 		index += 1
-	
-		find_child("Summon-screen").find_child("SummoningCircle").find_child("Sprite2D").play("Spawn")
-		find_child("SummoningCircleAudio").play()
 
 func move_wizard():
 	var wizard = find_child("PathFollow2D").find_child("Wizard")

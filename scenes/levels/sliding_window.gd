@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name SlidingWindow
+
 @onready var camera = $Camera2D
 @onready var combat_coordinator = $CombatCoordinator
 @onready var win_music = $WinMusic
