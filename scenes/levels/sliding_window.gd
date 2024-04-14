@@ -120,7 +120,7 @@ func _createNextRoom():
 				#igniteSoundPlayed = 1
 
 func _on_combat_coordinator_fight_started():
-	roomInstance1.find_child("AudioStreamPlayer2D").stop()	#Make sure to call this when battle starts!!!
+	room_instance.find_child("AudioStreamPlayer2D").stop()	#Make sure to call this when battle starts!!!
 
 func _on_combat_coordinator_fight_lose():
 	pass # Replace with function body.
