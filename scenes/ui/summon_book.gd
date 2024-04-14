@@ -28,7 +28,8 @@ func _ready():
 func reset_book():
 	if inventory != null:
 		populate_book()
-	unhide_book() 
+	unhide_book()
+	raise_book()
 	
 func populate_book():
 	var i = 0
@@ -61,16 +62,16 @@ func lower_book():
 	book_down.emit()
 
 func hide_book():
-	#tween = self.create_tween().set_trans(Tween.TRANS_SINE)
-	#tween.tween_property(self, "global_position:y", 1000, speed).as_relative().set_ease(Tween.EASE_IN_OUT)
+	tween = self.create_tween().set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self, "global_position:y", 1000, speed).as_relative().set_ease(Tween.EASE_IN_OUT)
 	#book_raised = false
-	visible = false
+	#visible = false
 	summon_active = false
 
 func unhide_book():
-	#if tween != null and tween.is_running():
-		#print("TWEEN KILL")
-		#tween.kill()
+	if tween != null and tween.is_running():
+		print("TWEEN KILL")
+		tween.kill()
 	position = start_coords
 	visible = true
 	book_raised = false
