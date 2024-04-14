@@ -35,7 +35,8 @@ func _on_health_component_damaged(damage: int, crit: bool):
 func pick_enemy_sprite():
 	var stats = ["defence", "health", "luck", "speed", "strength"]
 	var random_index = randi() % len(stats)
-	animated_sprite_2d.animation = "enemy_" + stats[random_index]
+	animated_sprite_2d.animation = "enemy"
+	animated_sprite_2d.set_frame_and_progress(random_index, 0.0)
 	
 	
 	
