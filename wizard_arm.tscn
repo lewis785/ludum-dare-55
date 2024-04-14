@@ -1,10 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4srkfmqcw64y"]
+[gd_scene load_steps=6 format=3 uid="uid://c4srkfmqcw64y"]
 
 [ext_resource type="Texture2D" uid="uid://bfsphdipecob3" path="res://assets/characters/Arm.png" id="1_7djdt"]
+[ext_resource type="Texture2D" uid="uid://b8geviyjvker4" path="res://assets/characters/ArmThumb2.png" id="2_kpa5b"]
 [ext_resource type="Script" path="res://wizard_arm.gd" id="2_rjuuu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1cilu"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kpa5b")
+}],
+"loop": true,
+"name": &"Thumb",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_7djdt")
@@ -23,6 +32,7 @@ script = ExtResource("2_rjuuu")
 [node name="ArmVisual" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_1cilu")
+animation = &"Thumb"
 offset = Vector2(64, -1)
 
 [node name="Area2D" type="Area2D" parent="ArmVisual"]
