@@ -5,7 +5,7 @@ class_name SummoningCircle
 @export var output_stats: AttributesComponent
 @export var ingredients_cap : int = 5
 
-@export var creature_summon : Character
+@export var summon_scene : PackedScene
 
 var ingredients = []
 
@@ -43,14 +43,19 @@ func combine_ingredients():
 	
 	output_stats.defence = stats[0]
 	output_stats.luck = stats[1]
-	output_stats.speed = stats[2]
+	output_stats.speed = stats[2] 
+	output_stats.strength = stats[3]
 	output_stats.vitality = stats[4]
 	
+	var summon: Character = summon_scene.instantiate()
+	prints(stats)
+	
+	
 	# Summon creature with new stats
-	creature_summon.visible = false
-	creature_summon.position = position
-	creature_summon.attributes_component = output_stats
-	creature_summon.visible = true
+	summon.position = position
+	summon.attributes_component = output_stats
+	summon.add_to_group("summon")
+	add_sibling(summon)
 	
 	for ingr : Ingredient in ingredients:
 		ingr.queue_free()
@@ -64,11 +69,5 @@ func _on_area_exited(area):
 	if area.is_in_group("Ingredient"):
 		remove_ingredient(area)
 		
-		
-#func _input(event):
-	#if(Input.is_key_pressed(KEY_SPACE)):
-		#combine_ingredients()
-
-
 func _on_button_pressed():
 	combine_ingredients()
