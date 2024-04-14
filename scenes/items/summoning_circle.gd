@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name SummoningCircle
+
 @export var ingredients_cap : int = 5
 @export var summon_scene : PackedScene
 
