@@ -79,6 +79,9 @@ func _set_torches_brightness(brightness : int, amount : int = 0):
 				randTmp = rng.randf_range(-flicker, flicker)
 				torch.find_child("PointLight2D").energy = brightness + randTmp
 				torch.find_child("Ignite").play()
+			find_child("Summon-screen").find_child("SummoningCircle").find_child("Sprite2D").play("Spawn")
+			find_child("SummoningCircleAudio").play()
+			find_child("Summon-screen").find_child("SummoningCircle").find_child("Sprite2D").play("Spawn")
 
 func move_wizard():
 	var wizard = find_child("PathFollow2D").find_child("Wizard")
