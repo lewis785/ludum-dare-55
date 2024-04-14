@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://b6n5qd7skmkpc"]
+[gd_scene load_steps=11 format=3 uid="uid://b6n5qd7skmkpc"]
 
 [ext_resource type="Script" path="res://scenes/components/character/character.gd" id="1_fbwr6"]
 [ext_resource type="PackedScene" uid="uid://cxs88h1qteno5" path="res://scenes/components/character/attributes_component.tscn" id="2_e7yeo"]
-[ext_resource type="Script" path="res://scenes/components/character/attributes_component.gd" id="3_du7sq"]
 [ext_resource type="PackedScene" uid="uid://wx7qik0tnnxf" path="res://scenes/components/character/health_component.tscn" id="3_ixrst"]
 [ext_resource type="PackedScene" uid="uid://crlxihydew4my" path="res://scenes/components/character/attack_component.tscn" id="4_6vune"]
 [ext_resource type="Texture2D" uid="uid://duo5ytolcyetd" path="res://assets/characters/monster_temp_sheet.png" id="6_obl8s"]
@@ -52,7 +51,6 @@ animations = [{
 script = ExtResource("1_fbwr6")
 
 [node name="AttributesComponent" parent="." instance=ExtResource("2_e7yeo")]
-script = ExtResource("3_du7sq")
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("attributes") instance=ExtResource("3_ixrst")]
 attributes = NodePath("../AttributesComponent")
@@ -65,5 +63,3 @@ attributes_component = NodePath("../AttributesComponent")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_tr127")
 animation = &"summon"
-
-[connection signal="damaged" from="HealthComponent" to="." method="_on_health_component_damaged"]

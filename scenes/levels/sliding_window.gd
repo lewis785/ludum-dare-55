@@ -24,9 +24,11 @@ var flag = 1;
 #Camera set to 1.44
 func _ready():
 	_createNextRoom(0)
+	
 		
 func _input(_event):
-	if(Input.is_key_pressed(KEY_ENTER)):	#UPDATE WHEN BATTLE ENDS
+	if(Input.is_key_pressed(KEY_ENTER)):	#UPDATE WHEN BATTLE ENDSS
+		roomInstance1.find_child("AudioStreamPlayer2D").stop()	#Make sure to call this when battle starts!!!
 		target+=1
 
 func _process(delta):
@@ -36,15 +38,12 @@ func _process(delta):
 	_createNextRoom(target)
 	if(enableWizard == 1):
 		roomInstance1.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").progress+= wizardSpeed*delta
-		print(wizardSpeed*delta)
 	if(enableWizard == 2):
 		roomInstance2.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").progress+= wizardSpeed*delta
-		print(wizardSpeed*delta)
 		
 func _createNextRoom(nextRoom):
 	var roomInstance = roomInstance1 if nextRoom % 2 == 0 else roomInstance2
 	var notRoomInstance = roomInstance2 if nextRoom % 2 == 0 else roomInstance1
-
 	if (nextRoom % 2 == 0):
 		flag = 2
 	else:
@@ -70,7 +69,7 @@ func _createNextRoom(nextRoom):
 			
 			enableWizard = flag
 			notRoomInstance.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").find_child("Wizard").find_child("PointLight2D").set_enabled(true)
-			
+			notRoomInstance.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").find_child("Wizard").visible = true
 		
 		target_coordinates = Vector2(400+(800*nextRoom), 225)
 		if(target_coordinates == camera_coordinates):
@@ -78,10 +77,13 @@ func _createNextRoom(nextRoom):
 			if((tempPleaseLewisDontHateMe > 2) and (target_coordinates == camera_coordinates) and igniteSoundPlayed == 0):
 				enableWizard = 0
 				notRoomInstance.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").find_child("Wizard").find_child("PointLight2D").set_enabled(false)
-				
+				notRoomInstance.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").find_child("Wizard").visible = false
+				roomInstance1.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").progress = 0
+				roomInstance2.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").progress = 0
 				roomInstance.find_child("Torch0").find_child("Ignite").play()	
 				_setTorchesBrightness(roomInstance, 10.0)
 				tempPleaseLewisDontHateMe = 0
+				roomInstance1.find_child("AudioStreamPlayer2D").play()
 				igniteSoundPlayed = 1
 	
 func _setTorchesBrightness(instance: Node, brightness):

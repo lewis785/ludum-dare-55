@@ -9,9 +9,9 @@ modulate = Color(0.0627451, 0.0627451, 0.0627451, 1)
 self_modulate = Color(0.337255, 0.337255, 0.337255, 1)
 material = ExtResource("1_e44qa")
 script = ExtResource("1_6pdol")
-cameraSpeed = 400
+cameraSpeed = 300
 lives = 3
-wizardSpeed = 200
+wizardSpeed = 300
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(400, 225)
