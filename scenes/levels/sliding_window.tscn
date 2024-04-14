@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2arbyrhcflvl"]
+[gd_scene load_steps=10 format=3 uid="uid://d2arbyrhcflvl"]
 
 [ext_resource type="Script" path="res://scenes/levels/sliding_window.gd" id="1_6pdol"]
 [ext_resource type="Material" uid="uid://dfe7af4v5j5i1" path="res://scenes/background_tools/darkness.tres" id="1_e44qa"]
 [ext_resource type="PackedScene" uid="uid://cnl8yhf0gc2xu" path="res://scenes/components/combat/combat_coordinator.tscn" id="3_ajeuy"]
 [ext_resource type="Texture2D" uid="uid://3u2uuemry1fm" path="res://assets/elements/musictemp.png" id="3_f5ejc"]
 [ext_resource type="Script" path="res://scenes/levels/hud.gd" id="3_o6dr8"]
+[ext_resource type="AudioStream" uid="uid://d12ek6yeqfs3y" path="res://assets/sounds/Victory_v1.mp3" id="4_uvcen"]
 [ext_resource type="Texture2D" uid="uid://deradcgixu68o" path="res://assets/elements/fxtemp.png" id="4_x0w8p"]
+[ext_resource type="AudioStream" uid="uid://dfoj60b5jegqm" path="res://assets/sounds/Defeat_v1.mp3" id="5_ym2jw"]
+[ext_resource type="AudioStream" uid="uid://cr62vuj0agl5g" path="res://assets/sounds/Battle_v1.mp3" id="6_hywnn"]
 
 [node name="SlidingWindow" type="Node2D"]
 modulate = Color(0.0627451, 0.0627451, 0.0627451, 1)
@@ -24,12 +27,15 @@ zoom = Vector2(1.44, 1.44)
 [node name="CombatCoordinator" parent="." instance=ExtResource("3_ajeuy")]
 
 [node name="WinMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_uvcen")
 bus = &"Music"
 
 [node name="LoseMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ym2jw")
 bus = &"Music"
 
 [node name="FightMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_hywnn")
 
 [node name="Overlay" type="CanvasLayer" parent="."]
 scale = Vector2(1.44, 1.44)
@@ -51,6 +57,7 @@ offset_bottom = 80.9167
 texture = ExtResource("4_x0w8p")
 
 [connection signal="fight_lose" from="CombatCoordinator" to="." method="_on_combat_coordinator_fight_lose"]
+[connection signal="fight_started" from="CombatCoordinator" to="." method="_on_combat_coordinator_fight_started"]
 [connection signal="fight_win" from="CombatCoordinator" to="." method="_on_combat_coordinator_fight_win"]
 [connection signal="gui_input" from="Overlay/MusicMuteButton" to="Overlay" method="_on_music_mute_button_gui_input"]
 [connection signal="gui_input" from="Overlay/FXMuteButton" to="Overlay" method="_on_fx_mute_button_gui_input"]

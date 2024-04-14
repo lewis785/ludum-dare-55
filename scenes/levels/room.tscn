@@ -91,6 +91,7 @@ texture = ExtResource("10_5dlcw")
 position = Vector2(117, 277)
 
 [node name="ThrownObject" parent="." instance=ExtResource("12_rgq0m")]
+visible = false
 texture_filter = 1
 position = Vector2(223, 186)
 

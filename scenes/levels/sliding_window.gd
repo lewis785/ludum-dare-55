@@ -2,6 +2,11 @@ extends Node2D
 
 @onready var camera = $Camera2D
 @onready var combat_coordinator = $CombatCoordinator
+@onready var win_music = $WinMusic
+@onready var lose_music = $LoseMusic
+@onready var fight_music = $FightMusic
+
+
 
 @export var cameraSpeed: int
 @export var lives: int
@@ -65,12 +70,15 @@ func _createNextRoom():
 	old_room.move_wizard()
 
 func _on_combat_coordinator_fight_started():
-	room_instance.find_child("RoomMusic").stop()
+	fight_music.play()
 
 func _on_combat_coordinator_fight_lose():
+	fight_music.stop()
+	lose_music.play()
 	lives -= 1
 	room_instance.setup_room(lives)
 
 func _on_combat_coordinator_fight_win():
-	room_instance.find_child("RoomMusic").stop()
+	fight_music.stop()
+	win_music.play()
 	_createNextRoom()

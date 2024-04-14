@@ -1,4 +1,5 @@
 extends CharacterBody2D
+@onready var area_2d = $Area2D
 
 
 const SPEED = 300.0
@@ -18,14 +19,14 @@ func _physics_process(delta):
 			velocity.y += gravity * delta
 	if(attached == true):		
 		velocity = Vector2(0,0)
-		var direction = get_viewport().get_mouse_position() - self.position
+		var direction =  area_2d.position- self.position
 		velocity = direction * delta * SPEED/1.44
 
 		move_and_slide()
 	
 func _input(_event):
 	if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and (touching == true)):
-		print("attached")
+		print()
 		attached = true
 	if(not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and attached == true):
 		attached = false
@@ -33,8 +34,8 @@ func _input(_event):
 		print("Thrown")
 	
 func _on_area_2d_area_entered(area):
-	#print("entered")
-	touching = true
+	if(enabled == true):
+		touching = true
 	
 func _on_area_2d_area_exited(area):
 	#print("exited")

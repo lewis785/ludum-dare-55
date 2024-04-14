@@ -12,8 +12,4 @@ func _process(delta):
 	pass
 	
 func _physics_process(delta):
-	#velocity = Vector2(0,0)
-	#var direction = get_viewport().get_mouse_position() - wizard_arm.position
-	#velocity = direction * delta * SPEED
-	#wizard_arm.rotate()
 	look_at(get_global_mouse_position())
