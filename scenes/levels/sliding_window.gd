@@ -5,6 +5,7 @@ extends Node2D
 @onready var win_music = $WinMusic
 @onready var lose_music = $LoseMusic
 @onready var fight_music = $FightMusic
+@onready var game_over_bar = $Overlay/GameOverBar
 
 
 
@@ -77,6 +78,8 @@ func _on_combat_coordinator_fight_lose():
 	lose_music.play()
 	lives -= 1
 	room_instance.setup_room(lives)
+	if(lives < 1):
+		game_over_bar.visible = true
 
 func _on_combat_coordinator_fight_win():
 	fight_music.stop()

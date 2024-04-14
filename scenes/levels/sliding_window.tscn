@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2arbyrhcflvl"]
+[gd_scene load_steps=11 format=3 uid="uid://d2arbyrhcflvl"]
 
 [ext_resource type="Script" path="res://scenes/levels/sliding_window.gd" id="1_6pdol"]
 [ext_resource type="Material" uid="uid://dfe7af4v5j5i1" path="res://scenes/background_tools/darkness.tres" id="1_e44qa"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://deradcgixu68o" path="res://assets/elements/fxtemp.png" id="4_x0w8p"]
 [ext_resource type="AudioStream" uid="uid://dfoj60b5jegqm" path="res://assets/sounds/Defeat_v1.mp3" id="5_ym2jw"]
 [ext_resource type="AudioStream" uid="uid://cr62vuj0agl5g" path="res://assets/sounds/Battle_v1.mp3" id="6_hywnn"]
+[ext_resource type="PackedScene" uid="uid://b02a8q6g57xda" path="res://game_over_bar.tscn" id="10_vr0mn"]
 
 [node name="SlidingWindow" type="Node2D"]
 modulate = Color(0.0627451, 0.0627451, 0.0627451, 1)
@@ -55,6 +56,12 @@ offset_top = 47.9167
 offset_right = 791.722
 offset_bottom = 80.9167
 texture = ExtResource("4_x0w8p")
+
+[node name="GameOverBar" parent="Overlay" instance=ExtResource("10_vr0mn")]
+offset_left = -274.611
+offset_top = -124.694
+offset_right = -182.611
+offset_bottom = -101.694
 
 [connection signal="fight_lose" from="CombatCoordinator" to="." method="_on_combat_coordinator_fight_lose"]
 [connection signal="fight_started" from="CombatCoordinator" to="." method="_on_combat_coordinator_fight_started"]

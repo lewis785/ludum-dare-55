@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://b02a8q6g57xda"]
+
+[ext_resource type="Script" path="res://game_over_bar.gd" id="1_e6oel"]
+
+[sub_resource type="Gradient" id="Gradient_c55c6"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6hdie"]
+gradient = SubResource("Gradient_c55c6")
+fill_to = Vector2(0, 0.0042735)
+
+[node name="GameOverBar" type="Label"]
+visible = false
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -282.944
+offset_top = -104.556
+offset_right = -190.944
+offset_bottom = -81.5556
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_e6oel")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(48.6111, 29.1597)
+scale = Vector2(1.94531, 1.10699)
+energy = 16.0
+texture = SubResource("GradientTexture2D_6hdie")
+
+[node name="Button" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 8.33333
+offset_top = 29.8611
+offset_right = 83.3333
+offset_bottom = 60.8611
+text = "RESTART"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
