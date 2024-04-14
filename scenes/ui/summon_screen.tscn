@@ -9,9 +9,10 @@
 
 [node name="Summon-screen" type="Node2D"]
 
-[node name="Storage" parent="." instance=ExtResource("1_emak8")]
+[node name="Storage" parent="." node_paths=PackedStringArray("summoning_circle") instance=ExtResource("1_emak8")]
 position = Vector2(605, 249)
 scale = Vector2(1.5, 1.5)
+summoning_circle = NodePath("../SummoningCircle")
 
 [node name="SummoningCircle" parent="." node_paths=PackedStringArray("creature_summon") instance=ExtResource("1_prqnr")]
 position = Vector2(276, 349)
@@ -24,8 +25,9 @@ position = Vector2(276, 349)
 
 [node name="Monster" parent="Character" instance=ExtResource("3_5s2jg")]
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Node2D" type="Node2D" parent="." node_paths=PackedStringArray("summoning_circle")]
 script = ExtResource("5_spst6")
+summoning_circle = NodePath("../SummoningCircle")
 speed = 2
 
 [node name="Button" type="Button" parent="Node2D"]

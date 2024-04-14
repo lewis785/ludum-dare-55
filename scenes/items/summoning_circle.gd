@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name SummoningCircle
+
 @export var output_stats: AttributesComponent
 @export var ingredients_cap : int = 5
 
@@ -19,14 +21,20 @@ func clear_stats():
 	output_stats.strength = 0
 	output_stats.vitality = 0
 
+func is_summonable():
+	print(ingredients.size())
+	if ingredients.size() > ingredients_cap or ingredients.size() == 0:
+		return false
+	return true
+
 func add_ingredient(ingr):
 	ingredients.append(ingr)
-	
+
 func remove_ingredient(ingr):
 	ingredients.erase(ingr)
 
 func combine_ingredients():
-	if ingredients.size() > ingredients_cap or ingredients.size() == 0:
+	if not is_summonable():
 		return
 	var stats = [0,0,0,0,0]
 	
@@ -35,7 +43,7 @@ func combine_ingredients():
 	
 	output_stats.defence = stats[0]
 	output_stats.luck = stats[1]
-	output_stats.speed = stats[2] 
+	output_stats.speed = stats[2]
 	output_stats.vitality = stats[4]
 	
 	# Summon creature with new stats

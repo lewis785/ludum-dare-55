@@ -1,6 +1,6 @@
 extends Node2D
-@onready var summoning_circle : Area2D = $"../SummoningCircle"
 
+@export var summoning_circle : SummoningCircle
 @onready var base_x : int = summoning_circle.position.x
 @export var base_y : int = 160
 @export var speed : int = 5
@@ -19,6 +19,7 @@ func _ready():
 	tween_y.tween_property(self, "global_position:y", -half_height, speed).as_relative().set_ease(Tween.EASE_OUT)
 
 func _on_button_pressed():
-	tween_y.kill()
-	tween_y = self.create_tween().set_trans(Tween.TRANS_SINE)
-	tween_y.tween_property(self, "global_position:y", -2000, speed).as_relative().set_ease(Tween.EASE_IN)
+	if summoning_circle.is_summonable():
+		tween_y.kill()
+		tween_y = self.create_tween().set_trans(Tween.TRANS_SINE)
+		tween_y.tween_property(self, "global_position:y", -2000, speed).as_relative().set_ease(Tween.EASE_IN)
