@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b6n5qd7skmkpc"]
+[gd_scene load_steps=17 format=3 uid="uid://b6n5qd7skmkpc"]
 
 [ext_resource type="Script" path="res://scenes/characters/character.gd" id="1_fbwr6"]
 [ext_resource type="PackedScene" uid="uid://cxs88h1qteno5" path="res://scenes/components/character/attributes_component.tscn" id="2_e7yeo"]
@@ -28,14 +28,6 @@ region = Rect2(0, 0, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_beved"]
 atlas = SubResource("CompressedTexture2D_4jc43")
 region = Rect2(0, 384, 128, 128)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3tiq1"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uv1u2"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xuvep"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dbjfb"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7anjp"]
 load_path = "res://.godot/imported/monster_temp_sheet.png-369dc62cd84a366435efef510ee17d99.ctex"
@@ -68,44 +60,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"enemy",
-"speed": 0.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_3tiq1")
-}],
-"loop": true,
-"name": &"enemy_defence",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_uv1u2")
-}],
-"loop": true,
-"name": &"enemy_health",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_xuvep")
-}],
-"loop": true,
-"name": &"enemy_luck",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_dbjfb")
-}],
-"loop": true,
-"name": &"enemy_speed",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"enemy_strength",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -141,14 +96,15 @@ attributes_component = NodePath("../AttributesComponent")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_tr127")
-animation = &"enemy_defence"
+animation = &"enemy"
+frame_progress = 0.621043
 
 [node name="HealthBar" type="ProgressBar" parent="." node_paths=PackedStringArray("health_component")]
 texture_filter = 1
 offset_left = -32.0
-offset_top = -71.0
+offset_top = -74.0
 offset_right = 32.0
-offset_bottom = -61.0
+offset_bottom = -64.0
 size_flags_vertical = 1
 theme_override_styles/fill = SubResource("StyleBoxFlat_68lhu")
 value = 50.0
