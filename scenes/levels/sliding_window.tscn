@@ -47,3 +47,6 @@ texture = ExtResource("4_x0w8p")
 [node name="LoseMusic" type="AudioStreamPlayer2D" parent="."]
 
 [node name="FightMusic" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="fight_lose" from="CombatCoordinator" to="." method="_on_combat_coordinator_fight_lose"]
+[connection signal="fight_win" from="CombatCoordinator" to="." method="_on_combat_coordinator_fight_win"]
