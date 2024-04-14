@@ -11,6 +11,7 @@ class_name SummoningCircle
 @onready var sigil_4 = $Sigil4
 @onready var sigil_5 = $Sigil5
 
+@export var spawn_location : Vector2 = Vector2(250,350)
 var ingredients = []
 
 # Called when the node enters thegit c scene tree for the first time.
@@ -49,7 +50,9 @@ func combine_ingredients():
 	attributes.vitality = stats[4]
 
 	summon.add_to_group("summon")
-	add_sibling(summon)
+	var room = get_parent().get_parent().get_parent()
+	room.add_child(summon)
+	summon.position = spawn_location
 	
 	for ingr : Ingredient in ingredients:
 		ingr.queue_free()

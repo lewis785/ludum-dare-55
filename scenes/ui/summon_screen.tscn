@@ -1,36 +1,75 @@
-[gd_scene load_steps=5 format=3 uid="uid://df7kvudh0t7fu"]
+[gd_scene load_steps=7 format=3 uid="uid://df7kvudh0t7fu"]
 
-[ext_resource type="PackedScene" uid="uid://c7bv6yhmf1574" path="res://scenes/ui/storage.tscn" id="1_emak8"]
 [ext_resource type="PackedScene" uid="uid://cjfwvsq2rkexi" path="res://scenes/items/summoning_circle.tscn" id="1_prqnr"]
-[ext_resource type="Texture2D" uid="uid://dfcq7vrwougf7" path="res://assets/elements/book.png" id="5_7hrbm"]
-[ext_resource type="Script" path="res://scenes/ui/book.gd" id="5_spst6"]
+[ext_resource type="Texture2D" uid="uid://ttuhskylebt0" path="res://assets/elements/OpenBook.png" id="4_5pdkx"]
+[ext_resource type="Script" path="res://scenes/ui/summon_book.gd" id="4_qmi7a"]
+[ext_resource type="Texture2D" uid="uid://dvs2ueqvf6l2p" path="res://assets/elements/BookLine.png" id="5_22hau"]
+[ext_resource type="Script" path="res://scenes/ui/storage.gd" id="6_jek36"]
+[ext_resource type="FontFile" uid="uid://d20ynlb522yq" path="res://assets/fonts/abaddon.TTF" id="7_20sip"]
 
-[node name="Summon-screen" type="Node2D"]
+[node name="Summon_screen" type="Node2D"]
 
-[node name="Storage" parent="." node_paths=PackedStringArray("summoning_circle") instance=ExtResource("1_emak8")]
-position = Vector2(605, 249)
-scale = Vector2(1.5, 1.5)
-summoning_circle = NodePath("../SummoningCircle")
+[node name="Node2D2" type="Node2D" parent="." node_paths=PackedStringArray("summoning_circle")]
+z_index = 5
+position = Vector2(350, 300)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("4_qmi7a")
+summoning_circle = NodePath("SummoningCircle")
 
-[node name="SummoningCircle" parent="." instance=ExtResource("1_prqnr")]
-position = Vector2(276, 349)
-scale = Vector2(0.5, 0.3)
-
-[node name="Node2D" type="Node2D" parent="." node_paths=PackedStringArray("summoning_circle")]
-script = ExtResource("5_spst6")
-summoning_circle = NodePath("../SummoningCircle")
-speed = 2
-
-[node name="Button" type="Button" parent="Node2D"]
+[node name="OpenBook" type="Sprite2D" parent="Node2D2"]
 texture_filter = 1
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 40.0
-icon = ExtResource("5_7hrbm")
-flat = true
-icon_alignment = 1
-expand_icon = true
+texture = ExtResource("4_5pdkx")
 
-[connection signal="pressed" from="Node2D/Button" to="Storage" method="_on_button_pressed"]
-[connection signal="pressed" from="Node2D/Button" to="SummoningCircle" method="_on_button_pressed"]
-[connection signal="pressed" from="Node2D/Button" to="Node2D" method="_on_button_pressed"]
+[node name="BookLine" type="Sprite2D" parent="Node2D2/OpenBook" node_paths=PackedStringArray("summoning_circle")]
+texture_filter = 1
+position = Vector2(-162, -140)
+texture = ExtResource("5_22hau")
+script = ExtResource("6_jek36")
+summoning_circle = NodePath("../../SummoningCircle")
+
+[node name="BookLine2" type="Sprite2D" parent="Node2D2/OpenBook" node_paths=PackedStringArray("summoning_circle")]
+texture_filter = 1
+position = Vector2(-162, -70)
+texture = ExtResource("5_22hau")
+script = ExtResource("6_jek36")
+summoning_circle = NodePath("../../SummoningCircle")
+
+[node name="BookLine3" type="Sprite2D" parent="Node2D2/OpenBook" node_paths=PackedStringArray("summoning_circle")]
+texture_filter = 1
+position = Vector2(-162, 0)
+texture = ExtResource("5_22hau")
+script = ExtResource("6_jek36")
+summoning_circle = NodePath("../../SummoningCircle")
+
+[node name="BookLine4" type="Sprite2D" parent="Node2D2/OpenBook" node_paths=PackedStringArray("summoning_circle")]
+texture_filter = 1
+position = Vector2(-162, 70)
+texture = ExtResource("5_22hau")
+script = ExtResource("6_jek36")
+summoning_circle = NodePath("../../SummoningCircle")
+
+[node name="BookLine5" type="Sprite2D" parent="Node2D2/OpenBook" node_paths=PackedStringArray("summoning_circle")]
+texture_filter = 1
+position = Vector2(-162, 140)
+texture = ExtResource("5_22hau")
+script = ExtResource("6_jek36")
+summoning_circle = NodePath("../../SummoningCircle")
+
+[node name="SummoningCircle" parent="Node2D2" instance=ExtResource("1_prqnr")]
+position = Vector2(158, -63)
+scale = Vector2(0.6, 0.6)
+
+[node name="Button" type="Button" parent="Node2D2"]
+texture_filter = 1
+offset_left = 67.0
+offset_top = 88.3333
+offset_right = 253.0
+offset_bottom = 146.333
+theme_override_colors/font_color = Color(0.439216, 0.0666667, 0.0627451, 1)
+theme_override_fonts/font = ExtResource("7_20sip")
+theme_override_font_sizes/font_size = 48
+text = "SUMMON"
+flat = true
+
+[connection signal="pressed" from="Node2D2/Button" to="Node2D2" method="_on_button_pressed"]
+[connection signal="pressed" from="Node2D2/Button" to="Node2D2/SummoningCircle" method="_on_button_pressed"]
