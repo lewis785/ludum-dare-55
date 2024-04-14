@@ -1,6 +1,8 @@
 extends Node2D
 
 @onready var camera = $Camera2D
+@onready var combat_coordinator = $CombatCoordinator
+
 @export var cameraSpeed: int
 @export var wizardSpeed: int
 @export var lives: int
@@ -86,7 +88,7 @@ func _createNextRoom():
 		#
 	#if(nextRoom == roomsMade):
 		#if(hissSoundPlayed == 0):
-			#roomInstance.find_child("Torch0").find_child("Extinguish").play()
+			#roomInstance.find_child("Torch0").target+=1find_child("Extinguish").play()
 			#hissSoundPlayed = 1
 			##_setTorchesBrightness(notRoomInstance, 0.0)
 		#if(walkSoundPlayed == 0):
@@ -116,3 +118,11 @@ func _createNextRoom():
 				#roomInstance1.find_child("SummoningCircleAudio").play()
 				#igniteSoundPlayed = 1
 
+func _on_combat_coordinator_fight_started():
+	room_instance.find_child("AudioStreamPlayer2D").stop()	#Make sure to call this when battle starts!!!
+
+func _on_combat_coordinator_fight_lose():
+	pass # Replace with function body.
+
+func _on_combat_coordinator_fight_win():
+	pass

@@ -2,6 +2,10 @@ extends Node
 
 class_name CombatCoordinator
 
+signal fight_started()
+signal fight_win()
+signal fight_lose()
+
 @export var fighting: bool = true 
 var summon: Character
 var enemy: Character
@@ -12,6 +16,7 @@ var enemy_last_attacked = 0
 func _process(delta):
 	if summon == null || enemy == null:
 		_waiting_for_fighters()
+		fight_started.emit()
 		return
 	
 	if fighting:
