@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://c30y088bbp04r"]
+[gd_scene load_steps=18 format=3 uid="uid://c30y088bbp04r"]
 
 [ext_resource type="Texture2D" uid="uid://466r354tji8p" path="res://assets/props/torch-Sheet-export.png" id="1_canxr"]
+[ext_resource type="Script" path="res://scenes/props/torch.gd" id="1_ycdwr"]
 [ext_resource type="Texture2D" uid="uid://c86mwm26o0bha" path="res://assets/props/torch_dead-Sheet-export.png" id="2_bgcy5"]
 [ext_resource type="Texture2D" uid="uid://1xk035c8udkt" path="res://scenes/props/torch.tres" id="3_ma71r"]
 [ext_resource type="AudioStream" uid="uid://t3nsara8ftww" path="res://assets/sounds/Ignite_no_Tss.mp3" id="3_n6t5j"]
@@ -84,6 +85,7 @@ animations = [{
 }]
 
 [node name="Torch" type="Node2D"]
+script = ExtResource("1_ycdwr")
 
 [node name="TorchAnimation" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

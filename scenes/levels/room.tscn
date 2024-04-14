@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://culpis2kpkslw"]
+[gd_scene load_steps=14 format=3 uid="uid://culpis2kpkslw"]
 
 [ext_resource type="Texture2D" uid="uid://crs8kox2y0gj7" path="res://assets/backgrounds/room_temp.png" id="1_son88"]
 [ext_resource type="Script" path="res://scenes/levels/room.gd" id="2_8hr5s"]
@@ -10,6 +10,8 @@
 [ext_resource type="AudioStream" uid="uid://dkvoloeawjadv" path="res://assets/sounds/summon_no_trail.mp3" id="8_y6kmm"]
 [ext_resource type="PackedScene" uid="uid://bx2khys0w4f4e" path="res://scenes/spawner/enemy_spawner.tscn" id="9_5nmi3"]
 [ext_resource type="Texture2D" uid="uid://cjx4u6hoveums" path="res://assets/backgrounds/shafts.png" id="10_5dlcw"]
+[ext_resource type="PackedScene" uid="uid://c4srkfmqcw64y" path="res://wizard_arm.tscn" id="11_gnruw"]
+[ext_resource type="PackedScene" uid="uid://cuxh0qmwtnlx4" path="res://thrown_object.tscn" id="12_rgq0m"]
 
 [sub_resource type="Curve2D" id="Curve2D_8xhqc"]
 _data = {
@@ -36,14 +38,14 @@ script = ExtResource("2_8hr5s")
 [node name="SnapPoint0" parent="." instance=ExtResource("2_n8nla")]
 position = Vector2(399, 225)
 
-[node name="Torch0" parent="." instance=ExtResource("3_7h2qe")]
+[node name="TorchLeft" parent="." instance=ExtResource("3_7h2qe")]
 position = Vector2(110, 175)
 rotation = 0.261799
 
-[node name="Torch1" parent="." instance=ExtResource("3_7h2qe")]
+[node name="TorchCenter" parent="." instance=ExtResource("3_7h2qe")]
 position = Vector2(400, 100)
 
-[node name="Torch2" parent="." instance=ExtResource("3_7h2qe")]
+[node name="TorchRight" parent="." instance=ExtResource("3_7h2qe")]
 position = Vector2(675, 175)
 rotation = -0.261799
 
@@ -62,9 +64,6 @@ z_index = 3
 position = Vector2(-10.9963, -2.02039)
 
 [node name="Summon-screen" parent="." instance=ExtResource("5_mi5o7")]
-
-[node name="Button" parent="Summon-screen/Node2D" index="0"]
-z_index = 7
 
 [node name="RoomMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_842co")
@@ -86,5 +85,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("10_5dlcw")
+
+[node name="WizardArm" parent="." instance=ExtResource("11_gnruw")]
+position = Vector2(117, 277)
+
+[node name="ThrownObject" parent="." instance=ExtResource("12_rgq0m")]
+texture_filter = 1
+position = Vector2(223, 186)
 
 [editable path="Summon-screen"]
