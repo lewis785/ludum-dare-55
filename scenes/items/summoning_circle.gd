@@ -58,7 +58,8 @@ func combine_ingredients():
 	summon.position = spawn_location
 	
 	for ingr : Ingredient in ingredients:
-		ingr.queue_free()
+		#ingr.queue_free()
+		ingr.visible = false
 
 func _on_area_entered(area):
 	if area.is_in_group("Ingredient"):   
