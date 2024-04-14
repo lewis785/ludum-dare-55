@@ -89,6 +89,7 @@ func _createNextRoom(nextRoom):
 				tempPleaseLewisDontHateMe = 0
 				roomInstance1.find_child("AudioStreamPlayer2D").play()
 				roomInstance.find_child("Summon-screen").find_child("SummoningCircle").find_child("Sprite2D").play("Spawn")
+				roomInstance1.find_child("SummoningCircleAudio").play()
 				igniteSoundPlayed = 1
 	
 func _setTorchesBrightness(instance: Node, brightness):
