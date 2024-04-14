@@ -31,11 +31,6 @@ bus = &"Music"
 
 [node name="FightMusic" type="AudioStreamPlayer2D" parent="."]
 
-[connection signal="fight_lose" from="CombatCoordinator" to="." method="_on_combat_coordinator_fight_lose"]
-[connection signal="fight_win" from="CombatCoordinator" to="." method="_on_combat_coordinator_fight_win"]
-
-bus = &"Music"
-
 [node name="Overlay" type="CanvasLayer" parent="."]
 scale = Vector2(1.44, 1.44)
 transform = Transform2D(1.44, 0, 0, 1.44, 0, 0)
@@ -55,5 +50,7 @@ offset_right = 791.722
 offset_bottom = 80.9167
 texture = ExtResource("4_x0w8p")
 
+[connection signal="fight_lose" from="CombatCoordinator" to="." method="_on_combat_coordinator_fight_lose"]
+[connection signal="fight_win" from="CombatCoordinator" to="." method="_on_combat_coordinator_fight_win"]
 [connection signal="gui_input" from="Overlay/MusicMuteButton" to="Overlay" method="_on_music_mute_button_gui_input"]
 [connection signal="gui_input" from="Overlay/FXMuteButton" to="Overlay" method="_on_fx_mute_button_gui_input"]
