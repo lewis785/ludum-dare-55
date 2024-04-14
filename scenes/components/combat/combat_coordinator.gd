@@ -39,6 +39,7 @@ func _fight(delta):
 	if enemy_last_attacked >= enemy.attack_component.attack_rate / 100.0:
 		summon.health_component.damage(enemy.attack_component.attack())
 		if (summon.health_component.health <= 0):
+			enemy.health_component.heal()
 			result(Results.LOSE)
 		enemy_last_attacked = 0.0
 

@@ -34,9 +34,9 @@ func _calculate_damage(attack: Attack):
 	var defence: float = (100 - attributes.defence) / 100.0; 
 	var resistance: float = (100 - attributes.get_resistance_value(attack.type)) / 100.0
 	var damage = attack.damage
-	var crit_modifier = 2 if attack.crit else 1
+	var crit_modifier = damage if attack.crit else 0
 	
 	print("defence: " + str(defence) + " resistance: " + str(resistance) + " damage: " + str(damage) + " crit: " + str(crit_modifier))
 	print("Actual damage: " + str(round(damage * defence * resistance * crit_modifier)))
-	return round(damage * defence * resistance * crit_modifier)
+	return round((damage * defence * resistance) + crit_modifier)
 	

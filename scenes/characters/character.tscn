@@ -107,11 +107,10 @@ script = ExtResource("1_fbwr6")
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("attributes") instance=ExtResource("3_ixrst")]
 attributes = NodePath("../AttributesComponent")
-base_health = 20.0
+base_health = 100.0
 
 [node name="AttackComponent" parent="." node_paths=PackedStringArray("attributes_component") instance=ExtResource("4_6vune")]
 attributes_component = NodePath("../AttributesComponent")
-base_attack_rate = 120
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
