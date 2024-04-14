@@ -17,8 +17,10 @@ enum CharacterTypes {
 const FLOATING_LABEL = preload("res://scenes/ui/floating_label.tscn")
 
 func _ready():
-	var animation = "summon" if character_type == CharacterTypes.SUMMON else "enemy"
-	animated_sprite_2d.animation = animation
+	if character_type == CharacterTypes.ENEMY:
+		pick_enemy_sprite()
+	else:
+		animated_sprite_2d.animation = "summon"
 
 
 func _on_health_component_damaged(damage: int, crit: bool):
@@ -29,6 +31,12 @@ func _on_health_component_damaged(damage: int, crit: bool):
 		text.type = text.Types.CRITICAL
 
 	add_child(text)
+
+func pick_enemy_sprite():
+	var stats = ["defence", "health", "luck", "speed", "strength"]
+	var random_index = randi() % len(stats)
+	animated_sprite_2d.animation = "enemy_" + stats[random_index]
+	
 	
 	
 	
