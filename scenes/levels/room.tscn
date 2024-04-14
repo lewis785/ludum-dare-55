@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bx2khys0w4f4e" path="res://scenes/spawner/enemy_spawner.tscn" id="9_5nmi3"]
 [ext_resource type="Texture2D" uid="uid://cjx4u6hoveums" path="res://assets/backgrounds/shafts.png" id="10_5dlcw"]
 [ext_resource type="PackedScene" uid="uid://duwouygc3rbhb" path="res://scenes/spawner/enemy_strengths.tscn" id="13_6fxkm"]
-[ext_resource type="PackedScene" path="res://scenes/props/hand_manager.tscn" id="13_k8wjo"]
+[ext_resource type="PackedScene" uid="uid://b0oq37qc3hw7i" path="res://scenes/props/hand_manager.tscn" id="13_k8wjo"]
 
 [sub_resource type="Curve2D" id="Curve2D_8xhqc"]
 _data = {

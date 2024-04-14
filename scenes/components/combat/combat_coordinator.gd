@@ -11,7 +11,7 @@ var summon: Character
 var enemy: Character
 var summon_last_attacked = 0
 var enemy_last_attacked = 0
-
+var fight_delay = 3.0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if summon == null || enemy == null:
@@ -55,3 +55,4 @@ func result(result: Results):
 			fight_win.emit();
 		Results.LOSE:
 			fight_lose.emit();
+	await get_tree().create_timer(fight_delay).timeout
