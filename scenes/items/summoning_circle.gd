@@ -12,6 +12,7 @@ class_name SummoningCircle
 @onready var sigil_5 = $Sigil5
 
 @export var spawn_location : Vector2 = Vector2(250,350)
+@export var summon_delay : float = 3.0 # Delay until summon spawns in
 var ingredients = []
 
 # Called when the node enters thegit c scene tree for the first time.
@@ -53,7 +54,10 @@ func combine_ingredients():
 
 	
 	var room = get_parent().get_parent().get_parent()
+	# Delay to spawn Summon
+	await get_tree().create_timer(summon_delay).timeout
 	room.add_child(summon)
+	
 	summon.position = spawn_location
 	
 	for ingr : Ingredient in ingredients:
