@@ -10,7 +10,6 @@ self_modulate = Color(0.337255, 0.337255, 0.337255, 1)
 material = ExtResource("1_e44qa")
 script = ExtResource("1_6pdol")
 cameraSpeed = 300
-wizardSpeed = 300
 lives = 3
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -24,7 +23,3 @@ zoom = Vector2(1.44, 1.44)
 [node name="LoseMusic" type="AudioStreamPlayer2D" parent="."]
 
 [node name="FightMusic" type="AudioStreamPlayer2D" parent="."]
-
-[connection signal="fight_lose" from="CombatCoordinator" to="." method="_on_combat_coordinator_fight_lose"]
-[connection signal="fight_started" from="CombatCoordinator" to="." method="_on_combat_coordinator_fight_started"]
-[connection signal="fight_win" from="CombatCoordinator" to="." method="_on_combat_coordinator_fight_win"]

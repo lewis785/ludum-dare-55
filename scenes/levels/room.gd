@@ -2,6 +2,7 @@ extends TextureRect
 
 class_name Room
 
+@export var wizard_speed: int = 300
 @export var max_brightness: int = 6
 @export var flicker : float = 0.2
 @export var flicker_delay: int = 4
@@ -11,6 +12,7 @@ var is_setup : bool = false
 var torches =  []
 
 var rng = RandomNumberGenerator.new()
+var wizard_visible : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,7 +23,6 @@ func _ready():
 		torch.find_child("TorchAnimation").animation = "notLitFam"
 		torch.find_child("PointLight2D").energy = 0.0
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if is_setup:
@@ -30,7 +31,13 @@ func _process(delta):
 			for torch in torches:
 				var randTmp = rng.randf_range(-flicker, flicker)
 				torch.find_child("PointLight2D").energy = max_brightness + randTmp
-			
+		
+	if wizard_visible:
+		var wizard_path : PathFollow2D = find_child("PathFollow2D")
+		wizard_path.progress+= wizard_speed*delta
+		if wizard_path.progress_ratio == 1.0:
+			wizard_path.find_child("Wizard").visible = false
+			wizard_visible = false
 
 func setup_room(lives=3):
 	_set_torches_brightness(max_brightness,lives)
@@ -67,3 +74,9 @@ func _set_torches_brightness(brightness : int, amount : int = 0):
 				randTmp = rng.randf_range(-flicker, flicker)
 				torch.find_child("PointLight2D").energy = brightness + randTmp
 				torch.find_child("Ignite").play()
+
+func move_wizard():
+	var wizard = find_child("PathFollow2D").find_child("Wizard")
+	wizard.find_child("PointLight2D").set_enabled(true) # Enable Light
+	wizard.visible = true
+	wizard_visible = true

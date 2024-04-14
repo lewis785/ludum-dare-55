@@ -4,7 +4,6 @@ extends Node2D
 @onready var combat_coordinator = $CombatCoordinator
 
 @export var cameraSpeed: int
-@export var wizardSpeed: int
 @export var lives: int
 var roomScene = preload("res://scenes/levels/room.tscn")
 
@@ -46,7 +45,7 @@ func _process(delta):
 			room_instance.setup_room(lives)
 	
 		if (old_room != null):
-			old_room.queue_free()
+			#old_room.queue_free()
 			old_room = null
 	#if(enableWizard == 1):
 		#roomInstance1.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").progress+= wizardSpeed*delta
@@ -62,8 +61,9 @@ func _createNextRoom():
 	old_room._set_torches_brightness(0)
 	
 	target_coordinates = Vector2(400+room_instance.position.x, 225)
-	
-	#room_instance._set_torches_brightness(10,3)
+
+	# Move Wizard
+	old_room.move_wizard()
 
 	
 	
