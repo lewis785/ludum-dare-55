@@ -4,7 +4,9 @@ extends Node2D
 @export var cameraSpeed: int
 @export var lives: int
 @export var wizardSpeed: int
-
+@export var maxBrightness: int 
+@export var flicker : float
+@export var flickerDelay: int
 var roomScene = preload("res://scenes/levels/room.tscn")
 
 var roomInstance1 = roomScene.instantiate()
@@ -74,6 +76,9 @@ func _createNextRoom(nextRoom):
 		target_coordinates = Vector2(400+(800*nextRoom), 225)
 		if(target_coordinates == camera_coordinates):
 			tempPleaseLewisDontHateMe+=1
+			if(tempPleaseLewisDontHateMe%flickerDelay == 0):
+				print(tempPleaseLewisDontHateMe)
+				_setTorchesBrightness(roomInstance, maxBrightness)
 			if((tempPleaseLewisDontHateMe > 2) and (target_coordinates == camera_coordinates) and igniteSoundPlayed == 0):
 				enableWizard = 0
 				notRoomInstance.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").find_child("Wizard").find_child("PointLight2D").set_enabled(false)
@@ -81,12 +86,13 @@ func _createNextRoom(nextRoom):
 				roomInstance1.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").progress = 0
 				roomInstance2.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").progress = 0
 				roomInstance.find_child("Torch0").find_child("Ignite").play()	
-				_setTorchesBrightness(roomInstance, 10.0)
 				tempPleaseLewisDontHateMe = 0
 				roomInstance1.find_child("AudioStreamPlayer2D").play()
+				roomInstance.find_child("Summon-screen").find_child("SummoningCircle").find_child("Sprite2D").play("Spawn")
 				igniteSoundPlayed = 1
 	
 func _setTorchesBrightness(instance: Node, brightness):
+		var rng = RandomNumberGenerator.new()
 		if(brightness == 0.0):
 			instance.find_child("Torch0").find_child("TorchAnimation").animation = "notLitFam"
 			instance.find_child("Torch0").find_child("PointLight2D").energy = 0.0
@@ -97,10 +103,13 @@ func _setTorchesBrightness(instance: Node, brightness):
 		else:
 			if(lives >= 2):
 				instance.find_child("Torch0").find_child("TorchAnimation").animation = "litfam"
-				instance.find_child("Torch0").find_child("PointLight2D").energy = brightness
+				var randTmp = rng.randf_range(-flicker, flicker)
+				instance.find_child("Torch0").find_child("PointLight2D").energy = brightness + randTmp
 			if(lives >= 1):
 				instance.find_child("Torch1").find_child("TorchAnimation").animation = "litfam"
-				instance.find_child("Torch1").find_child("PointLight2D").energy = brightness
+				var randTmp = rng.randf_range(-flicker, flicker)
+				instance.find_child("Torch1").find_child("PointLight2D").energy = brightness + randTmp
 			if(lives >= 3):
 				instance.find_child("Torch2").find_child("TorchAnimation").animation = "litfam"
-				instance.find_child("Torch2").find_child("PointLight2D").energy = brightness
+				var randTmp = rng.randf_range(-flicker, flicker)
+				instance.find_child("Torch2").find_child("PointLight2D").energy = brightness + randTmp
