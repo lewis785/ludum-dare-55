@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxlkhm8al0k8f"
-path="res://.godot/imported/enemy_defence.png-264ca1c5b689a70aeb90aece1dd35345.ctex"
+uid="uid://d1elahbacrv6o"
+path="res://.godot/imported/virtual_insanity_room.png-228e194d6f67b9bc2b672bc23ac9f3b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/enemy_defence.png"
-dest_files=["res://.godot/imported/enemy_defence.png-264ca1c5b689a70aeb90aece1dd35345.ctex"]
+source_file="res://assets/rooms/virtual_insanity_room.png"
+dest_files=["res://.godot/imported/virtual_insanity_room.png-228e194d6f67b9bc2b672bc23ac9f3b6.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bx83qfemdy5s7"
-path="res://.godot/imported/enemy_strength.png-ae68a913f95608e71873188d9f26f38f.ctex"
+uid="uid://b6jf8xugdtafd"
+path="res://.godot/imported/desert_room.png-72f982d6010eae49e52ec046dcad0a38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/enemy_strength.png"
-dest_files=["res://.godot/imported/enemy_strength.png-ae68a913f95608e71873188d9f26f38f.ctex"]
+source_file="res://assets/rooms/desert_room.png"
+dest_files=["res://.godot/imported/desert_room.png-72f982d6010eae49e52ec046dcad0a38.ctex"]
 
 [params]
 
