@@ -99,9 +99,12 @@ texture_scale = 0.96
 
 [node name="Ignite" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_n6t5j")
+bus = &"FX"
 
 [node name="Extinguish" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_4s22m")
+bus = &"FX"
 
 [node name="Walking" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_uhnbk")
+bus = &"FX"

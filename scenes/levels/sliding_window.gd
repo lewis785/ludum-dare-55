@@ -29,7 +29,7 @@ func _ready():
 		
 func _input(_event):
 	if(Input.is_key_pressed(KEY_ENTER)):	#UPDATE WHEN BATTLE ENDSS
-		room_instance.find_child("AudioStreamPlayer2D").stop()	#Make sure to call this when battle starts!!!
+		room_instance.find_child("RoomMusic").stop()	#Make sure to call this when battle starts!!!
 		_createNextRoom()
 
 func _process(delta):
@@ -37,17 +37,17 @@ func _process(delta):
 	camera.position = camera_coordinates.move_toward(target_coordinates, cameraSpeed*delta)
 	camera.set_position(camera.position)
 	
-	if (target_coordinates == camera_coordinates):
-		if (!room_instance.is_setup):
-			room_instance.setup_room(lives)
+	if (target_coordinates != camera_coordinates):
+		return
+		
+	if (!room_instance.is_setup):
+		room_instance.setup_room(lives)
+
+	if (old_room != null):
+		old_room.queue_free()
+		old_room = null
+		combat_coordinator.allow_fighting = true	
 	
-		if (old_room != null):
-			#old_room.queue_free()
-			old_room = null
-	#if(enableWizard == 1):
-		#roomInstance1.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").progress+= wizardSpeed*delta
-	#if(enableWizard == 2):
-		#roomInstance2.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").progress+= wizardSpeed*delta
 
 func _createNextRoom():
 	room_count += 1
@@ -59,70 +59,20 @@ func _createNextRoom():
 	
 	old_room._set_torches_brightness(0)
 	
-	
 	target_coordinates = Vector2(400+room_instance.position.x, 225)
 
 	# Move Wizard
 	old_room.move_wizard()
 
-	
-	
-	
-	
-	
-	#var roomInstance = roomInstance1 if nextRoom % 2 == 0 else roomInstance2
-	#var notRoomInstance = roomInstance2 if nextRoom % 2 == 0 else roomInstance1
-	#if (nextRoom % 2 == 0):
-		#flag = 2
-	#else:
-		#flag = 1
-		#
-	#if(nextRoom > roomsMade):
-		#roomInstance.position = Vector2((800*nextRoom), 0)
-		#add_child(roomInstance)
-		#roomsMade += 1
-		#igniteSoundPlayed = 0
-		#if(tempPleaseLewisDontHateMe > 0):
-			#hissSoundPlayed = 0
-			#walkSoundPlayed = 0
-		#
-	#if(nextRoom == roomsMade):
-		#if(hissSoundPlayed == 0):
-			#roomInstance.find_child("Torch0").target+=1find_child("Extinguish").play()
-			#hissSoundPlayed = 1
-			##_setTorchesBrightness(notRoomInstance, 0.0)
-		#if(walkSoundPlayed == 0):
-			#roomInstance.find_child("Torch0").find_child("Walking").play()
-			#walkSoundPlayed = 1
-			#
-			#enableWizard = flag
-			#notRoomInstance.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").find_child("Wizard").find_child("PointLight2D").set_enabled(true)
-			#notRoomInstance.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").find_child("Wizard").visible = true
-		#
-		#target_coordinates = Vector2(400+(800*nextRoom), 225)
-		#if(target_coordinates == camera_coordinates):
-			#tempPleaseLewisDontHateMe+=1
-			#if(tempPleaseLewisDontHateMe%flickerDelay == 0):
-				#print(tempPleaseLewisDontHateMe)
-				#_setTorchesBrightness(roomInstance, maxBrightness)
-			#if((tempPleaseLewisDontHateMe > 2) and (target_coordinates == camera_coordinates) and igniteSoundPlayed == 0):
-				#enableWizard = 0
-				#notRoomInstance.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").find_child("Wizard").find_child("PointLight2D").set_enabled(false)
-				#notRoomInstance.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").find_child("Wizard").visible = false
-				#roomInstance1.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").progress = 0
-				#roomInstance2.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").progress = 0
-				#roomInstance.find_child("Torch0").find_child("Ignite").play()	
-				#tempPleaseLewisDontHateMe = 0
-				#roomInstance1.find_child("AudioStreamPlayer2D").play()
-				#roomInstance.find_child("Summon-screen").find_child("SummoningCircle").find_child("Sprite2D").play("Spawn")
-				#roomInstance1.find_child("SummoningCircleAudio").play()
-				#igniteSoundPlayed = 1
-
 func _on_combat_coordinator_fight_started():
-	room_instance.find_child("AudioStreamPlayer2D").stop()	#Make sure to call this when battle starts!!!
+	room_instance.find_child("RoomMusic").stop()
 
 func _on_combat_coordinator_fight_lose():
-	pass # Replace with function body.
+	print("IM a looser")
+	lives -= 1
+	print(lives)
+	room_instance.setup_room(lives)
 
 func _on_combat_coordinator_fight_win():
-	pass
+	room_instance.find_child("RoomMusic").stop()
+	_createNextRoom()

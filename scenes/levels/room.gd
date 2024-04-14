@@ -50,38 +50,39 @@ func setup_room(lives=3):
 	flicker_ticker = 0
 
 func _set_torches_brightness(brightness : int, amount : int = 0):
-		if brightness == 0:
-			for torch in torches:
-				torch.find_child("TorchAnimation").animation = "notLitFam"
-				torch.find_child("PointLight2D").energy = 0.0
-				torch.find_child("Extinguish").play()
-			is_setup = false
-		else:
-			var rng = RandomNumberGenerator.new()
-			var randTmp
-			var torch
-			# Torches are called in odd order due to room order
-			if(amount >= 2):
-				torch = torches[0]
-				torch.find_child("TorchAnimation").animation = "litfam"
-				randTmp = rng.randf_range(-flicker, flicker)
-				torch.find_child("PointLight2D").energy = brightness + randTmp
-				torch.find_child("Ignite").play()
-			if(amount >= 1):
-				torch = torches[1]
-				torch.find_child("TorchAnimation").animation = "litfam"
-				randTmp = rng.randf_range(-flicker, flicker)
-				torch.find_child("PointLight2D").energy = brightness + randTmp
-				torch.find_child("Ignite").play()
-			if(amount >= 3):
-				torch = torches[2]
-				torch.find_child("TorchAnimation").animation = "litfam"
-				randTmp = rng.randf_range(-flicker, flicker)
-				torch.find_child("PointLight2D").energy = brightness + randTmp
-				torch.find_child("Ignite").play()
-			find_child("Summon-screen").find_child("SummoningCircle").find_child("Sprite2D").play("Spawn")
-			find_child("SummoningCircleAudio").play()
-			find_child("Summon-screen").find_child("SummoningCircle").find_child("Sprite2D").play("Spawn")
+	for torch in torches:
+		torch.find_child("TorchAnimation").animation = "notLitFam"
+		torch.find_child("PointLight2D").energy = 0.0
+
+	if brightness == 0:
+		for torch in torches:
+			torch.find_child("Extinguish").play()
+		is_setup = false
+	else:
+		var rng = RandomNumberGenerator.new()
+		var randTmp
+		var torch
+		# Torches are called in odd order due to room order
+		if(amount >= 2):
+			torch = torches[0]
+			torch.find_child("TorchAnimation").animation = "litfam"
+			randTmp = rng.randf_range(-flicker, flicker)
+			torch.find_child("PointLight2D").energy = brightness + randTmp
+			torch.find_child("Ignite").play()
+		if(amount >= 1):
+			torch = torches[1]
+			torch.find_child("TorchAnimation").animation = "litfam"
+			randTmp = rng.randf_range(-flicker, flicker)
+			torch.find_child("PointLight2D").energy = brightness + randTmp
+			torch.find_child("Ignite").play()
+		if(amount >= 3):
+			torch = torches[2]
+			torch.find_child("TorchAnimation").animation = "litfam"
+			randTmp = rng.randf_range(-flicker, flicker)
+			torch.find_child("PointLight2D").energy = brightness + randTmp
+			torch.find_child("Ignite").play()
+		find_child("Summon-screen").find_child("SummoningCircle").find_child("Sprite2D").play("Spawn")
+		find_child("SummoningCircleAudio").play()
 
 func move_wizard():
 	var wizard = find_child("PathFollow2D").find_child("Wizard")

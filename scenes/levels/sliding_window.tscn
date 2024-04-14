@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2arbyrhcflvl"]
+[gd_scene load_steps=7 format=3 uid="uid://d2arbyrhcflvl"]
 
 [ext_resource type="Script" path="res://scenes/levels/sliding_window.gd" id="1_6pdol"]
 [ext_resource type="Material" uid="uid://dfe7af4v5j5i1" path="res://scenes/background_tools/darkness.tres" id="1_e44qa"]
 [ext_resource type="PackedScene" uid="uid://cnl8yhf0gc2xu" path="res://scenes/components/combat/combat_coordinator.tscn" id="3_ajeuy"]
 [ext_resource type="Texture2D" uid="uid://3u2uuemry1fm" path="res://assets/elements/musictemp.png" id="3_f5ejc"]
+[ext_resource type="Script" path="res://scenes/levels/hud.gd" id="3_o6dr8"]
 [ext_resource type="Texture2D" uid="uid://deradcgixu68o" path="res://assets/elements/fxtemp.png" id="4_x0w8p"]
 
 [node name="SlidingWindow" type="Node2D"]
@@ -15,35 +16,41 @@ cameraSpeed = 300
 lives = 3
 
 [node name="Camera2D" type="Camera2D" parent="."]
+z_index = 9
+texture_filter = 1
 position = Vector2(400, 225)
 zoom = Vector2(1.44, 1.44)
-
-[node name="CheckButton2" type="CheckButton" parent="Camera2D"]
-z_index = 100
-offset_left = 349.0
-offset_top = -185.0
-offset_right = 393.0
-offset_bottom = -161.0
-
-[node name="Sprite2D" type="Sprite2D" parent="Camera2D/CheckButton2"]
-position = Vector2(-11, 9)
-texture = ExtResource("3_f5ejc")
-
-[node name="CheckButton" type="CheckButton" parent="Camera2D"]
-z_index = 100
-offset_left = 351.0
-offset_top = -218.0
-offset_right = 395.0
-offset_bottom = -194.0
-
-[node name="Sprite2D" type="Sprite2D" parent="Camera2D/CheckButton"]
-position = Vector2(-11, 9)
-texture = ExtResource("4_x0w8p")
 
 [node name="CombatCoordinator" parent="." instance=ExtResource("3_ajeuy")]
 
 [node name="WinMusic" type="AudioStreamPlayer2D" parent="."]
+bus = &"Music"
 
 [node name="LoseMusic" type="AudioStreamPlayer2D" parent="."]
+bus = &"Music"
 
 [node name="FightMusic" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Overlay" type="CanvasLayer" parent="."]
+scale = Vector2(1.44, 1.44)
+transform = Transform2D(1.44, 0, 0, 1.44, 0, 0)
+script = ExtResource("3_o6dr8")
+
+[node name="MusicMuteButton" type="TextureRect" parent="Overlay"]
+offset_left = 760.0
+offset_top = 8.0
+offset_right = 792.0
+offset_bottom = 41.0
+texture = ExtResource("3_f5ejc")
+
+[node name="FXMuteButton" type="TextureRect" parent="Overlay"]
+offset_left = 759.722
+offset_top = 47.9167
+offset_right = 791.722
+offset_bottom = 80.9167
+texture = ExtResource("4_x0w8p")
+
+[connection signal="fight_lose" from="CombatCoordinator" to="." method="_on_combat_coordinator_fight_lose"]
+[connection signal="fight_win" from="CombatCoordinator" to="." method="_on_combat_coordinator_fight_win"]
+[connection signal="gui_input" from="Overlay/MusicMuteButton" to="Overlay" method="_on_music_mute_button_gui_input"]
+[connection signal="gui_input" from="Overlay/FXMuteButton" to="Overlay" method="_on_fx_mute_button_gui_input"]

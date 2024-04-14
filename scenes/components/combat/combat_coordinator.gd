@@ -6,7 +6,7 @@ signal fight_started()
 signal fight_win()
 signal fight_lose()
 
-@export var fighting: bool = true 
+@export var allow_fighting: bool = true 
 var summon: Character
 var enemy: Character
 var summon_last_attacked = 0
@@ -19,7 +19,7 @@ func _process(delta):
 		fight_started.emit()
 		return
 	
-	if fighting:
+	if allow_fighting:
 		_fight(delta)
 
 func _waiting_for_fighters():
@@ -32,8 +32,26 @@ func _fight(delta):
 	
 	if summon_last_attacked >= summon.attack_component.attack_rate / 100.0:
 		enemy.health_component.damage(summon.attack_component.attack())
+		if (enemy.health_component.health <= 0):
+			result(Results.WIN)
 		summon_last_attacked = 0.0
 		
 	if enemy_last_attacked >= enemy.attack_component.attack_rate / 100.0:
 		summon.health_component.damage(enemy.attack_component.attack())
+		if (summon.health_component.health <= 0):
+			result(Results.LOSE)
 		enemy_last_attacked = 0.0
+
+enum Results {
+	WIN,
+	LOSE
+}
+
+func result(result: Results):
+	allow_fighting = false
+	match result:
+		Results.WIN:
+			print("WON FIGHT")
+			fight_win.emit();
+		Results.LOSE:
+			fight_lose.emit();
