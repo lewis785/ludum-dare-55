@@ -35,7 +35,8 @@ script = ExtResource("2_rjuuu")
 [node name="ArmVisual" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_1cilu")
-animation = &"Thumb"
+autoplay = "default"
+frame_progress = 0.543317
 offset = Vector2(64, -1)
 
 [node name="Area2D" type="Area2D" parent="ArmVisual"]
