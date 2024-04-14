@@ -2,6 +2,8 @@ extends TextureRect
 
 class_name Room
 
+@onready var enemy_spawner: EnemySpawner = $EnemySpawner
+
 @export var wizard_speed: int = 300
 @export var max_brightness: int = 6
 @export var flicker : float = 0.2
@@ -38,6 +40,9 @@ func _process(delta):
 		if wizard_path.progress_ratio == 1.0:
 			wizard_path.find_child("Wizard").visible = false
 			wizard_visible = false
+
+func spawn_enemy(round: int):
+	enemy_spawner.spawn_enemy(round)
 
 func setup_room(lives=3):
 	_set_torches_brightness(max_brightness,lives)

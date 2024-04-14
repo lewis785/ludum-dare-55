@@ -1,27 +1,23 @@
 extends Node2D
 
+class_name EnemySpawner
+
 const ENEMY = preload("res://scenes/characters/character.tscn")
 
-var round = 0;
 @export var base_attribute_points: int = 40
 @export var points_per_round: int = 10
 
-func spawn():
-	round += 1
-	_spawn_enemy()
-
-func _spawn_enemy():
-	var enemy = _setup_enemy();
+func spawn_enemy(round: int):
+	var enemy = _setup_enemy(round);
 	add_child(enemy)
 
-func _setup_enemy():
+
+func _setup_enemy(round: int):
 	var enemy = ENEMY.instantiate()
 	enemy.add_to_group("enemy")
-	enemy = _set_attributes(enemy)
-	
-	return enemy
+	return _set_attributes(enemy, round)
 
-func _set_attributes(enemy: Character):
+func _set_attributes(enemy: Character, round: int):
 	var attribute_points = base_attribute_points + (round * points_per_round)
 	var attributes = enemy.get_node("AttributesComponent") as AttributesComponent
 	

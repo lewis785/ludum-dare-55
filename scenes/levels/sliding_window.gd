@@ -7,17 +7,14 @@ extends Node2D
 @export var lives: int
 var roomScene = preload("res://scenes/levels/room.tscn")
 
-#var roomInstance1 = roomScene.instantiate()
-#var roomInstance2 = roomScene.instantiate()
-
 var room_instance : Room = roomScene.instantiate()
 var old_room : Room
 
-var target_coordinates = Vector2(400,225)	#Initialise the variable so it doesnt complain
+var target_coordinates = Vector2(400,225)
 var camera_coordinates = Vector2(400,225)
 
 var target = 0
-var roomsMade = -1 #Has to be negative for initial room to be instantiated.
+var room_count = 0
 var tempPleaseLewisDontHateMe = 0
 var igniteSoundPlayed = 1
 var hissSoundPlayed = 1
@@ -53,12 +50,15 @@ func _process(delta):
 		#roomInstance2.find_child("Node2D").find_child("Path2D").find_child("PathFollow2D").progress+= wizardSpeed*delta
 
 func _createNextRoom():
+	room_count += 1
 	old_room = room_instance
-	room_instance = roomScene.instantiate()
+	room_instance = roomScene.instantiate() as Room
 	room_instance.position = Vector2(old_room.position.x + 800, 0)
 	add_child(room_instance)
+	room_instance.spawn_enemy(room_count)
 	
 	old_room._set_torches_brightness(0)
+	
 	
 	target_coordinates = Vector2(400+room_instance.position.x, 225)
 
