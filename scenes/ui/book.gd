@@ -1,8 +1,8 @@
 extends Node2D
 
 @export var summoning_circle : SummoningCircle
-@onready var base_x : int = summoning_circle.position.x
-@export var base_y : int = 160
+@onready var base_x : float = summoning_circle.position.x
+@export var base_y : float = 160
 @export var speed : int = 5
 @export var height : int = 20
 

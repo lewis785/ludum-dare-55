@@ -33,8 +33,8 @@ func _ready():
 func randomise():
 	type = IngredientTypes.values()[randi_range(0,IngredientTypes.size()-1)]
 
-func title(type):
-	match type:
+func title(ingr_type):
+	match ingr_type:
 		0:
 			return "Diamond Powder"
 		1:
@@ -48,9 +48,9 @@ func title(type):
 		_:
 			return "Unidentified Object"
 	
-func description(type):
+func description(ingr_type):
 	var attribute
-	match type:
+	match ingr_type:
 		0:
 			attribute = "Defence"
 		1:
