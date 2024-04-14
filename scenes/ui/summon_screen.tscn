@@ -1,20 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://df7kvudh0t7fu"]
+[gd_scene load_steps=9 format=3 uid="uid://df7kvudh0t7fu"]
 
 [ext_resource type="PackedScene" uid="uid://cjfwvsq2rkexi" path="res://scenes/items/summoning_circle.tscn" id="1_prqnr"]
 [ext_resource type="Texture2D" uid="uid://ttuhskylebt0" path="res://assets/elements/OpenBook.png" id="4_5pdkx"]
 [ext_resource type="Script" path="res://scenes/ui/summon_book.gd" id="4_qmi7a"]
 [ext_resource type="Texture2D" uid="uid://dvs2ueqvf6l2p" path="res://assets/elements/BookLine.png" id="5_22hau"]
+[ext_resource type="Texture2D" uid="uid://veo3y2ijrfq8" path="res://assets/elements/Arrow.png" id="5_kopa1"]
 [ext_resource type="Script" path="res://scenes/ui/storage.gd" id="6_jek36"]
 [ext_resource type="FontFile" uid="uid://d20ynlb522yq" path="res://assets/fonts/abaddon.TTF" id="7_20sip"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kprr4"]
+size = Vector2(670, 84.3751)
+
 [node name="Summon_screen" type="Node2D"]
 
-[node name="Node2D2" type="Node2D" parent="." node_paths=PackedStringArray("summoning_circle")]
+[node name="Node2D2" type="Node2D" parent="." node_paths=PackedStringArray("summoning_circle", "arrow_sprite")]
 z_index = 5
 position = Vector2(350, 300)
 scale = Vector2(0.8, 0.8)
 script = ExtResource("4_qmi7a")
 summoning_circle = NodePath("SummoningCircle")
+arrow_sprite = NodePath("OpenBook/Area2D/Sprite2D")
 
 [node name="OpenBook" type="Sprite2D" parent="Node2D2"]
 texture_filter = 1
@@ -59,6 +64,19 @@ script = ExtResource("6_jek36")
 summoning_circle = NodePath("../../SummoningCircle")
 ingr_type = 4
 
+[node name="Area2D" type="Area2D" parent="Node2D2/OpenBook"]
+position = Vector2(0, -197.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D2/OpenBook/Area2D"]
+position = Vector2(0, -19.0625)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_kprr4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D2/OpenBook/Area2D"]
+position = Vector2(0, -30)
+scale = Vector2(2, 2)
+texture = ExtResource("5_kopa1")
+
 [node name="SummoningCircle" parent="Node2D2" instance=ExtResource("1_prqnr")]
 position = Vector2(158, -63)
 scale = Vector2(0.6, 0.6)
@@ -75,5 +93,6 @@ theme_override_font_sizes/font_size = 48
 text = "SUMMON"
 flat = true
 
+[connection signal="input_event" from="Node2D2/OpenBook/Area2D" to="Node2D2" method="_on_area_2d_input_event"]
 [connection signal="pressed" from="Node2D2/Button" to="Node2D2" method="_on_button_pressed"]
 [connection signal="pressed" from="Node2D2/Button" to="Node2D2/SummoningCircle" method="_on_button_pressed"]
