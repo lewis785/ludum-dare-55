@@ -52,11 +52,15 @@ func combine_ingredients():
 func _on_area_entered(area):
 	if area.is_in_group("Ingredient"):   
 		add_ingredient(area)
+		sprite_2d.animation = "Active"
+		sprite_2d.play()
 
 
 func _on_area_exited(area):
 	if area.is_in_group("Ingredient"):
 		remove_ingredient(area)
+		sprite_2d.animation = "Idle"
+		sprite_2d.play()
 		
 func _on_button_pressed():
 	combine_ingredients()

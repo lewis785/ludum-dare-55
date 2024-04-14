@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cotyc24q63vx7" path="res://assets/props/circle_active-Sheet.png" id="2_qy0wq"]
 [ext_resource type="PackedScene" uid="uid://b6n5qd7skmkpc" path="res://scenes/characters/character.tscn" id="2_ytns0"]
 [ext_resource type="PackedScene" uid="uid://cxs88h1qteno5" path="res://scenes/components/character/attributes_component.tscn" id="3_pcipr"]
+[ext_resource type="PackedScene" uid="uid://b44253gukkg0b" path="res://scenes/props/Sigil.tscn" id="5_jmgye"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c63l2"]
 atlas = ExtResource("2_qy0wq")
@@ -563,6 +564,26 @@ frame_progress = 0.533353
 shape = SubResource("CircleShape2D_ble8y")
 
 [node name="AttributesComponent" parent="." instance=ExtResource("3_pcipr")]
+
+[node name="Sigil1" parent="." instance=ExtResource("5_jmgye")]
+position = Vector2(-152, -47)
+animation = &"Strength1"
+
+[node name="Sigil2" parent="." instance=ExtResource("5_jmgye")]
+position = Vector2(-3, -159)
+animation = &"Health1"
+
+[node name="Sigil3" parent="." instance=ExtResource("5_jmgye")]
+position = Vector2(141, -48)
+animation = &"Defence1"
+
+[node name="Sigil4" parent="." instance=ExtResource("5_jmgye")]
+position = Vector2(97, 114)
+animation = &"Luck1"
+
+[node name="Sigil5" parent="." instance=ExtResource("5_jmgye")]
+position = Vector2(-99, 111)
+animation = &"Speed1"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
