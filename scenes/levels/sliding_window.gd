@@ -68,9 +68,7 @@ func _on_combat_coordinator_fight_started():
 	room_instance.find_child("RoomMusic").stop()
 
 func _on_combat_coordinator_fight_lose():
-	print("IM a looser")
 	lives -= 1
-	print(lives)
 	room_instance.setup_room(lives)
 
 func _on_combat_coordinator_fight_win():

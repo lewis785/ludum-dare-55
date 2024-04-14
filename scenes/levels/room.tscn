@@ -36,14 +36,14 @@ script = ExtResource("2_8hr5s")
 [node name="SnapPoint0" parent="." instance=ExtResource("2_n8nla")]
 position = Vector2(399, 225)
 
-[node name="Torch0" parent="." instance=ExtResource("3_7h2qe")]
+[node name="TorchLeft" parent="." instance=ExtResource("3_7h2qe")]
 position = Vector2(110, 175)
 rotation = 0.261799
 
-[node name="Torch1" parent="." instance=ExtResource("3_7h2qe")]
+[node name="TorchCenter" parent="." instance=ExtResource("3_7h2qe")]
 position = Vector2(400, 100)
 
-[node name="Torch2" parent="." instance=ExtResource("3_7h2qe")]
+[node name="TorchRight" parent="." instance=ExtResource("3_7h2qe")]
 position = Vector2(675, 175)
 rotation = -0.261799
 
