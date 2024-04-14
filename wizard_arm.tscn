@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4srkfmqcw64y"]
+[gd_scene load_steps=9 format=3 uid="uid://c4srkfmqcw64y"]
 
 [ext_resource type="Texture2D" uid="uid://bfsphdipecob3" path="res://assets/characters/Arm.png" id="1_7djdt"]
 [ext_resource type="Texture2D" uid="uid://b8geviyjvker4" path="res://assets/characters/ArmThumb2.png" id="2_kpa5b"]
 [ext_resource type="Script" path="res://wizard_arm.gd" id="2_rjuuu"]
+[ext_resource type="AudioStream" uid="uid://bq3wdvar2f8j" path="res://assets/elements/cheer-woohoo.mp3" id="4_d1mmm"]
+[ext_resource type="AudioStream" uid="uid://b02m3o8mq3id3" path="res://assets/elements/cheer-yeah.mp3" id="5_4vfv5"]
+[ext_resource type="AudioStream" uid="uid://c06ncdaklhx81" path="res://assets/elements/cheer-yes.mp3" id="6_0w27i"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1cilu"]
 animations = [{
@@ -40,5 +43,17 @@ offset = Vector2(64, -1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ArmVisual/Area2D"]
 position = Vector2(111, -3)
 shape = SubResource("CircleShape2D_otfr1")
+
+[node name="Cheer1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_d1mmm")
+bus = &"FX"
+
+[node name="Cheer2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_4vfv5")
+bus = &"FX"
+
+[node name="Cheer3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_0w27i")
+bus = &"FX"
 
 [connection signal="area_exited" from="ArmVisual/Area2D" to="." method="_on_area_2d_area_exited"]

@@ -51,7 +51,6 @@ func result(result: Results):
 	allow_fighting = false
 	match result:
 		Results.WIN:
-			print("WON FIGHT")
 			fight_win.emit();
 		Results.LOSE:
 			fight_lose.emit();
