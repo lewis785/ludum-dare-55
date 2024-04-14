@@ -5,13 +5,13 @@ extends Node2D
 @onready var base_x : float = summoning_circle.position.x
 @export var base_y : float = 160
 @export var speed : float = 1.0
-@export var height : int = 250
+@export var height : int = 280
 
 var tween : Tween
 var book_raised : bool = false
 
 func _ready():
-	book_raised = true
+	book_raised = false
 	
 func raise_book():
 	tween = self.create_tween().set_trans(Tween.TRANS_SINE)
@@ -43,5 +43,6 @@ func _on_button_pressed():
 		hide_book()
 
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton and event.pressed:
-		toggle_position()
+	if tween == null or !tween.is_running():
+		if event is InputEventMouseButton and event.pressed:
+			toggle_position()
