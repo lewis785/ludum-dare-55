@@ -4,6 +4,7 @@ class_name SummoningCircle
 
 @export var ingredients_cap : int = 5
 @export var summon_scene : PackedScene
+@onready var sprite_2d = $Sprite2D
 
 var ingredients = []
 
@@ -59,3 +60,8 @@ func _on_area_exited(area):
 		
 func _on_button_pressed():
 	combine_ingredients()
+
+func _on_sprite_2d_animation_looped():
+	if $Sprite2D.animation == "Spawn":
+		print("done")
+		$Sprite2D.animation = "Idle"

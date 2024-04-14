@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://df7kvudh0t7fu" path="res://scenes/ui/summon_screen.tscn" id="5_mi5o7"]
 [ext_resource type="AudioStream" uid="uid://der031n1a0ltg" path="res://assets/sounds/Room_v1.mp3" id="7_842co"]
 [ext_resource type="PackedScene" uid="uid://b6n5qd7skmkpc" path="res://scenes/components/character/character.tscn" id="7_gykpj"]
+[ext_resource type="AudioStream" uid="uid://dkvoloeawjadv" path="res://assets/sounds/summon_no_trail.mp3" id="8_y6kmm"]
 
 [sub_resource type="Curve2D" id="Curve2D_8xhqc"]
 _data = {
@@ -66,5 +67,8 @@ position = Vector2(493, 340)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_842co")
+
+[node name="SummoningCircleAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_y6kmm")
 
 [editable path="Summon-screen"]
