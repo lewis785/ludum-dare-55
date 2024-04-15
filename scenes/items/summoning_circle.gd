@@ -13,12 +13,12 @@ signal summoned()
 @onready var sigil_4 : Sigil = $Sigil4
 @onready var sigil_5 : Sigil = $Sigil5
 @onready var smoke_effect = $"../../SmokeEffect"
+@onready var summoning_circle_audio = $SummoningCircleAudio
 
 @export var spawn_location : Vector2 = Vector2(270,340)
-@export var summon_delay : float = 0.75 # Delay until summon spawns in
+@export var summon_delay : float = 0.75
 var ingredients = []
 
-# Called when the node enters thegit c scene tree for the first time.
 func _ready():
 	ingredients.clear()
 
@@ -71,7 +71,6 @@ func combine_ingredients():
 	var summon: Character = summon_scene.instantiate() as Character
 	summon.character_type = Character.CharacterTypes.SUMMON
 	
-	
 	# Summon creature with new stats
 	summon.position = position
 	var attributes = summon.get_node("AttributesComponent")
@@ -89,11 +88,11 @@ func combine_ingredients():
 	var room : Room = sliding_window.room_instance
 	# Delay to spawn Summon
 	await get_tree().create_timer(summon_delay).timeout
+	summoning_circle_audio.play()
 	smoke_effect.visible = true
 	smoke_effect.play()
-	await get_tree().create_timer(summon_delay).timeout
+	await get_tree().create_timer(1.5).timeout
 	room.add_child(summon)
-	#find_child("SummoningCircleAudio").play()
 	
 	summon.position = spawn_location
 

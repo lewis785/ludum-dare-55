@@ -13,8 +13,6 @@ class_name AttackComponent
 @onready var blade_2 = $Blade2
 @onready var blade_3 = $Blade3
 
-
-
 enum AttackDirection { LEFT, RIGHT}
 @export var attack_direction: AttackDirection = AttackDirection.RIGHT
 var attack_rate: float
