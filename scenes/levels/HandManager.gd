@@ -21,14 +21,12 @@ func _ready():
 	
 
 func _on_summon_book_book_up():
-	#print("up")
 	wizard_arm.enabled = false
 	wizard_arm.visible = false
 	book_wizard.enabled = true
 	book_wizard.visible = true
 
 func _on_summon_book_book_down():
-	#print("down")
 	wizard_arm.enabled = true
 	wizard_arm.visible = true
 	book_wizard.enabled = false

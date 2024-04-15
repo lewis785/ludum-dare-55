@@ -2,6 +2,8 @@ extends Area2D
 
 class_name SummoningCircle
 
+signal summoned()
+
 @export var ingredients_cap : int = 5
 @export var summon_scene : PackedScene
 @onready var sprite_2d = $Sprite2D
@@ -105,4 +107,5 @@ func _on_sprite_2d_animation_looped():
 
 func _on_smoke_effect_animation_looped():
 	smoke_effect.stop()
-	smoke_effect.visible = false
+	var combat_coordinator : CombatCoordinator = find_parent("SlidingWindow").find_child("CombatCoordinator")
+	combat_coordinator.allow_fighting = true	

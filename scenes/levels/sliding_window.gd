@@ -55,7 +55,7 @@ func _process(delta):
 	if (old_room != null):
 		old_room.queue_free()
 		old_room = null
-		combat_coordinator.allow_fighting = true	
+		#combat_coordinator.allow_fighting = true	
 	
 
 func _createNextRoom():

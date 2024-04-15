@@ -6,7 +6,7 @@ signal fight_started()
 signal fight_win()
 signal fight_lose()
 
-@export var allow_fighting: bool = true 
+@export var allow_fighting: bool = false 
 var summon: Character
 var enemy: Character
 var summon_last_attacked = 0
