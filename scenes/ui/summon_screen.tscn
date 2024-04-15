@@ -250,6 +250,7 @@ frame_progress = 0.155514
 [node name="Ambience" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_8piw6")
 autoplay = true
+bus = &"Music"
 
 [connection signal="input_event" from="SummonBook/OpenBook/Area2D" to="SummonBook" method="_on_area_2d_input_event"]
 [connection signal="pressed" from="SummonBook/Button" to="SummonBook" method="_on_button_pressed"]
