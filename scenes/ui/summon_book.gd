@@ -18,12 +18,21 @@ var inventory = null
 var summon_active : bool = true
 var sigil_drawn : bool = false
 
-
+###### BOOK SETUP ######
 func _ready():
 	position = start_coords
 	book_raised = false
 	store_book()
+	_connect_nodes()
 
+func _connect_nodes():
+	var sliding_window : SlidingWindow = find_parent("SlidingWindow")
+	sliding_window.connect("slide_stop", Callable(self, "_on_sliding_window_slide_stop"))
+	
+	var combat_coordinator : CombatCoordinator = sliding_window.find_child("CombatCoordinator")
+	combat_coordinator.connect("fight_lose", Callable(self, "_on_combat_coordinator_fight_lose"))
+
+###### BOOK INVENTORY ######
 func reset_book():
 	if inventory != null:
 		populate_book()
@@ -43,7 +52,8 @@ func store_book():
 	for child_node in find_child("OpenBook").find_children("BookLine*"):
 		var book_line : BookLine = child_node
 		inventory = inventory + book_line.get_ingredients()
-	
+
+###### MOVING BOOK ######
 func raise_book():
 	tween = self.create_tween().set_trans(Tween.TRANS_SINE)
 	tween.tween_property(self, "global_position:y", -height, speed).as_relative().set_ease(Tween.EASE_IN_OUT)
@@ -87,6 +97,7 @@ func toggle_position():
 	else:
 		raise_book()
 
+###### EVENT HANDLING ######
 func _on_button_pressed():
 	if summoning_circle.is_summonable():
 		lower_book()
@@ -101,3 +112,11 @@ func _input(_event):
 	if(Input.is_key_pressed(KEY_SPACE)):	#UPDATE WHEN BATTLE ENDSS
 		if !summon_active:
 			reset_book()
+
+func _on_combat_coordinator_fight_lose():
+	reset_book()
+
+# Called when fight won
+func _on_sliding_window_slide_stop():
+	store_book()
+	reset_book()

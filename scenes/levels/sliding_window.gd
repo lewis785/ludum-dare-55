@@ -2,14 +2,15 @@ extends Node2D
 
 class_name SlidingWindow
 
+signal slide_start()
+signal slide_stop()
+
 @onready var camera = $Camera2D
 @onready var combat_coordinator = $CombatCoordinator
 @onready var win_music = $WinMusic
 @onready var lose_music = $LoseMusic
 @onready var fight_music = $FightMusic
 @onready var game_over_bar = $Overlay/GameOverBar
-
-
 
 @export var cameraSpeed: int
 @export var lives: int
@@ -20,6 +21,8 @@ var old_room : Room
 
 var target_coordinates = Vector2(400,225)
 var camera_coordinates = Vector2(400,225)
+
+var sliding : bool = false
 
 var target = 0
 var room_count = 0
@@ -47,6 +50,10 @@ func _process(delta):
 	
 	if (target_coordinates != camera_coordinates):
 		return
+
+	if (target_coordinates == camera_coordinates and sliding):
+		sliding = false
+		slide_stop.emit()
 		
 	if (!room_instance.is_setup):
 		room_instance.setup_room(lives)
@@ -68,6 +75,8 @@ func _createNextRoom():
 	old_room._set_torches_brightness(0)
 	
 	target_coordinates = Vector2(400+room_instance.position.x, 225)
+	sliding = true
+	slide_start.emit()
 
 	# Move Wizard
 	old_room.move_wizard()
