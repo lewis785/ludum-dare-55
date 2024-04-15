@@ -63,6 +63,7 @@ func combine_ingredients():
 	summon.add_to_group("summon")
 
 	smoke_effect.position = spawn_location
+	smoke_effect.animation = "default"
 	var sliding_window : SlidingWindow = find_parent("SlidingWindow")
 	var room : Room = sliding_window.room_instance
 	# Delay to spawn Summon
@@ -107,5 +108,6 @@ func _on_sprite_2d_animation_looped():
 
 func _on_smoke_effect_animation_looped():
 	smoke_effect.stop()
+	smoke_effect.visible = false
 	var combat_coordinator : CombatCoordinator = find_parent("SlidingWindow").find_child("CombatCoordinator")
 	combat_coordinator.allow_fighting = true	

@@ -153,6 +153,11 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 20.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
 }]
 
 [node name="SummonScreen" type="Node2D"]
@@ -245,7 +250,6 @@ flat = true
 visible = false
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_tudsb")
-frame_progress = 0.155514
 
 [node name="Ambience" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_8piw6")

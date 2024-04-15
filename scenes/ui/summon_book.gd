@@ -34,6 +34,7 @@ func _connect_nodes():
 
 ###### BOOK INVENTORY ######
 func reset_book():
+	print(self)
 	if inventory != null:
 		populate_book()
 	unhide_book()
@@ -92,7 +93,7 @@ func unhide_book():
 		tween.kill()
 	position = start_coords
 	visible = true
-	book_raised = false
+	#book_raised = false
 	summon_active = true
 	book_down.emit()
 
