@@ -74,6 +74,7 @@ offset_bottom = -101.694
 
 [node name="BookWizardArm" parent="Overlay" instance=ExtResource("13_tj4w8")]
 
+[connection signal="reward_received" from="." to="." method="_on_reward_received"]
 [connection signal="fight_lose" from="CombatCoordinator" to="." method="_on_combat_coordinator_fight_lose"]
 [connection signal="fight_started" from="CombatCoordinator" to="." method="_on_combat_coordinator_fight_started"]
 [connection signal="fight_win" from="CombatCoordinator" to="." method="_on_combat_coordinator_fight_win"]
