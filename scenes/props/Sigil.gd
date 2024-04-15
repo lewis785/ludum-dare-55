@@ -46,11 +46,11 @@ func update_animation(level):
 				animation = "Strength3"
 		4: # Vitality
 			if level < 30:
-				animation = "Vitality1"
+				animation = "Health1"
 			elif level < 60:
-				animation = "Vitality2"
+				animation = "Health2"
 			else:
-				animation = "Vitality3"
+				animation = "Health3"
 
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
