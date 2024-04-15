@@ -67,9 +67,8 @@ func combine_ingredients():
 	
 	summon.position = spawn_location
 
-	
 	for ingr : Ingredient in ingredients:
-		#ingr.queue_free()
+		# Removed in Summon Book
 		ingr.visible = false
 
 func _on_area_entered(area):

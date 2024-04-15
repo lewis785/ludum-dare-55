@@ -20,8 +20,9 @@ func spawn_ingredients():
 func spawn_inventory(ingredients):
 	var i = 0
 	for ingr : Ingredient in ingredients:
-		ingr.visible = true
-		ingr.position = coords[i]
+		if ingr != null:
+			ingr.visible = true
+			ingr.position = coords[i]
 		i+=1
 
 func spawn_ingredient(type, potency, coord):

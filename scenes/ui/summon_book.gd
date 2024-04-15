@@ -53,6 +53,11 @@ func store_book():
 		var book_line : BookLine = child_node
 		inventory = inventory + book_line.get_ingredients()
 
+func remove_used_ingredients():
+	for ingr : Ingredient in summoning_circle.ingredients:
+		inventory.erase(ingr)
+		ingr.queue_free()
+
 ###### MOVING BOOK ######
 func raise_book():
 	tween = self.create_tween().set_trans(Tween.TRANS_SINE)
@@ -114,9 +119,11 @@ func _input(_event):
 			reset_book()
 
 func _on_combat_coordinator_fight_lose():
-	reset_book()
+	var sliding_window : SlidingWindow = find_parent("SlidingWindow")
+	if sliding_window.lives != 0:
+		reset_book()
 
 # Called when fight won
 func _on_sliding_window_slide_stop():
-	store_book()
+	remove_used_ingredients()
 	reset_book()

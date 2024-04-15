@@ -12,7 +12,6 @@ func _ready():
 	summon_book.connect("book_up", Callable(self, "_on_summon_book_book_up"))
 	summon_book.connect("book_down", Callable(self, "_on_summon_book_book_down"))
 	book_wizard = book_wizard_arm_scene.instantiate()
-	print(summon_book.get_parent().get_parent())
 	summon_book.get_parent().get_parent().add_child(book_wizard)
 
 func _on_summon_book_book_up():
