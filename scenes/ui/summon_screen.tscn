@@ -1,6 +1,5 @@
-[gd_scene load_steps=31 format=3 uid="uid://df7kvudh0t7fu"]
+[gd_scene load_steps=30 format=3 uid="uid://df7kvudh0t7fu"]
 
-[ext_resource type="Script" path="res://scenes/ui/summon_screen.gd" id="1_ewbjp"]
 [ext_resource type="PackedScene" uid="uid://cjfwvsq2rkexi" path="res://scenes/items/summoning_circle.tscn" id="1_prqnr"]
 [ext_resource type="Texture2D" uid="uid://ttuhskylebt0" path="res://assets/elements/OpenBook.png" id="4_5pdkx"]
 [ext_resource type="Script" path="res://scenes/ui/summon_book.gd" id="4_qmi7a"]
@@ -157,7 +156,6 @@ animations = [{
 }]
 
 [node name="SummonScreen" type="Node2D"]
-script = ExtResource("1_ewbjp")
 
 [node name="SummonBook" type="Node2D" parent="." node_paths=PackedStringArray("summoning_circle", "arrow_sprite")]
 z_index = 5
