@@ -21,7 +21,6 @@ var regen_per_second = 0
 func _ready():
 	max_health = base_health + (vitality_modifier * attributes.vitality)
 	health = max_health
-	print("Health: " + str(health).pad_decimals(2))
 	
 var regen_timer = 0.0
 func _process(delta):
@@ -36,7 +35,6 @@ func _process(delta):
 func damage(value: Attack):
 	var damage = _calculate_damage(value)
 	health -= damage
-	print("Health: " + str(health))
 	
 	damaged.emit(damage, value.crit)
 
@@ -63,7 +61,5 @@ func _calculate_damage(attack: Attack):
 	var damage = attack.damage
 	var crit_modifier = damage if attack.crit else 0
 	
-	print("defence: " + str(defence) + " resistance: " + str(resistance) + " damage: " + str(damage) + " crit: " + str(crit_modifier))
-	print("Actual damage: " + str(round(damage * defence * resistance * crit_modifier)))
 	return round((damage * defence * resistance) + crit_modifier)
 	

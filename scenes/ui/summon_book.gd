@@ -104,11 +104,10 @@ func hide_book():
 
 func unhide_book():
 	if tween != null and tween.is_running():
-		print("TWEEN KILL")
 		tween.kill()
 	position = start_coords
 	visible = true
-	#book_raised = false
+
 	summon_active = true
 	book_down.emit()
 
