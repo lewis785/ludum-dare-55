@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xw823o2ff38c"
-path="res://.godot/imported/LongArm-Sheet.png-e2531f8925260586493fec3b1b06a439.ctex"
+uid="uid://ds0hbyihuw3dx"
+path="res://.godot/imported/LongArm-Sheet-export.png-fc1ffba71d53792470971fff8bed1362.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/LongArm-Sheet.png"
-dest_files=["res://.godot/imported/LongArm-Sheet.png-e2531f8925260586493fec3b1b06a439.ctex"]
+source_file="res://assets/characters/LongArm-Sheet-export.png"
+dest_files=["res://.godot/imported/LongArm-Sheet-export.png-fc1ffba71d53792470971fff8bed1362.ctex"]
 
 [params]
 
