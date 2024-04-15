@@ -5,7 +5,7 @@ class_name Room
 @onready var enemy_spawner: EnemySpawner = $EnemySpawner
 
 @export var wizard_speed: int = 300
-@export var max_brightness: int = 6
+@export var max_brightness: int = 10
 
 var is_setup : bool = false
 var torches: Array[Torch]
