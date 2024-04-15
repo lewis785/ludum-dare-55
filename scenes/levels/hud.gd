@@ -11,8 +11,7 @@ var fx_muted: bool
 func _ready():
 	music_muted = config.load_value("sound", "music_muted", false)
 	fx_muted = config.load_value("sound", "fx_muted", false)
-	set_music_muted(music_muted)
-	set_fx_muted(fx_muted)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

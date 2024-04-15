@@ -13,18 +13,24 @@ script = ExtResource("1_i3vph")
 
 [node name="Blunt1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_ydqlb")
+bus = &"FX"
 
 [node name="Blunt2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_qlndu")
+bus = &"FX"
 
 [node name="Blunt3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_ry66v")
+bus = &"FX"
 
 [node name="Blade1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_ue1y8")
+bus = &"FX"
 
 [node name="Blade2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_58f5p")
+bus = &"FX"
 
 [node name="Blade3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_axnua")
+bus = &"FX"
