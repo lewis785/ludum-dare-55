@@ -1,21 +1,21 @@
 [gd_scene load_steps=6 format=3 uid="uid://dwew87av0fnlh"]
 
 [ext_resource type="Script" path="res://scenes/props/BookWizardArm.gd" id="1_0o82p"]
-[ext_resource type="Texture2D" uid="uid://xw823o2ff38c" path="res://assets/characters/LongArm-Sheet.png" id="2_o6a6o"]
+[ext_resource type="Texture2D" uid="uid://ds0hbyihuw3dx" path="res://assets/characters/LongArm-Sheet-export.png" id="2_bx2ga"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a4op2"]
-atlas = ExtResource("2_o6a6o")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ba35p"]
+atlas = ExtResource("2_bx2ga")
 region = Rect2(512, 0, 512, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_titfx"]
-atlas = ExtResource("2_o6a6o")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ww7dt"]
+atlas = ExtResource("2_bx2ga")
 region = Rect2(0, 0, 512, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_666r3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a4op2")
+"texture": SubResource("AtlasTexture_ba35p")
 }],
 "loop": true,
 "name": &"Grab",
@@ -23,7 +23,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_titfx")
+"texture": SubResource("AtlasTexture_ww7dt")
 }],
 "loop": true,
 "name": &"default",
