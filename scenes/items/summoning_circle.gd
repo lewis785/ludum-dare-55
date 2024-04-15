@@ -10,6 +10,7 @@ class_name SummoningCircle
 @onready var sigil_3 = $Sigil3
 @onready var sigil_4 = $Sigil4
 @onready var sigil_5 = $Sigil5
+@onready var smoke_effect = $"../../SmokeEffect"
 
 @export var spawn_location : Vector2 = Vector2(250,350)
 @export var summon_delay : float = 0.75 # Delay until summon spawns in
@@ -41,6 +42,7 @@ func combine_ingredients():
 	var summon: Character = summon_scene.instantiate() as Character
 	summon.character_type = Character.CharacterTypes.SUMMON
 	
+	
 	# Summon creature with new stats
 	summon.position = position
 	var attributes = summon.get_node("AttributesComponent")
@@ -52,15 +54,19 @@ func combine_ingredients():
 
 	summon.add_to_group("summon")
 
-	
+	smoke_effect.position = spawn_location
 	var sliding_window : SlidingWindow = find_parent("SlidingWindow")
 	var room : Room = sliding_window.room_instance
 	# Delay to spawn Summon
+	await get_tree().create_timer(summon_delay).timeout
+	smoke_effect.visible = true
+	smoke_effect.play()
 	await get_tree().create_timer(summon_delay).timeout
 	room.add_child(summon)
 	#find_child("SummoningCircleAudio").play()
 	
 	summon.position = spawn_location
+
 	
 	for ingr : Ingredient in ingredients:
 		#ingr.queue_free()
@@ -95,3 +101,10 @@ func _on_sprite_2d_animation_looped():
 		sigil_3.find_child("SigilLight").energy = 2.0
 		sigil_4.find_child("SigilLight").energy = 2.0
 		sigil_5.find_child("SigilLight").energy = 2.0
+
+
+
+
+func _on_smoke_effect_animation_looped():
+	smoke_effect.stop()
+	smoke_effect.visible = false

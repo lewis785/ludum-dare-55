@@ -89,8 +89,12 @@ func _on_combat_coordinator_fight_lose():
 	lose_music.play()
 	lives -= 1
 	room_instance.setup_room(lives)
+	
 	if(lives < 1):
 		game_over_bar.visible = true
+		return
+	
+	combat_coordinator.allow_fighting = true	
 
 func _on_combat_coordinator_fight_win():
 	fight_music.stop()

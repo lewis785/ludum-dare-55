@@ -4,6 +4,7 @@ extends Node2D
 @onready var credits_button = $TextureRect/CreditsButton
 @onready var quit_button = $TextureRect/QuitButton
 @onready var how_to_button = $TextureRect/HowToButton
+@onready var credits_page = $CreditsPage
 
 
 # Called when the node enters the scene tree for the first time.
@@ -27,3 +28,11 @@ func _on_start_button_pressed():
 	await get_tree().create_timer(4.8).timeout
 	get_tree().change_scene_to_file("res://scenes/levels/sliding_window.tscn")
 	
+
+
+func _on_main_menu_button_pressed():
+	credits_page.visible = false
+
+
+func _on_credits_button_pressed():
+	credits_page.visible = true
