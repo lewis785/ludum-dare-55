@@ -14,7 +14,7 @@ signal summoned()
 @onready var sigil_5 = $Sigil5
 @onready var smoke_effect = $"../../SmokeEffect"
 
-@export var spawn_location : Vector2 = Vector2(250,350)
+@export var spawn_location : Vector2 = Vector2(270,340)
 @export var summon_delay : float = 0.75 # Delay until summon spawns in
 var ingredients = []
 

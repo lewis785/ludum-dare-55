@@ -232,7 +232,6 @@ texture = ExtResource("5_kopa1")
 [node name="SummoningCircle" parent="SummonBook" instance=ExtResource("1_prqnr")]
 position = Vector2(158, -63)
 scale = Vector2(0.6, 0.6)
-spawn_location = Vector2(300, 340)
 
 [node name="SummonButton" type="Button" parent="SummonBook"]
 texture_filter = 1
