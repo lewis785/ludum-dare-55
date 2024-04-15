@@ -1,10 +1,83 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6n5qd7skmkpc"]
+[gd_scene load_steps=36 format=3 uid="uid://b6n5qd7skmkpc"]
 
 [ext_resource type="Script" path="res://scenes/characters/character.gd" id="1_fbwr6"]
 [ext_resource type="PackedScene" uid="uid://cxs88h1qteno5" path="res://scenes/components/character/attributes_component.tscn" id="2_e7yeo"]
 [ext_resource type="PackedScene" uid="uid://wx7qik0tnnxf" path="res://scenes/components/character/health_component.tscn" id="3_ixrst"]
 [ext_resource type="PackedScene" uid="uid://crlxihydew4my" path="res://scenes/components/character/attack_component.tscn" id="4_6vune"]
+[ext_resource type="Texture2D" uid="uid://bq0l37v7wxe7s" path="res://assets/smoke-Sheet.png" id="5_ko2g2"]
 [ext_resource type="Script" path="res://scripts/health_bar.gd" id="11_uessb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsu32"]
+atlas = ExtResource("5_ko2g2")
+region = Rect2(544, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uxwg"]
+atlas = ExtResource("5_ko2g2")
+region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owvj6"]
+atlas = ExtResource("5_ko2g2")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iueck"]
+atlas = ExtResource("5_ko2g2")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ij5we"]
+atlas = ExtResource("5_ko2g2")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e040s"]
+atlas = ExtResource("5_ko2g2")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6ivk"]
+atlas = ExtResource("5_ko2g2")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrt4n"]
+atlas = ExtResource("5_ko2g2")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5ps2"]
+atlas = ExtResource("5_ko2g2")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4r7h"]
+atlas = ExtResource("5_ko2g2")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gjwj"]
+atlas = ExtResource("5_ko2g2")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7tem"]
+atlas = ExtResource("5_ko2g2")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utudp"]
+atlas = ExtResource("5_ko2g2")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e36m7"]
+atlas = ExtResource("5_ko2g2")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqkcw"]
+atlas = ExtResource("5_ko2g2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwucc"]
+atlas = ExtResource("5_ko2g2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3crc"]
+atlas = ExtResource("5_ko2g2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86ral"]
+atlas = ExtResource("5_ko2g2")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4jc43"]
 load_path = "res://.godot/imported/monster-sprits-sheet.png-7af50097b7fb7c1ce571b2efe119aef2.ctex"
@@ -42,6 +115,65 @@ region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tr127"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsu32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6uxwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owvj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iueck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ij5we")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e040s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6ivk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrt4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5ps2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4r7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gjwj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7tem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utudp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e36m7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqkcw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwucc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3crc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86ral")
+}],
+"loop": false,
+"name": &"death",
+"speed": 20.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_x3ly2")
@@ -99,8 +231,7 @@ sprit = NodePath("../AnimatedSprite2D")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_tr127")
-animation = &"enemy"
-frame_progress = 0.621043
+animation = &"death"
 
 [node name="HealthBar" type="ProgressBar" parent="." node_paths=PackedStringArray("health_component")]
 texture_filter = 1
@@ -117,5 +248,7 @@ health_component = NodePath("../HealthComponent")
 
 [connection signal="damaged" from="HealthComponent" to="." method="_on_health_component_damaged"]
 [connection signal="damaged" from="HealthComponent" to="HealthBar" method="_on_health_component_damaged"]
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
 [connection signal="healed" from="HealthComponent" to="." method="_on_health_component_healed"]
 [connection signal="healed" from="HealthComponent" to="HealthBar" method="_on_health_component_healed"]
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
