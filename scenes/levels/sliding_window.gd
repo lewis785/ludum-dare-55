@@ -88,9 +88,11 @@ func _on_combat_coordinator_fight_lose():
 		game_over_bar.visible = true
 		return
 	
+	await get_tree().create_timer(2.0).timeout
 	combat_coordinator.allow_fighting = true	
 
 func _on_combat_coordinator_fight_win():
 	fight_music.stop()
 	win_music.play()
+	await get_tree().create_timer(2.0).timeout
 	_createNextRoom()

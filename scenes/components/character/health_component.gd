@@ -5,6 +5,7 @@ class_name HealthComponent
 const FLOATING_LABEL = preload("res://scenes/ui/floating_label.tscn")
 
 signal damaged(damage: int, crit: bool)
+signal died()
 signal healed(heal: int)
 
 @export var attributes: AttributesComponent
@@ -25,11 +26,10 @@ func damage(value: Attack):
 	health -= damage
 	print("Health: " + str(health))
 	
-	
 	damaged.emit(damage, value.crit)
 
 	if health <= 0:
-		get_parent().queue_free()
+		died.emit()
 
 func heal():
 	healed.emit(max_health - health)
