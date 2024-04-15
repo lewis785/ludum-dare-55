@@ -6,6 +6,15 @@ class_name AttackComponent
 @export var base_attack_rate = 60
 @export var sprit: AnimatedSprite2D
 
+@onready var blunt_1 = $Blunt1
+@onready var blunt_2 = $Blunt2
+@onready var blunt_3 = $Blunt3
+@onready var blade_1 = $Blade1
+@onready var blade_2 = $Blade2
+@onready var blade_3 = $Blade3
+
+
+
 enum AttackDirection { LEFT, RIGHT}
 @export var attack_direction: AttackDirection = AttackDirection.RIGHT
 var attack_rate: float
@@ -18,8 +27,24 @@ func attack() -> Attack:
 	attack.damage = _damage_amount()
 	attack.type = AttributesComponent.DamageTypes.SLASHING
 	attack.crit = randi() % 100 < attributes_component.luck
-	
+	var random = RandomNumberGenerator.new()
+	var temp = -1
+	random.randomize()
 	_attack_movement()
+	temp = random.randi_range(0, 15)
+	match temp:
+		0: 
+			blunt_1.play()
+		1:	
+			blunt_2.play()
+		2:	
+			blunt_3.play()
+		4: 
+			blade_1.play()
+		5:	
+			blade_2.play()
+		6:	
+			blade_3.play()	
 	return attack
 
 func _attack_movement():
