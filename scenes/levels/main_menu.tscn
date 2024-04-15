@@ -1,7 +1,7 @@
 [gd_scene load_steps=138 format=3 uid="uid://dq7tt8ts4orc8"]
 
 [ext_resource type="Script" path="res://scenes/levels/main_menu.gd" id="1_k0ovu"]
-[ext_resource type="Texture2D" uid="uid://fm5u8bds4alv" path="res://assets/backgrounds/Title1.1.png" id="2_ug3e8"]
+[ext_resource type="Texture2D" uid="uid://fm5u8bds4alv" path="res://assets/backgrounds/title.png" id="2_ug3e8"]
 [ext_resource type="Texture2D" uid="uid://dc0crit6oq6vc" path="res://assets/elements/reaching-Sheet.png" id="3_5el2d"]
 [ext_resource type="Texture2D" uid="uid://bvhvui3w7a1wy" path="res://assets/elements/roof-Sheet.png" id="4_omjdc"]
 [ext_resource type="Texture2D" uid="uid://copyq00fhkakt" path="res://assets/elements/roof-Sheeshadet.png" id="5_risd2"]
