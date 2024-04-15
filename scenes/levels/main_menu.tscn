@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=3 uid="uid://dq7tt8ts4orc8"]
+[gd_scene load_steps=135 format=3 uid="uid://dq7tt8ts4orc8"]
 
 [ext_resource type="Script" path="res://scenes/levels/main_menu.gd" id="1_k0ovu"]
 [ext_resource type="Texture2D" uid="uid://fm5u8bds4alv" path="res://assets/backgrounds/Title1.1.png" id="2_ug3e8"]
@@ -818,9 +818,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_aa28n"]
-load_path = "res://.godot/imported/battle.png-e7615ea8ad09056ee55a03907d0861fc.ctex"
-
 [node name="MainMenu" type="Node2D" node_paths=PackedStringArray("config")]
 script = ExtResource("1_k0ovu")
 config = NodePath("ConfigComponent")
@@ -1113,12 +1110,6 @@ text = "Summon Your
 Minion"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Sprite2D4" type="Sprite2D" parent="InstructionPage"]
-visible = false
-position = Vector2(851, 456)
-scale = Vector2(0.38, 0.38)
-texture = SubResource("CompressedTexture2D_aa28n")
 
 [connection signal="pressed" from="MainPage/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainPage/CreditsButton" to="." method="_on_credits_button_pressed"]
