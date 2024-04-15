@@ -905,6 +905,7 @@ autoplay = true
 bus = &"Music"
 
 [node name="CreditsPage" type="TextureRect" parent="."]
+visible = false
 z_index = 5
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -963,6 +964,7 @@ vertical_alignment = 1
 
 [node name="Label3" type="Label" parent="CreditsPage"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 107.0
 offset_top = 347.0
 offset_right = 271.0
@@ -975,6 +977,7 @@ vertical_alignment = 1
 
 [node name="Label4" type="Label" parent="CreditsPage"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 733.0
 offset_top = 340.0
 offset_right = 897.0
@@ -987,6 +990,7 @@ vertical_alignment = 1
 
 [node name="Label5" type="Label" parent="CreditsPage"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 1007.0
 offset_top = 247.0
 offset_right = 1171.0
