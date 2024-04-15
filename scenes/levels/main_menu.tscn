@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=3 uid="uid://dq7tt8ts4orc8"]
+[gd_scene load_steps=130 format=3 uid="uid://dq7tt8ts4orc8"]
 
 [ext_resource type="Script" path="res://scenes/levels/main_menu.gd" id="1_k0ovu"]
 [ext_resource type="Texture2D" uid="uid://fm5u8bds4alv" path="res://assets/backgrounds/Title1.1.png" id="2_ug3e8"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bginjys5lmnud" path="res://assets/characters/lewis_idle_animation.png" id="13_lxvyy"]
 [ext_resource type="Texture2D" uid="uid://d27a2tmda2nro" path="res://assets/characters/BeanAnimation.png" id="14_3jmio"]
 [ext_resource type="Texture2D" uid="uid://byh5gtdc22egh" path="res://assets/characters/Sean-Sheet.png" id="15_h7qst"]
+[ext_resource type="FontFile" uid="uid://d2w70ocs1lxn2" path="res://assets/fonts/Jersey10-Regular.ttf" id="16_6gkh6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fcone"]
 atlas = ExtResource("3_5el2d")
@@ -904,7 +905,6 @@ autoplay = true
 bus = &"Music"
 
 [node name="CreditsPage" type="TextureRect" parent="."]
-visible = false
 z_index = 5
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -947,6 +947,55 @@ offset_top = 550.0
 offset_right = 147.0
 offset_bottom = 625.0
 text = "BACK"
+
+[node name="Label2" type="Label" parent="CreditsPage"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 390.0
+offset_top = 274.0
+offset_right = 554.0
+offset_bottom = 340.0
+theme_override_fonts/font = ExtResource("16_6gkh6")
+theme_override_font_sizes/font_size = 60
+text = "Lewis"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="CreditsPage"]
+texture_filter = 1
+offset_left = 107.0
+offset_top = 347.0
+offset_right = 271.0
+offset_bottom = 413.0
+theme_override_fonts/font = ExtResource("16_6gkh6")
+theme_override_font_sizes/font_size = 60
+text = "Nick"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="CreditsPage"]
+texture_filter = 1
+offset_left = 733.0
+offset_top = 340.0
+offset_right = 897.0
+offset_bottom = 406.0
+theme_override_fonts/font = ExtResource("16_6gkh6")
+theme_override_font_sizes/font_size = 60
+text = "Jack"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="CreditsPage"]
+texture_filter = 1
+offset_left = 1007.0
+offset_top = 247.0
+offset_right = 1171.0
+offset_bottom = 313.0
+theme_override_fonts/font = ExtResource("16_6gkh6")
+theme_override_font_sizes/font_size = 60
+text = "Sean"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="TextureRect/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="TextureRect/CreditsButton" to="." method="_on_credits_button_pressed"]
