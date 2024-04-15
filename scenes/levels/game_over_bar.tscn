@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b02a8q6g57xda"]
 
-[ext_resource type="Script" path="res://game_over_bar.gd" id="1_e6oel"]
+[ext_resource type="Script" path="res://scenes/levels/game_over_bar.gd" id="1_e6oel"]
 
 [sub_resource type="Gradient" id="Gradient_c55c6"]
 
