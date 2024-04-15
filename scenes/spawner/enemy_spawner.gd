@@ -11,10 +11,11 @@ const ENEMY = preload("res://scenes/characters/character.tscn")
 func spawn_enemy(round: int):
 	var enemy = _setup_enemy(round);
 	add_child(enemy)
+	enemy.health_component.enable_regen = false
 	_set_enemy_strengths(enemy)
 
 func _setup_enemy(round: int):
-	var enemy = ENEMY.instantiate()
+	var enemy = ENEMY.instantiate() as Character
 	enemy.add_to_group("enemy")
 	return _set_attributes(enemy, round)
 

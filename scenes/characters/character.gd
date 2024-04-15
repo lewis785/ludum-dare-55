@@ -47,11 +47,8 @@ func pick_enemy_sprite():
 	animated_sprite_2d.set_frame_and_progress(random_index, 0.0)
 
 func _on_health_component_died():
+	health_component.enable_regen = false
 	animated_sprite_2d.animation = "death"
 	animated_sprite_2d.play()
 	await get_tree().create_timer(1.0).timeout
 	queue_free()
-
-func _on_animated_sprite_2d_animation_looped():
-	if animated_sprite_2d.animation == "death":
-		animated_sprite_2d.visible = false
