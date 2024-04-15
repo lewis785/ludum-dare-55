@@ -36,12 +36,6 @@ var flag = 1;
 #Camera set to 1.44
 func _ready():
 	_createNextRoom()
-	
-		
-func _input(_event):
-	if(Input.is_key_pressed(KEY_ENTER)):	#UPDATE WHEN BATTLE ENDSS
-		room_instance.find_child("RoomMusic").stop()	#Make sure to call this when battle starts!!!
-		_createNextRoom()
 
 func _process(delta):
 	camera_coordinates = camera.get_position()

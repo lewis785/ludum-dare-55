@@ -113,11 +113,6 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 		if event is InputEventMouseButton and event.pressed:
 			toggle_position()
 
-func _input(_event):
-	if(Input.is_key_pressed(KEY_SPACE)):	#UPDATE WHEN BATTLE ENDSS
-		if !summon_active:
-			reset_book()
-
 func _on_combat_coordinator_fight_lose():
 	var sliding_window : SlidingWindow = find_parent("SlidingWindow")
 	if sliding_window.lives != 0:
