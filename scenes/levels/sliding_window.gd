@@ -23,7 +23,8 @@ var target_coordinates = Vector2(400,225)
 var camera_coordinates = Vector2(400,225)
 
 var sliding : bool = false
-
+var retrievingReward = false
+var retrievingRemains = false
 var target = 0
 var room_count = 0
 var tempPleaseLewisDontHateMe = 0
@@ -56,7 +57,18 @@ func _process(delta):
 		old_room.queue_free()
 		old_room = null
 		#combat_coordinator.allow_fighting = true	
-	
+	if (retrievingReward == true):
+		if(room_instance.find_child("ReturnStatsAnimation").find_child("LeftOrb").find_child("PathFollow2D").progress_ratio >= 0.95):
+			retrievingReward = false
+			room_instance.find_child("ReturnStatsAnimation").visible = false
+		room_instance.find_child("ReturnStatsAnimation").find_child("LeftOrb").find_child("PathFollow2D").progress += 200*delta
+		
+	if (retrievingRemains == true):
+		if(room_instance.find_child("ReturnRemainsAnimation").find_child("Orb").find_child("PathFollow2D").progress_ratio >= 0.95):
+			retrievingRemains = false
+			room_instance.find_child("ReturnRemainsAnimation").visible = false
+		room_instance.find_child("ReturnRemainsAnimation").find_child("Orb").find_child("PathFollow2D").progress += 200*delta
+		room_instance.find_child("ReturnRemainsAnimation").find_child("Orb").find_child("PathFollow2D").progress += 200*delta
 
 func _createNextRoom():
 	room_count += 1
@@ -87,12 +99,16 @@ func _on_combat_coordinator_fight_lose():
 	if(lives < 1):
 		game_over_bar.visible = true
 		return
-	
+	room_instance.find_child("ReturnRemainsAnimation").visible = true
+	retrievingRemains = true
 	await get_tree().create_timer(2.0).timeout
 	combat_coordinator.allow_fighting = true	
 
 func _on_combat_coordinator_fight_win():
 	fight_music.stop()
 	win_music.play()
+	room_instance.find_child("ReturnStatsAnimation").visible = true
+	retrievingReward = true
+		#if wizard_path.progress_ratio == 1.0:
 	await get_tree().create_timer(2.0).timeout
 	_createNextRoom()

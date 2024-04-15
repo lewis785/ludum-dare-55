@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgpdowmqm3w0j"]
+
+[ext_resource type="Texture2D" uid="uid://dc53xurnnd6yk" path="res://assets/props/SummonOrb-export.png" id="1_n56px"]
+[ext_resource type="Texture2D" uid="uid://5dvrr1mxcbia" path="res://scenes/props/wizard_torch.tres" id="2_q623o"]
+
+[sub_resource type="Curve2D" id="Curve2D_26m7j"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 366.046, 360.877, 0, 0, 0, 0, 229.676, 300.327, 0, 0, 0, 0, 133.454, 255.39)
+}
+point_count = 3
+
+[node name="ReturnRemainsAnimation" type="Node2D"]
+
+[node name="Orb" type="Path2D" parent="."]
+position = Vector2(21, 49)
+scale = Vector2(0.786787, 0.900585)
+curve = SubResource("Curve2D_26m7j")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Orb"]
+position = Vector2(366.046, 360.877)
+rotation = -2.72373
+
+[node name="Sprite2D" type="Sprite2D" parent="Orb/PathFollow2D"]
+texture_filter = 1
+position = Vector2(-2.77361, 0.0387039)
+texture = ExtResource("1_n56px")
+
+[node name="PointLight2D" type="PointLight2D" parent="Orb/PathFollow2D/Sprite2D"]
+texture = ExtResource("2_q623o")
+
+[node name="_Timer_56535" type="Timer" parent="Orb/PathFollow2D"]
+wait_time = 0.2
+one_shot = true
