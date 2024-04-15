@@ -34,7 +34,6 @@ func _connect_nodes():
 
 ###### BOOK INVENTORY ######
 func reset_book():
-	print(self)
 	if inventory != null:
 		populate_book()
 	unhide_book()

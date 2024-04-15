@@ -68,7 +68,6 @@ func combine_ingredients():
 	var stats = calculate_stats()
 	show_stats(stats)
 	
-	print(stats)
 	var summon: Character = summon_scene.instantiate() as Character
 	summon.character_type = Character.CharacterTypes.SUMMON
 	
