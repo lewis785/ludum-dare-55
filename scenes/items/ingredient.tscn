@@ -3,43 +3,43 @@
 [ext_resource type="Texture2D" uid="uid://d3idpeem2jt3c" path="res://assets/ingredients/black_powder.png" id="1_cka4h"]
 [ext_resource type="Script" path="res://scenes/items/ingredient.gd" id="1_m5vhc"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8agnq"]
+atlas = ExtResource("1_cka4h")
+region = Rect2(0, 96, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_xesdg"]
 atlas = ExtResource("1_cka4h")
 region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j6fuo"]
-atlas = ExtResource("1_cka4h")
-region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6lkke"]
 atlas = ExtResource("1_cka4h")
 region = Rect2(0, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8agnq"]
-atlas = ExtResource("1_cka4h")
-region = Rect2(0, 96, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ahkis"]
 atlas = ExtResource("1_cka4h")
 region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6fuo"]
+atlas = ExtResource("1_cka4h")
+region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wpfce"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xesdg")
+"texture": SubResource("AtlasTexture_8agnq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j6fuo")
+"texture": SubResource("AtlasTexture_xesdg")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6lkke")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8agnq")
+"texture": SubResource("AtlasTexture_ahkis")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ahkis")
+"texture": SubResource("AtlasTexture_j6fuo")
 }],
 "loop": true,
 "name": &"default",

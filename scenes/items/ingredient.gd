@@ -4,11 +4,11 @@ class_name Ingredient
 
 @export_category("Properties")
 enum IngredientTypes {
-	WHITE,
-	RED,
-	BLUE,
 	GREEN,
-	BLACK
+	WHITE,
+	BLUE,
+	BLACK,
+	RED,
 }
 @export var type: IngredientTypes
 @export var potency: int = -1
@@ -37,15 +37,15 @@ func randomise():
 func title(ingr_type):
 	match ingr_type:
 		0:
-			return "Diamond Powder"
+			return "Emerald Powder"
 		1:
-			return "Ruby Powder"
+			return "Diamond Powder"
 		2:
 			return "Crushed Sapphire"
 		3:
-			return "Emerald Powder"
-		4:
 			return "Obsidian Salt"
+		4:
+			return "Ruby Powder"
 		_:
 			return "Unidentified Object"
 	
