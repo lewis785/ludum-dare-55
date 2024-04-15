@@ -29,6 +29,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_otfr1"]
 
 [node name="WizardArm" type="CharacterBody2D"]
+visible = false
 motion_mode = 1
 script = ExtResource("2_rjuuu")
 

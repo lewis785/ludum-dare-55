@@ -1,5 +1,6 @@
-[gd_scene load_steps=30 format=3 uid="uid://df7kvudh0t7fu"]
+[gd_scene load_steps=32 format=3 uid="uid://df7kvudh0t7fu"]
 
+[ext_resource type="Script" path="res://scenes/ui/summon_screen.gd" id="1_ewbjp"]
 [ext_resource type="PackedScene" uid="uid://cjfwvsq2rkexi" path="res://scenes/items/summoning_circle.tscn" id="1_prqnr"]
 [ext_resource type="Texture2D" uid="uid://ttuhskylebt0" path="res://assets/elements/OpenBook.png" id="4_5pdkx"]
 [ext_resource type="Script" path="res://scenes/ui/summon_book.gd" id="4_qmi7a"]
@@ -8,6 +9,7 @@
 [ext_resource type="Script" path="res://scenes/ui/storage.gd" id="6_jek36"]
 [ext_resource type="FontFile" uid="uid://d20ynlb522yq" path="res://assets/fonts/abaddon.TTF" id="7_20sip"]
 [ext_resource type="Texture2D" uid="uid://bq0l37v7wxe7s" path="res://assets/smoke-Sheet.png" id="8_b85my"]
+[ext_resource type="AudioStream" uid="uid://d17021ba7fttn" path="res://assets/sounds/Ambience_v1.mp3" id="10_8piw6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kprr4"]
 size = Vector2(670, 84.3751)
@@ -154,6 +156,7 @@ animations = [{
 }]
 
 [node name="SummonScreen" type="Node2D"]
+script = ExtResource("1_ewbjp")
 
 [node name="SummonBook" type="Node2D" parent="." node_paths=PackedStringArray("summoning_circle", "arrow_sprite")]
 z_index = 5
@@ -243,6 +246,10 @@ visible = false
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_tudsb")
 frame_progress = 0.155514
+
+[node name="Ambience" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_8piw6")
+autoplay = true
 
 [connection signal="input_event" from="SummonBook/OpenBook/Area2D" to="SummonBook" method="_on_area_2d_input_event"]
 [connection signal="pressed" from="SummonBook/Button" to="SummonBook" method="_on_button_pressed"]
