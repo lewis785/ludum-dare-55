@@ -12,15 +12,18 @@ var enemy: Character
 var summon_last_attacked = 0
 var enemy_last_attacked = 0
 var fight_delay = 3.0
+var fighting = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if summon == null || enemy == null:
 		_waiting_for_fighters()
-		fight_started.emit()
 		return
 	
 	if allow_fighting:
+		if (!fighting):
+			fight_started.emit()
+			fighting = true
 		_fight(delta)
 
 func _waiting_for_fighters():
@@ -50,6 +53,7 @@ enum Results {
 }
 
 func result(result: Results):
+	fighting = false
 	allow_fighting = false
 	match result:
 		Results.WIN:
