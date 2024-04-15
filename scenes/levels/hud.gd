@@ -11,11 +11,9 @@ var fx_muted: bool
 func _ready():
 	music_muted = config.load_value("sound", "music_muted", false)
 	fx_muted = config.load_value("sound", "fx_muted", false)
+	set_music_muted(music_muted)
+	set_fx_muted(fx_muted)
 	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 func is_left_click(event):
 	if (!event is InputEventMouseButton || !event.pressed):
 		return false
@@ -25,7 +23,6 @@ func _on_music_mute_button_gui_input(event):
 	if is_left_click(event):
 		music_muted = !music_muted
 		set_music_muted(music_muted)
-
 
 func _on_fx_mute_button_gui_input(event):
 	if is_left_click(event):
