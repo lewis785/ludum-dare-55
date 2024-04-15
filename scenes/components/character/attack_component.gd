@@ -33,14 +33,14 @@ func _damage_amount():
 	var strength = attributes_component.strength
 	
 	if strength >=  90:
-		return randi() % 10 + 50
+		return randi() % 100 + 500
 	if strength >=  70:
-		return randi() % 10 + 40
+		return randi() % 100 + 400
 	if strength >=  50:
-		return randi() % 10 + 30
+		return randi() % 100 + 300
 	if strength >=  30:
-		return randi() % 10 + 20
+		return randi() % 100 + 200
 	if strength >=  10:
-		return randi() % 10 + 10
+		return randi() % 100 + 100
 		
-	return randi() % 10
+	return randi() % 100

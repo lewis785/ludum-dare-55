@@ -10,11 +10,13 @@ signal healed(heal: int)
 @export var attributes: AttributesComponent
 
 @export var base_health: float = 0.0;
+@export var vitality_modifier: float = 100.0 
+
 var max_health: float
 var health: float = 0.0;
 
 func _ready():
-	max_health = base_health + attributes.vitality
+	max_health = base_health + (vitality_modifier * attributes.vitality)
 	health = max_health
 	print("Health: " + str(health).pad_decimals(2))
 		

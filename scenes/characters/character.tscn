@@ -85,10 +85,12 @@ corner_radius_bottom_left = 4
 script = ExtResource("1_fbwr6")
 
 [node name="AttributesComponent" parent="." instance=ExtResource("2_e7yeo")]
+luck = 10
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("attributes") instance=ExtResource("3_ixrst")]
 attributes = NodePath("../AttributesComponent")
-base_health = 100.0
+base_health = 1000.0
+vitality_modifier = 30.0
 
 [node name="AttackComponent" parent="." node_paths=PackedStringArray("attributes_component", "sprit") instance=ExtResource("4_6vune")]
 attributes_component = NodePath("../AttributesComponent")
