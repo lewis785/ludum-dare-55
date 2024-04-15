@@ -37,13 +37,14 @@ func _fight(delta):
 	if summon_last_attacked >= summon.attack_component.attack_rate / 100.0:
 		enemy.health_component.damage(summon.attack_component.attack())
 		if (enemy.health_component.health <= 0):
+			summon.health_component.enable_regen = false
 			result(Results.WIN)
 		summon_last_attacked = 0.0
 		
 	if enemy_last_attacked >= enemy.attack_component.attack_rate / 100.0:
 		summon.health_component.damage(enemy.attack_component.attack())
 		if (summon.health_component.health <= 0):
-			enemy.health_component.heal()
+			enemy.health_component.full_heal()
 			result(Results.LOSE)
 		enemy_last_attacked = 0.0
 
