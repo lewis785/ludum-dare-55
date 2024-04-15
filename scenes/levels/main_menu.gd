@@ -1,9 +1,10 @@
 extends Node2D
-@onready var cinematic = $TextureRect/Cinematic
-@onready var start_button = $TextureRect/StartButton
-@onready var credits_button = $TextureRect/CreditsButton
-@onready var quit_button = $TextureRect/QuitButton
-@onready var how_to_button = $TextureRect/HowToButton
+@onready var cinematic = $MainPage/Cinematic
+@onready var start_button = $MainPage/StartButton
+@onready var credits_button = $MainPage/CreditsButton
+@onready var instruction_page = $InstructionPage
+@onready var quit_button = $MainPage/QuitButton
+@onready var how_to_button = $MainPage/HowToButton
 @onready var credits_page = $CreditsPage
 @export var config: ConfigComponent
 
@@ -26,14 +27,15 @@ func _on_start_button_pressed():
 	await get_tree().create_timer(4.8).timeout
 	get_tree().change_scene_to_file("res://scenes/levels/sliding_window.tscn")
 
-
 func _on_main_menu_button_pressed():
 	credits_page.visible = false
-
+	instruction_page.visible = false
 
 func _on_credits_button_pressed():
 	credits_page.visible = true
 
+func _on_how_to_button_pressed():
+	instruction_page.visible = true
 
 func _on_quit_button_pressed():
 	get_tree().quit()

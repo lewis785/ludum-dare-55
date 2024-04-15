@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=3 uid="uid://dq7tt8ts4orc8"]
+[gd_scene load_steps=138 format=3 uid="uid://dq7tt8ts4orc8"]
 
 [ext_resource type="Script" path="res://scenes/levels/main_menu.gd" id="1_k0ovu"]
 [ext_resource type="Texture2D" uid="uid://fm5u8bds4alv" path="res://assets/backgrounds/Title1.1.png" id="2_ug3e8"]
@@ -17,6 +17,13 @@
 [ext_resource type="Texture2D" uid="uid://byh5gtdc22egh" path="res://assets/characters/Sean-Sheet.png" id="15_h7qst"]
 [ext_resource type="FontFile" uid="uid://d2w70ocs1lxn2" path="res://assets/fonts/Jersey10-Regular.ttf" id="16_6gkh6"]
 [ext_resource type="PackedScene" uid="uid://nd063fojjl30" path="res://scenes/components/config_component.tscn" id="17_bjfpw"]
+[ext_resource type="Texture2D" uid="uid://dkpvv7djemf5n" path="res://assets/instructions/stat_strengths.png" id="18_8vtdo"]
+[ext_resource type="FontFile" uid="uid://d20ynlb522yq" path="res://assets/fonts/abaddon.TTF" id="19_dxpj8"]
+[ext_resource type="Texture2D" uid="uid://b7hymnraecabr" path="res://assets/instructions/summoning_book.png" id="20_wvh1e"]
+[ext_resource type="Texture2D" uid="uid://dixtwcb5khfvm" path="res://assets/instructions/select_ingredients.png" id="21_kb0g1"]
+[ext_resource type="Script" path="res://scenes/levels/hud.gd" id="22_3g7wr"]
+[ext_resource type="Texture2D" uid="uid://3u2uuemry1fm" path="res://assets/elements/musictemp.png" id="23_ij50u"]
+[ext_resource type="Texture2D" uid="uid://deradcgixu68o" path="res://assets/elements/fxtemp.png" id="24_bisbu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fcone"]
 atlas = ExtResource("3_5el2d")
@@ -818,18 +825,20 @@ animations = [{
 script = ExtResource("1_k0ovu")
 config = NodePath("ConfigComponent")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="ConfigComponent" parent="." instance=ExtResource("17_bjfpw")]
+
+[node name="MainPage" type="TextureRect" parent="."]
 offset_right = 1152.0
 offset_bottom = 649.0
 texture = ExtResource("2_ug3e8")
 
-[node name="Cinematic" type="AnimatedSprite2D" parent="TextureRect"]
+[node name="Cinematic" type="AnimatedSprite2D" parent="MainPage"]
 visible = false
 position = Vector2(576, 323.5)
 scale = Vector2(1.4375, 1.43778)
 sprite_frames = SubResource("SpriteFrames_6a7f2")
 
-[node name="StartButton" type="Button" parent="TextureRect"]
+[node name="StartButton" type="Button" parent="MainPage"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -847,7 +856,7 @@ theme_override_colors/icon_focus_color = Color(0.172549, 0.482353, 0.443137, 1)
 icon = ExtResource("6_m1wnd")
 flat = true
 
-[node name="CreditsButton" type="Button" parent="TextureRect"]
+[node name="CreditsButton" type="Button" parent="MainPage"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -865,7 +874,7 @@ theme_override_colors/icon_focus_color = Color(0.172549, 0.482353, 0.443137, 1)
 icon = ExtResource("7_a6ukh")
 flat = true
 
-[node name="QuitButton" type="Button" parent="TextureRect"]
+[node name="QuitButton" type="Button" parent="MainPage"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -883,7 +892,7 @@ theme_override_colors/icon_focus_color = Color(0.172549, 0.482353, 0.443137, 1)
 icon = ExtResource("8_6n1fp")
 flat = true
 
-[node name="HowToButton" type="Button" parent="TextureRect"]
+[node name="HowToButton" type="Button" parent="MainPage"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1003,9 +1012,133 @@ text = "Sean"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ConfigComponent" parent="." instance=ExtResource("17_bjfpw")]
+[node name="InstructionPage" type="TextureRect" parent="."]
+visible = false
+z_index = 5
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("11_63qen")
+stretch_mode = 1
 
-[connection signal="pressed" from="TextureRect/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="TextureRect/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="TextureRect/QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="MainMenuButton" type="Button" parent="InstructionPage"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 550.0
+offset_right = 147.0
+offset_bottom = 625.0
+text = "BACK"
+
+[node name="Identify" type="Sprite2D" parent="InstructionPage"]
+position = Vector2(200, 275)
+scale = Vector2(0.355, 0.355)
+texture = ExtResource("18_8vtdo")
+
+[node name="Text" type="Label" parent="InstructionPage/Identify"]
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -670.796
+offset_top = -247.775
+offset_right = -199.796
+offset_bottom = -112.775
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(0.611765, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("19_dxpj8")
+theme_override_font_sizes/font_size = 60
+text = "Identify Enemy
+Strengths"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Select" type="Sprite2D" parent="InstructionPage"]
+position = Vector2(550, 275)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("20_wvh1e")
+
+[node name="Text" type="Label" parent="InstructionPage/Select"]
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -742.0
+offset_top = -236.0
+offset_right = -271.0
+offset_bottom = -101.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(0.611765, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("19_dxpj8")
+theme_override_font_sizes/font_size = 60
+text = "Select Components"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Summon" type="Sprite2D" parent="InstructionPage"]
+position = Vector2(930, 275)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("21_kb0g1")
+
+[node name="Text" type="Label" parent="InstructionPage/Summon"]
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -650.0
+offset_top = -236.0
+offset_right = -299.0
+offset_bottom = -101.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(0.611765, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("19_dxpj8")
+theme_override_font_sizes/font_size = 60
+text = "Summon Your
+Minion"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Overlay" type="CanvasLayer" parent="." node_paths=PackedStringArray("config")]
+scale = Vector2(1.44, 1.44)
+transform = Transform2D(1.44, 0, 0, 1.44, 0, 0)
+script = ExtResource("22_3g7wr")
+config = NodePath("../ConfigComponent")
+
+[node name="MusicMuteButton" type="TextureRect" parent="Overlay"]
+offset_left = 760.0
+offset_top = 8.0
+offset_right = 792.0
+offset_bottom = 41.0
+texture = ExtResource("23_ij50u")
+
+[node name="FXMuteButton" type="TextureRect" parent="Overlay"]
+offset_left = 759.722
+offset_top = 47.9167
+offset_right = 791.722
+offset_bottom = 80.9167
+texture = ExtResource("24_bisbu")
+
+[connection signal="pressed" from="MainPage/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MainPage/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MainPage/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MainPage/HowToButton" to="." method="_on_how_to_button_pressed"]
 [connection signal="pressed" from="CreditsPage/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="InstructionPage/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="gui_input" from="Overlay/MusicMuteButton" to="Overlay" method="_on_music_mute_button_gui_input"]
+[connection signal="gui_input" from="Overlay/FXMuteButton" to="Overlay" method="_on_fx_mute_button_gui_input"]

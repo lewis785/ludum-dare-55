@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy1vdmrvwdsrg"]
+
+[sub_resource type="GDScript" id="GDScript_84n85"]
+script/source = "extends Node2D
+
+
+summoning_circle_audio.pla
+"
+
+[node name="SummonSpawn" type="Node2D"]
+script = SubResource("GDScript_84n85")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://df7kvudh0t7fu"]
+[gd_scene load_steps=31 format=3 uid="uid://df7kvudh0t7fu"]
 
 [ext_resource type="Script" path="res://scenes/ui/summon_screen.gd" id="1_ewbjp"]
 [ext_resource type="PackedScene" uid="uid://cjfwvsq2rkexi" path="res://scenes/items/summoning_circle.tscn" id="1_prqnr"]
@@ -74,10 +74,6 @@ region = Rect2(416, 0, 32, 32)
 atlas = ExtResource("8_b85my")
 region = Rect2(448, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m2yax"]
-atlas = ExtResource("8_b85my")
-region = Rect2(480, 0, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_krbhy"]
 atlas = ExtResource("8_b85my")
 region = Rect2(512, 0, 32, 32)
@@ -136,10 +132,10 @@ animations = [{
 "texture": SubResource("AtlasTexture_kysy3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_of16v")
+"texture": SubResource("AtlasTexture_kysy3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m2yax")
+"texture": SubResource("AtlasTexture_of16v")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_krbhy")
@@ -152,7 +148,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 20.0
+"speed": 10.0
 }, {
 "frames": [],
 "loop": true,
@@ -249,6 +245,7 @@ flat = true
 visible = false
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_tudsb")
+frame_progress = 0.738256
 
 [node name="Ambience" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_8piw6")

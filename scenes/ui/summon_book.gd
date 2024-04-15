@@ -83,7 +83,6 @@ func raise_book():
 	arrow_tween.tween_property(arrow_sprite, "rotation_degrees", 180, speed).as_relative().set_ease(Tween.EASE_IN_OUT)
 	if !sigil_drawn:
 		find_child("SummoningCircle").find_child("Sprite2D").play("Spawn")
-		find_child("SummoningCircleAudio").play()
 		sigil_drawn = true
 	book_raised = true
 	book_up.emit()
