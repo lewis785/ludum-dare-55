@@ -101,3 +101,6 @@ func _input(_event):
 	if(Input.is_key_pressed(KEY_SPACE)):	#UPDATE WHEN BATTLE ENDSS
 		if !summon_active:
 			reset_book()
+
+
+
