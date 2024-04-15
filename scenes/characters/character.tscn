@@ -90,8 +90,9 @@ script = ExtResource("1_fbwr6")
 attributes = NodePath("../AttributesComponent")
 base_health = 100.0
 
-[node name="AttackComponent" parent="." node_paths=PackedStringArray("attributes_component") instance=ExtResource("4_6vune")]
+[node name="AttackComponent" parent="." node_paths=PackedStringArray("attributes_component", "sprit") instance=ExtResource("4_6vune")]
 attributes_component = NodePath("../AttributesComponent")
+sprit = NodePath("../AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
