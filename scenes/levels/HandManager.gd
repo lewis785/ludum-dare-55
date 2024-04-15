@@ -13,10 +13,12 @@ func _ready():
 	combat_coordinator.connect("fight_started", Callable(self, "_on_combat_coordinator_fight_started"))
 	
 	var summon_book = sliding_window.find_child("SummonBook")
+	book_wizard = book_wizard_arm_scene.instantiate()
+	# Add Book Wizard to Overlay
+	summon_book.get_parent().get_parent().add_child(book_wizard)
 	summon_book.connect("book_up", Callable(self, "_on_summon_book_book_up"))
 	summon_book.connect("book_down", Callable(self, "_on_summon_book_book_down"))
-	book_wizard = book_wizard_arm_scene.instantiate()
-	summon_book.get_parent().get_parent().add_child(book_wizard)
+	
 
 func _on_summon_book_book_up():
 	#print("up")

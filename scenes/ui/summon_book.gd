@@ -116,6 +116,7 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 func _on_combat_coordinator_fight_lose():
 	var sliding_window : SlidingWindow = find_parent("SlidingWindow")
 	if sliding_window.lives != 0:
+		await get_tree().create_timer(2.0).timeout
 		reset_book()
 
 # Called when fight won
