@@ -950,4 +950,5 @@ text = "BACK"
 
 [connection signal="pressed" from="TextureRect/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="TextureRect/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="TextureRect/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="CreditsPage/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
