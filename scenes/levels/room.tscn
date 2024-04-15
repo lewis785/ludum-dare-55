@@ -8,11 +8,11 @@
 [ext_resource type="AudioStream" uid="uid://der031n1a0ltg" path="res://assets/sounds/Room_v1.mp3" id="7_842co"]
 [ext_resource type="PackedScene" uid="uid://bx2khys0w4f4e" path="res://scenes/spawner/enemy_spawner.tscn" id="9_5nmi3"]
 [ext_resource type="Texture2D" uid="uid://cjx4u6hoveums" path="res://assets/backgrounds/shafts.png" id="10_5dlcw"]
+[ext_resource type="PackedScene" uid="uid://b0oq37qc3hw7i" path="res://scenes/props/wizard/hand_manager.tscn" id="10_o6iyk"]
 [ext_resource type="PackedScene" uid="uid://eyklpvl6cn5w" path="res://left_orb.tscn" id="11_wjyew"]
 [ext_resource type="PackedScene" uid="uid://b6fkl4a3cq8ar" path="res://right_orb.tscn" id="12_4mr0v"]
 [ext_resource type="PackedScene" uid="uid://dgpdowmqm3w0j" path="res://return_remains_animation.tscn" id="13_3fa6o"]
 [ext_resource type="PackedScene" uid="uid://duwouygc3rbhb" path="res://scenes/spawner/enemy_strengths.tscn" id="13_6fxkm"]
-[ext_resource type="PackedScene" uid="uid://b0oq37qc3hw7i" path="res://scenes/props/hand_manager.tscn" id="13_k8wjo"]
 
 [sub_resource type="Curve2D" id="Curve2D_8xhqc"]
 _data = {
@@ -86,7 +86,7 @@ enemy_strengths = NodePath("../EnemyStrengths")
 position = Vector2(459, 104)
 scale = Vector2(1.5, 1.5)
 
-[node name="HandManager" parent="." instance=ExtResource("13_k8wjo")]
+[node name="HandManager" parent="." instance=ExtResource("10_o6iyk")]
 
 [node name="ReturnStatsAnimation" type="Node2D" parent="."]
 visible = false

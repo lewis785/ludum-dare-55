@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://dfoj60b5jegqm" path="res://assets/sounds/Defeat_v1.mp3" id="5_ym2jw"]
 [ext_resource type="AudioStream" uid="uid://cr62vuj0agl5g" path="res://assets/sounds/Battle_v1.mp3" id="6_hywnn"]
 [ext_resource type="PackedScene" uid="uid://nd063fojjl30" path="res://scenes/components/config_component.tscn" id="7_npwoy"]
-[ext_resource type="PackedScene" uid="uid://b02a8q6g57xda" path="res://game_over_bar.tscn" id="10_vr0mn"]
+[ext_resource type="PackedScene" uid="uid://b02a8q6g57xda" path="res://scenes/levels/game_over_bar.tscn" id="10_vr0mn"]
 [ext_resource type="PackedScene" uid="uid://df7kvudh0t7fu" path="res://scenes/ui/summon_screen.tscn" id="11_d5r1x"]
 
 [node name="SlidingWindow" type="Node2D"]

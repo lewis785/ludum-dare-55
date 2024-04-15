@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var wizard_arm = $WizardArm
 
-@export var book_wizard_arm_scene = preload("res://scenes/props/book_wizard_arm.tscn")
+@export var book_wizard_arm_scene = preload("res://scenes/props/wizard/book_wizard_arm.tscn")
 var book_wizard
 
 # Called when the node enters the scene tree for the first time.

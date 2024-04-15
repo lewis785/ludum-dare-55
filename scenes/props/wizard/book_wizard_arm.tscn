@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dwew87av0fnlh"]
 
-[ext_resource type="Script" path="res://scenes/props/BookWizardArm.gd" id="1_0o82p"]
+[ext_resource type="Script" path="res://scenes/props/wizard/book_wizard_arm.gd" id="1_0o82p"]
 [ext_resource type="Texture2D" uid="uid://ds0hbyihuw3dx" path="res://assets/characters/LongArm-Sheet-export.png" id="2_omm6o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_owap0"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b0oq37qc3hw7i"]
 
-[ext_resource type="Script" path="res://scenes/levels/HandManager.gd" id="1_x8a3y"]
+[ext_resource type="Script" path="res://scenes/props/wizard/hand_manager.gd" id="1_x8a3y"]
 [ext_resource type="PackedScene" uid="uid://c4srkfmqcw64y" path="res://wizard_arm.tscn" id="3_r8uwu"]
 [ext_resource type="PackedScene" uid="uid://cuxh0qmwtnlx4" path="res://thrown_object.tscn" id="4_t6q57"]
 
