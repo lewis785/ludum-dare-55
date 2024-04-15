@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d2arbyrhcflvl"]
+[gd_scene load_steps=14 format=3 uid="uid://d2arbyrhcflvl"]
 
 [ext_resource type="Script" path="res://scenes/levels/sliding_window.gd" id="1_6pdol"]
 [ext_resource type="Material" uid="uid://dfe7af4v5j5i1" path="res://scenes/background_tools/darkness.tres" id="1_e44qa"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://nd063fojjl30" path="res://scenes/components/config_component.tscn" id="7_npwoy"]
 [ext_resource type="PackedScene" uid="uid://b02a8q6g57xda" path="res://scenes/levels/game_over_bar.tscn" id="10_vr0mn"]
 [ext_resource type="PackedScene" uid="uid://df7kvudh0t7fu" path="res://scenes/ui/summon_screen.tscn" id="11_d5r1x"]
+[ext_resource type="PackedScene" uid="uid://dwew87av0fnlh" path="res://scenes/props/wizard/book_wizard_arm.tscn" id="13_tj4w8"]
 
 [node name="SlidingWindow" type="Node2D"]
 modulate = Color(0.0627451, 0.0627451, 0.0627451, 1)
@@ -70,6 +71,8 @@ offset_left = -274.611
 offset_top = -124.694
 offset_right = -182.611
 offset_bottom = -101.694
+
+[node name="BookWizardArm" parent="Overlay" instance=ExtResource("13_tj4w8")]
 
 [connection signal="fight_lose" from="CombatCoordinator" to="." method="_on_combat_coordinator_fight_lose"]
 [connection signal="fight_started" from="CombatCoordinator" to="." method="_on_combat_coordinator_fight_started"]
