@@ -103,7 +103,7 @@ func toggle_position():
 		raise_book()
 
 ###### EVENT HANDLING ######
-func _on_button_pressed():
+func _on_summon_button_pressed():
 	if summoning_circle.is_summonable():
 		lower_book()
 		hide_book()

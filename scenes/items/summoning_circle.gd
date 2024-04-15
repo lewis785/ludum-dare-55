@@ -82,8 +82,8 @@ func _on_area_exited(area):
 		remove_ingredient(area)
 		sprite_2d.animation = "Idle"
 		sprite_2d.play()
-		
-func _on_button_pressed():
+
+func _on_summon_button_pressed():
 	combine_ingredients()
 
 func _on_sprite_2d_animation_looped():
@@ -100,9 +100,6 @@ func _on_sprite_2d_animation_looped():
 		sigil_3.find_child("SigilLight").energy = 2.0
 		sigil_4.find_child("SigilLight").energy = 2.0
 		sigil_5.find_child("SigilLight").energy = 2.0
-
-
-
 
 func _on_smoke_effect_animation_looped():
 	smoke_effect.stop()

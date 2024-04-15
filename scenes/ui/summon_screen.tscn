@@ -229,7 +229,7 @@ position = Vector2(158, -63)
 scale = Vector2(0.6, 0.6)
 spawn_location = Vector2(300, 340)
 
-[node name="Button" type="Button" parent="SummonBook"]
+[node name="SummonButton" type="Button" parent="SummonBook"]
 texture_filter = 1
 offset_left = 66.9999
 offset_top = 88.3333
@@ -252,6 +252,6 @@ stream = ExtResource("10_8piw6")
 autoplay = true
 
 [connection signal="input_event" from="SummonBook/OpenBook/Area2D" to="SummonBook" method="_on_area_2d_input_event"]
-[connection signal="pressed" from="SummonBook/Button" to="SummonBook" method="_on_button_pressed"]
-[connection signal="pressed" from="SummonBook/Button" to="SummonBook/SummoningCircle" method="_on_button_pressed"]
+[connection signal="pressed" from="SummonBook/SummonButton" to="SummonBook" method="_on_summon_button_pressed"]
+[connection signal="pressed" from="SummonBook/SummonButton" to="SummonBook/SummoningCircle" method="_on_summon_button_pressed"]
 [connection signal="animation_looped" from="SmokeEffect" to="SummonBook/SummoningCircle" method="_on_smoke_effect_animation_looped"]
