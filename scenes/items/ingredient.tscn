@@ -52,6 +52,7 @@ radius = 11.0
 [node name="Ingredient" type="Area2D" node_paths=PackedStringArray("sprite", "label") groups=["Ingredient"]]
 z_index = 5
 texture_filter = 1
+scale = Vector2(2, 2)
 script = ExtResource("1_m5vhc")
 randomise_type = true
 sprite = NodePath("AnimatedSprite2D")

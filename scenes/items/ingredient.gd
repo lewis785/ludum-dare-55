@@ -23,7 +23,7 @@ func _ready():
 	if randomise_type:
 		randomise()
 	if potency == -1:
-		potency = randi_range(10,20)
+		randomise_potency()
 	set_type(type)
 
 func set_type(input_type : IngredientTypes):
@@ -33,6 +33,9 @@ func set_type(input_type : IngredientTypes):
 
 func randomise():
 	type = IngredientTypes.values()[randi_range(0,IngredientTypes.size()-1)]
+
+func randomise_potency(lower=10, upper=20):
+	potency = randi_range(lower,upper)
 
 func title(ingr_type):
 	match ingr_type:
@@ -69,12 +72,23 @@ func description(ingr_type):
 func stat_info():
 	var format_info = "%s\n%s"
 	var info = format_info % [title(type), description(type)]
-	
 	return info
+	
+func attribute_to_type(attribute : AttributesComponent.Attributes):
+	match attribute:
+		AttributesComponent.Attributes.DEFENCE:
+			set_type(IngredientTypes.GREEN)
+		AttributesComponent.Attributes.LUCK:
+			set_type(IngredientTypes.WHITE)
+		AttributesComponent.Attributes.SPEED:
+			set_type(IngredientTypes.BLUE)
+		AttributesComponent.Attributes.STRENGTH:
+			set_type(IngredientTypes.BLACK)
+		AttributesComponent.Attributes.VITALITY:
+			set_type(IngredientTypes.RED)
 
 func _on_mouse_entered():
 	label.visible = true
-
 
 func _on_mouse_exited():
 	label.visible = false

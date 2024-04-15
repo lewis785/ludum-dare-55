@@ -27,7 +27,7 @@ func spawn_inventory(ingredients):
 
 func spawn_ingredient(type, potency, coord):
 	var new_ingr : Ingredient = ingredient.instantiate() as Ingredient
-	new_ingr.scale = Vector2(2,2)
+	#new_ingr.scale = Vector2(2,2)
 	add_child(new_ingr)
 	new_ingr.set_type(type)
 	new_ingr.position = coord
@@ -39,3 +39,8 @@ func get_ingredients():
 	for ingr in get_children():
 		inventory.append(ingr)
 	return inventory
+
+func get_type():
+	if base_type != null:
+		return base_type
+	return Ingredient.IngredientTypes.BLACK

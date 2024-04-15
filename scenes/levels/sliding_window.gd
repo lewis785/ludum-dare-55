@@ -4,6 +4,7 @@ class_name SlidingWindow
 
 signal slide_start()
 signal slide_stop()
+signal reward_received()
 
 @onready var camera = $Camera2D
 @onready var combat_coordinator = $CombatCoordinator
@@ -61,6 +62,7 @@ func _process(delta):
 		if(room_instance.find_child("ReturnStatsAnimation").find_child("LeftOrb").find_child("PathFollow2D").progress_ratio >= 0.95):
 			retrievingReward = false
 			room_instance.find_child("ReturnStatsAnimation").visible = false
+			reward_received.emit()
 		room_instance.find_child("ReturnStatsAnimation").find_child("LeftOrb").find_child("PathFollow2D").progress += 200*delta
 		
 	if (retrievingRemains == true):

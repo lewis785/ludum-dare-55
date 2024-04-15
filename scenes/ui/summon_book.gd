@@ -12,6 +12,8 @@ signal book_down
 @export var speed : float = 1.0
 @export var height : int = 280
 
+var ingredient_scene = preload("res://scenes/items/ingredient.tscn")
+
 var tween : Tween
 var book_raised : bool = false
 var inventory = null
@@ -28,6 +30,7 @@ func _ready():
 func _connect_nodes():
 	var sliding_window : SlidingWindow = find_parent("SlidingWindow")
 	sliding_window.connect("slide_stop", Callable(self, "_on_sliding_window_slide_stop"))
+	sliding_window.connect("reward_received", Callable(self, "_on_sliding_window_reward_received"))
 	
 	var combat_coordinator : CombatCoordinator = sliding_window.find_child("CombatCoordinator")
 	combat_coordinator.connect("fight_lose", Callable(self, "_on_combat_coordinator_fight_lose"))
@@ -40,12 +43,12 @@ func reset_book():
 	raise_book()
 	
 func populate_book():
-	var i = 0
 	for child_node in find_child("OpenBook").find_children("BookLine*"):
 		var book_line : BookLine = child_node
-		var temp_inv = inventory.slice(i,i+5)
+		var group_type = book_line.get_type()
+		var temp_inv = inventory.filter(func(ingr : Ingredient): return ingr.type == group_type)
+		temp_inv = temp_inv.slice(0,5)
 		book_line.spawn_inventory(temp_inv)
-		i+=5
 	
 func store_book():
 	inventory = []
@@ -53,6 +56,20 @@ func store_book():
 		var book_line : BookLine = child_node
 		inventory = inventory + book_line.get_ingredients()
 
+func create_ingredient(attribute):
+	var ingr = ingredient_scene.instantiate() as Ingredient
+	ingr.attribute_to_type(attribute)
+	# Adjust this based on level?
+	ingr.randomise_potency(10,20)
+	ingr.randomise_type = false
+	return ingr
+
+func add_ingredient(ingr : Ingredient):
+	inventory.append(ingr)
+	for book_line : BookLine in find_child("OpenBook").find_children("BookLine*"):
+		if ingr.type == book_line.get_type():
+			book_line.add_child(ingr)
+		
 func remove_used_ingredients():
 	for ingr : Ingredient in summoning_circle.ingredients:
 		inventory.erase(ingr)
@@ -113,6 +130,7 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 		if event is InputEventMouseButton and event.pressed:
 			toggle_position()
 
+
 func _on_combat_coordinator_fight_lose():
 	var sliding_window : SlidingWindow = find_parent("SlidingWindow")
 	if sliding_window.lives != 0:
@@ -123,3 +141,11 @@ func _on_combat_coordinator_fight_lose():
 func _on_sliding_window_slide_stop():
 	remove_used_ingredients()
 	reset_book()
+
+func _on_sliding_window_reward_received():
+	var sliding_window : SlidingWindow = find_parent("SlidingWindow")
+	var enemy_strengths : EnemyStrengths = sliding_window.room_instance.find_child("EnemyStrengths")
+	var ingr = create_ingredient(enemy_strengths.primary)
+	add_ingredient(ingr)
+	var ingr2 = create_ingredient(enemy_strengths.secondary)
+	add_ingredient(ingr2)
