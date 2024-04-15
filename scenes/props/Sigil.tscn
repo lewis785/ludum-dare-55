@@ -192,12 +192,11 @@ animations = [{
 visible = false
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_7h86s")
-animation = &"Strength3"
+animation = &"Defence1"
 script = ExtResource("3_1csib")
-brightness = 8.0
-pulseDelay = 20
 
 [node name="SigilLight" type="PointLight2D" parent="."]
 position = Vector2(0, 2.5)
-energy = 0.0
+color = Color(0.129412, 0.117647, 0.121569, 1)
+shadow_enabled = true
 texture = ExtResource("3_sxo3f")

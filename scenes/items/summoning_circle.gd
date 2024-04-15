@@ -7,11 +7,11 @@ signal summoned()
 @export var ingredients_cap : int = 5
 @export var summon_scene : PackedScene
 @onready var sprite_2d = $Sprite2D
-@onready var sigil_1 = $Sigil1
-@onready var sigil_2 = $Sigil2
-@onready var sigil_3 = $Sigil3
-@onready var sigil_4 = $Sigil4
-@onready var sigil_5 = $Sigil5
+@onready var sigil_1 : Sigil = $Sigil1
+@onready var sigil_2 : Sigil = $Sigil2
+@onready var sigil_3 : Sigil = $Sigil3
+@onready var sigil_4 : Sigil = $Sigil4
+@onready var sigil_5 : Sigil = $Sigil5
 @onready var smoke_effect = $"../../SmokeEffect"
 
 @export var spawn_location : Vector2 = Vector2(270,340)
@@ -29,24 +29,46 @@ func is_summonable():
 
 func add_ingredient(ingr):
 	ingredients.append(ingr)
-	sprite_2d.animation = "Active"
-	sprite_2d.play()
+	if sprite_2d.animation != "Active":
+		sprite_2d.animation = "Active"
+		sprite_2d.play()
+	var stats = calculate_stats()
+	show_stats(stats)
 
 func remove_ingredient(ingr):
 	ingredients.erase(ingr)
 	if ingredients.size() == 0:
 		sprite_2d.animation = "Idle"
 		sprite_2d.play()
-		
+	else:
+		var stats = calculate_stats()
+		show_stats(stats)
+
+func calculate_stats():
+	var stats = [0,0,0,0,0]
+	for ingr : Ingredient in ingredients:
+		stats[ingr.type] += ingr.potency
+	return stats
+
+func show_stats(stats):
+	update_sigil(sigil_1,stats[sigil_1.type])
+	update_sigil(sigil_2,stats[sigil_2.type])
+	update_sigil(sigil_3,stats[sigil_3.type])
+	update_sigil(sigil_4,stats[sigil_4.type])
+	update_sigil(sigil_5,stats[sigil_5.type])
+
+func update_sigil(sigil : Sigil, level : int):
+	sigil.set_brightness(level)
+	sigil.update_animation(level)
 
 func combine_ingredients():
 	if not is_summonable():
 		return
-	var stats = [0,0,0,0,0]
 	
-	for ingr : Ingredient in ingredients:
-		stats[ingr.type] += ingr.potency
+	var stats = calculate_stats()
+	show_stats(stats)
 	
+	print(stats)
 	var summon: Character = summon_scene.instantiate() as Character
 	summon.character_type = Character.CharacterTypes.SUMMON
 	

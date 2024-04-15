@@ -564,23 +564,26 @@ shape = SubResource("CircleShape2D_ble8y")
 [node name="Sigil1" parent="." instance=ExtResource("5_jmgye")]
 position = Vector2(-152, -47)
 animation = &"Strength1"
+type = 3
 
 [node name="Sigil2" parent="." instance=ExtResource("5_jmgye")]
 position = Vector2(-3, -159)
 animation = &"Health1"
+type = 4
 
 [node name="Sigil3" parent="." instance=ExtResource("5_jmgye")]
 position = Vector2(141, -48)
-animation = &"Defence1"
 
 [node name="Sigil4" parent="." instance=ExtResource("5_jmgye")]
 position = Vector2(97, 114)
 animation = &"Luck1"
+type = 1
 
 [node name="Sigil5" parent="." instance=ExtResource("5_jmgye")]
 texture_filter = 1
 position = Vector2(-99, 111)
 animation = &"Speed1"
+type = 2
 
 [node name="SummoningCircleAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_agxk5")
