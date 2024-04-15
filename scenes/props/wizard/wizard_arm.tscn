@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bfsphdipecob3" path="res://assets/characters/Arm.png" id="1_7djdt"]
 [ext_resource type="Texture2D" uid="uid://b8geviyjvker4" path="res://assets/characters/ArmThumb2.png" id="2_kpa5b"]
-[ext_resource type="Script" path="res://wizard_arm.gd" id="2_rjuuu"]
+[ext_resource type="Script" path="res://scenes/props/wizard/wizard_arm.gd" id="2_rjuuu"]
 [ext_resource type="AudioStream" uid="uid://bq3wdvar2f8j" path="res://assets/elements/cheer-woohoo.mp3" id="4_d1mmm"]
 [ext_resource type="AudioStream" uid="uid://b02m3o8mq3id3" path="res://assets/elements/cheer-yeah.mp3" id="5_4vfv5"]
 [ext_resource type="AudioStream" uid="uid://c06ncdaklhx81" path="res://assets/elements/cheer-yes.mp3" id="6_0w27i"]
