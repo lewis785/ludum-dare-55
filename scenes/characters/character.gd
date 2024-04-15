@@ -8,6 +8,7 @@ class_name Character
 @onready var attack_component: AttackComponent = $AttackComponent
 @onready var attributes_component : AttributesComponent = $AttributesComponent
 @onready var health_component : HealthComponent = $HealthComponent
+@onready var health_bar = $HealthBar
 
 enum CharacterTypes {
 	ENEMY,
@@ -48,6 +49,7 @@ func pick_enemy_sprite():
 
 func _on_health_component_died():
 	health_component.enable_regen = false
+	health_bar.visible = false
 	animated_sprite_2d.animation = "death"
 	animated_sprite_2d.play()
 	await get_tree().create_timer(1.0).timeout
