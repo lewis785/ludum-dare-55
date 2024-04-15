@@ -1,13 +1,18 @@
 extends CanvasLayer
-var music_muted = false
-var fx_muted = false
+
 @onready var music_mute_button = $MusicMuteButton
 @onready var fx_mute_button = $FXMuteButton
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+@export var config: ConfigComponent
 
+var music_muted: bool
+var fx_muted: bool 
+
+func _ready():
+	music_muted = config.load_value("sound", "music_muted", false)
+	fx_muted = config.load_value("sound", "fx_muted", false)
+	set_music_muted(music_muted)
+	set_fx_muted(fx_muted)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -32,14 +37,14 @@ func set_music_muted(is_muted):
 	if(is_muted):
 		music_mute_button.texture = load("res://assets/elements/musictempNOT.png")
 	else:
-				music_mute_button.texture = load("res://assets/elements/musictemp.png")
-#	config.save_value("sound", "music_muted", is_muted)
+		music_mute_button.texture = load("res://assets/elements/musictemp.png")
+	config.save_value("sound", "music_muted", is_muted)
 	AudioServer.set_bus_mute(2, is_muted)
 
 func set_fx_muted(is_muted):
 	if(is_muted):
 		fx_mute_button.texture = load("res://assets/elements/fxtempNOT.png")
 	else:
-				fx_mute_button.texture = load("res://assets/elements/fxtemp.png")
-#	config.save_value("sound", "fx_muted", is_muted)
+		fx_mute_button.texture = load("res://assets/elements/fxtemp.png")
+	config.save_value("sound", "fx_muted", is_muted)
 	AudioServer.set_bus_mute(1, is_muted)
