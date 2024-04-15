@@ -17,5 +17,8 @@ mono_crash.*.json
 # IDE
 .vscode/
 
+# save files
+save-file.cfg
+
 # Project specific
 testing.tscn

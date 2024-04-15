@@ -19,6 +19,7 @@ const FLOATING_LABEL = preload("res://scenes/ui/floating_label.tscn")
 func _ready():
 	if character_type == CharacterTypes.ENEMY:
 		pick_enemy_sprite()
+		attack_component.attack_direction = attack_component.AttackDirection.LEFT
 	else:
 		animated_sprite_2d.animation = "summon"
 

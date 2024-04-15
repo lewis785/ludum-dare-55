@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://nd063fojjl30"]
+
+[ext_resource type="Script" path="res://scenes/components/config_componet.gd" id="1_687dn"]
+
+[node name="ConfigComponent" type="Node2D"]
+script = ExtResource("1_687dn")

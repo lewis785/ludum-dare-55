@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d2arbyrhcflvl"]
+[gd_scene load_steps=13 format=3 uid="uid://d2arbyrhcflvl"]
 
 [ext_resource type="Script" path="res://scenes/levels/sliding_window.gd" id="1_6pdol"]
 [ext_resource type="Material" uid="uid://dfe7af4v5j5i1" path="res://scenes/background_tools/darkness.tres" id="1_e44qa"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://deradcgixu68o" path="res://assets/elements/fxtemp.png" id="4_x0w8p"]
 [ext_resource type="AudioStream" uid="uid://dfoj60b5jegqm" path="res://assets/sounds/Defeat_v1.mp3" id="5_ym2jw"]
 [ext_resource type="AudioStream" uid="uid://cr62vuj0agl5g" path="res://assets/sounds/Battle_v1.mp3" id="6_hywnn"]
+[ext_resource type="PackedScene" uid="uid://nd063fojjl30" path="res://scenes/components/config_component.tscn" id="7_npwoy"]
 [ext_resource type="PackedScene" uid="uid://b02a8q6g57xda" path="res://game_over_bar.tscn" id="10_vr0mn"]
 [ext_resource type="PackedScene" uid="uid://df7kvudh0t7fu" path="res://scenes/ui/summon_screen.tscn" id="11_d5r1x"]
 
@@ -40,10 +41,13 @@ bus = &"Music"
 stream = ExtResource("6_hywnn")
 bus = &"Music"
 
-[node name="Overlay" type="CanvasLayer" parent="."]
+[node name="ConfigComponent" parent="." instance=ExtResource("7_npwoy")]
+
+[node name="Overlay" type="CanvasLayer" parent="." node_paths=PackedStringArray("config")]
 scale = Vector2(1.44, 1.44)
 transform = Transform2D(1.44, 0, 0, 1.44, 0, 0)
 script = ExtResource("3_o6dr8")
+config = NodePath("../ConfigComponent")
 
 [node name="SummonScreen" parent="Overlay" instance=ExtResource("11_d5r1x")]
 
