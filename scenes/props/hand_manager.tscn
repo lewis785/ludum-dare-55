@@ -1,53 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b0oq37qc3hw7i"]
+[gd_scene load_steps=4 format=3 uid="uid://b0oq37qc3hw7i"]
 
 [ext_resource type="Script" path="res://scenes/levels/HandManager.gd" id="1_x8a3y"]
-[ext_resource type="Script" path="res://scenes/props/BookWizardArm.gd" id="2_7y6uc"]
-[ext_resource type="Texture2D" uid="uid://xw823o2ff38c" path="res://assets/characters/LongArm-Sheet.png" id="2_pmvar"]
 [ext_resource type="PackedScene" uid="uid://c4srkfmqcw64y" path="res://wizard_arm.tscn" id="3_r8uwu"]
 [ext_resource type="PackedScene" uid="uid://cuxh0qmwtnlx4" path="res://thrown_object.tscn" id="4_t6q57"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a4op2"]
-atlas = ExtResource("2_pmvar")
-region = Rect2(512, 0, 512, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_titfx"]
-atlas = ExtResource("2_pmvar")
-region = Rect2(0, 0, 512, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ehga6"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a4op2")
-}],
-"loop": true,
-"name": &"Grab",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_titfx")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [node name="HandManager" type="Node2D"]
 script = ExtResource("1_x8a3y")
-
-[node name="BookWizardArm" type="Node2D" parent="."]
-visible = false
-position = Vector2(437, 684)
-script = ExtResource("2_7y6uc")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BookWizardArm"]
-z_index = 100
-position = Vector2(62, 230)
-rotation = 4.45583
-sprite_frames = SubResource("SpriteFrames_ehga6")
-animation = &"Grab"
-autoplay = "default"
 
 [node name="WizardArm" parent="." instance=ExtResource("3_r8uwu")]
 position = Vector2(117, 277)
