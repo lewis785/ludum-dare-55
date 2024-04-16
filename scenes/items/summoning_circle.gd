@@ -18,6 +18,7 @@ signal summoned()
 @export var spawn_location : Vector2 = Vector2(270,340)
 @export var summon_delay : float = 0.75
 var ingredients = []
+var used_ingredients = []
 
 func _ready():
 	ingredients.clear()
@@ -68,6 +69,10 @@ func combine_ingredients():
 	var stats = calculate_stats()
 	show_stats(stats)
 	
+	# Transfer used ingredients out so they can be cleanly removed
+	used_ingredients.assign(ingredients)
+	ingredients.clear()
+
 	var summon: Character = summon_scene.instantiate() as Character
 	summon.character_type = Character.CharacterTypes.SUMMON
 	
@@ -96,7 +101,7 @@ func combine_ingredients():
 	
 	summon.position = spawn_location
 
-	for ingr : Ingredient in ingredients:
+	for ingr : Ingredient in used_ingredients:
 		# Removed in Summon Book
 		ingr.visible = false
 

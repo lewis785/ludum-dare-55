@@ -34,6 +34,7 @@ func _connect_nodes():
 	
 	var combat_coordinator : CombatCoordinator = sliding_window.find_child("CombatCoordinator")
 	combat_coordinator.connect("fight_lose", Callable(self, "_on_combat_coordinator_fight_lose"))
+	combat_coordinator.connect("fight_win", Callable(self, "_on_combat_coordinator_fight_win"))
 
 ###### BOOK INVENTORY ######
 func reset_book():
@@ -43,10 +44,8 @@ func reset_book():
 	raise_book()
 	
 func populate_book():
-	for child_node in find_child("OpenBook").find_children("BookLine*"):
-		var book_line : BookLine = child_node
-		var group_type = book_line.get_type()
-		var temp_inv = inventory.filter(func(ingr : Ingredient): return ingr.type == group_type)
+	for book_line : BookLine in find_child("OpenBook").find_children("BookLine*"):
+		var temp_inv = book_line.get_children()
 		temp_inv = temp_inv.slice(0,5)
 		book_line.spawn_inventory(temp_inv)
 	
@@ -65,14 +64,18 @@ func create_ingredient(attribute):
 	return ingr
 
 func add_ingredient(ingr : Ingredient):
-	inventory.append(ingr)
 	for book_line : BookLine in find_child("OpenBook").find_children("BookLine*"):
 		if ingr.type == book_line.get_type():
-			book_line.add_child(ingr)
+			if book_line.get_child_count() < 5:
+				book_line.add_child(ingr)
+				inventory.append(ingr)
+			else:
+				ingr.queue_free()
 		
 func remove_used_ingredients():
-	for ingr : Ingredient in summoning_circle.ingredients:
+	for ingr : Ingredient in summoning_circle.used_ingredients:
 		inventory.erase(ingr)
+		ingr.get_parent().remove_child(ingr)
 		ingr.queue_free()
 
 ###### MOVING BOOK ######
@@ -134,16 +137,19 @@ func _on_combat_coordinator_fight_lose():
 	if sliding_window.lives != 0:
 		await get_tree().create_timer(2.0).timeout
 		reset_book()
-
-# Called when fight won
-func _on_sliding_window_slide_stop():
+		
+func _on_combat_coordinator_fight_win():
 	remove_used_ingredients()
-	reset_book()
-
-func _on_sliding_window_reward_received():
 	var sliding_window : SlidingWindow = find_parent("SlidingWindow")
 	var enemy_strengths : EnemyStrengths = sliding_window.room_instance.find_child("EnemyStrengths")
 	var ingr = create_ingredient(enemy_strengths.primary)
 	add_ingredient(ingr)
 	var ingr2 = create_ingredient(enemy_strengths.secondary)
 	add_ingredient(ingr2)
+
+# Called when fight won
+func _on_sliding_window_slide_stop():
+	reset_book()
+
+func _on_sliding_window_reward_received():
+	pass
