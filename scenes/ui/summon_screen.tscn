@@ -249,8 +249,9 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_tudsb")
 frame_progress = 0.738256
 
-[node name="Ambience" type="AudioStreamPlayer2D" parent="."]
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_8piw6")
+volume_db = -12.235
 autoplay = true
 bus = &"Music"
 

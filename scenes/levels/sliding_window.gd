@@ -58,7 +58,8 @@ func _process(delta):
 	if (old_room != null):
 		old_room.queue_free()
 		old_room = null
-		#combat_coordinator.allow_fighting = true	
+
+
 	if (retrievingReward == true):
 		if(room_instance.find_child("ReturnStatsAnimation").find_child("LeftOrb").find_child("PathFollow2D").progress_ratio >= 0.95):
 			retrievingReward = false
@@ -70,7 +71,6 @@ func _process(delta):
 		if(room_instance.find_child("ReturnRemainsAnimation").find_child("Orb").find_child("PathFollow2D").progress_ratio >= 0.95):
 			retrievingRemains = false
 			room_instance.find_child("ReturnRemainsAnimation").visible = false
-		room_instance.find_child("ReturnRemainsAnimation").find_child("Orb").find_child("PathFollow2D").progress += retrieving_speed*delta
 		room_instance.find_child("ReturnRemainsAnimation").find_child("Orb").find_child("PathFollow2D").progress += retrieving_speed*delta
 
 func _createNextRoom():

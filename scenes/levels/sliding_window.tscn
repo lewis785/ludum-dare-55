@@ -28,19 +28,22 @@ texture_filter = 1
 position = Vector2(400, 225)
 zoom = Vector2(1.44, 1.44)
 
-[node name="CombatCoordinator" parent="." instance=ExtResource("3_ajeuy")]
-
-[node name="WinMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="WinMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_uvcen")
+volume_db = -3.0
 bus = &"Music"
 
-[node name="LoseMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="LoseMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ym2jw")
+volume_db = -3.0
 bus = &"Music"
 
-[node name="FightMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="FightMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_hywnn")
+volume_db = -6.0
 bus = &"Music"
+
+[node name="CombatCoordinator" parent="." instance=ExtResource("3_ajeuy")]
 
 [node name="ConfigComponent" parent="." instance=ExtResource("7_npwoy")]
 

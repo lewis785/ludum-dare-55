@@ -585,7 +585,7 @@ position = Vector2(-99, 111)
 animation = &"Speed1"
 type = 2
 
-[node name="SummoningCircleAudio" type="AudioStreamPlayer2D" parent="."]
+[node name="SummoningCircleAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_agxk5")
 bus = &"FX"
 

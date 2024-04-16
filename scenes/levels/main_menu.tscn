@@ -910,7 +910,7 @@ theme_override_colors/icon_focus_color = Color(0.172549, 0.482353, 0.443137, 1)
 icon = ExtResource("9_i5nal")
 flat = true
 
-[node name="RoomMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="RoomMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_yoxtw")
 autoplay = true
 bus = &"Music"
